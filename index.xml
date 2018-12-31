@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Even - A super concise theme for Hugo</title>
+    <link>https://smallwormer.github.io/blog/</link>
+    <description>Recent content on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 30 Dec 2018 17:12:17 +0800</lastBuildDate>
+    
+	<atom:link href="https://smallwormer.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My First Post</title>
+      <link>https://smallwormer.github.io/blog/post/my-first-post/</link>
+      <pubDate>Sun, 30 Dec 2018 17:12:17 +0800</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/my-first-post/</guid>
+      <description>First https://blog.olowolo.com/post/hugo-quick-start/ firts</description>
+    </item>
+    
+  </channel>
+</rss>
