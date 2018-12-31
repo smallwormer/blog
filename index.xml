@@ -6,10 +6,28 @@
     <description>Recent content on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Dec 2018 17:12:17 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 31 Dec 2018 15:56:21 +0800</lastBuildDate>
     
 	<atom:link href="https://smallwormer.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Openstack Olso</title>
+      <link>https://smallwormer.github.io/blog/post/openstack-olso/</link>
+      <pubDate>Mon, 31 Dec 2018 15:56:21 +0800</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/openstack-olso/</guid>
+      <description>OpenStack Oslo 项目 随着OpenStack项目越来越多，在每个项目中都有一套处理自己配置文件的代码，也越来越多的重复的工作需要来做，而且这些代码也总是项</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://smallwormer.github.io/blog/post/test/</link>
+      <pubDate>Mon, 31 Dec 2018 15:52:52 +0800</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/test/</guid>
+      <description>sss</description>
+    </item>
     
     <item>
       <title>My First Post</title>
