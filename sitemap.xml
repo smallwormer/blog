@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://smallwormer.github.io/blog/post/openstac_oslo_used/</loc>
+    <lastmod>2018-12-31T17:12:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://smallwormer.github.io/blog/post/openstack-olso/</loc>
     <lastmod>2018-12-31T15:56:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -31,14 +38,14 @@
   
   <url>
     <loc>https://smallwormer.github.io/blog/</loc>
-    <lastmod>2018-12-31T15:56:21+08:00</lastmod>
+    <lastmod>2018-12-31T17:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://smallwormer.github.io/blog/post/</loc>
-    <lastmod>2018-12-31T15:56:21+08:00</lastmod>
+    <lastmod>2018-12-31T17:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
