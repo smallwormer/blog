@@ -6,10 +6,19 @@
     <description>Recent content on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 31 Dec 2018 17:12:17 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 10 Jan 2019 10:44:51 +0800</lastBuildDate>
     
 	<atom:link href="https://smallwormer.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ansible_hostname</title>
+      <link>https://smallwormer.github.io/blog/post/ansible_hostname/</link>
+      <pubDate>Thu, 10 Jan 2019 10:44:51 +0800</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/ansible_hostname/</guid>
+      <description>Ansible Hostname 模块修改 在特殊场景下，ansible无法识别 一些特殊的操作系统，使用hostname模块更改主机名。特别是一些自己更改过的操作系统。这里</description>
+    </item>
     
     <item>
       <title>OpenStack Oslo.conf 使用</title>
@@ -39,12 +48,21 @@
     </item>
     
     <item>
-      <title>go 语言学习</title>
+      <title>go 安装</title>
       <link>https://smallwormer.github.io/blog/post/my-first-post/</link>
       <pubDate>Sun, 30 Dec 2018 17:12:17 +0800</pubDate>
       
       <guid>https://smallwormer.github.io/blog/post/my-first-post/</guid>
       <description>安装go Mac OS X 安装go 下载安装 下载安装包跟随安装 [go下载]: https://golang.org/dl/ 说明： 安装完成后 此安装包会将go安装到/usr/local/go/bin 目录</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/go-snip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/go-snip/</guid>
+      <description></description>
     </item>
     
   </channel>
