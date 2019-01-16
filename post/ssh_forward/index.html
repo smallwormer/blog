@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Ssh_forward - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="smallwormer" /><meta name="description" content="SSH端口转发 端口转发 ssh 会自动加密和解密所有的ssh客户端与服务端之间的网络数据。但是ssh 还提供了一个端口转发的功能。转发是一种与其他网络" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://smallwormer.github.io/blog/post/ssh_forward/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/blog/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Ssh_forward" />
+<meta property="og:description" content="SSH端口转发 端口转发 ssh 会自动加密和解密所有的ssh客户端与服务端之间的网络数据。但是ssh 还提供了一个端口转发的功能。转发是一种与其他网络" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smallwormer.github.io/blog/post/ssh_forward/" /><meta property="article:published_time" content="2019-01-15T10:34:06&#43;08:00"/>
+<meta property="article:modified_time" content="2019-01-15T10:34:06&#43;08:00"/>
+
+<meta itemprop="name" content="Ssh_forward">
+<meta itemprop="description" content="SSH端口转发 端口转发 ssh 会自动加密和解密所有的ssh客户端与服务端之间的网络数据。但是ssh 还提供了一个端口转发的功能。转发是一种与其他网络">
+
+
+<meta itemprop="datePublished" content="2019-01-15T10:34:06&#43;08:00" />
+<meta itemprop="dateModified" content="2019-01-15T10:34:06&#43;08:00" />
+<meta itemprop="wordCount" content="2243">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ssh_forward"/>
+<meta name="twitter:description" content="SSH端口转发 端口转发 ssh 会自动加密和解密所有的ssh客户端与服务端之间的网络数据。但是ssh 还提供了一个端口转发的功能。转发是一种与其他网络"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Ssh_forward</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-01-15 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#ssh端口转发">SSH端口转发</a>
+<ul>
+<li><a href="#端口转发">端口转发</a></li>
+<li><a href="#应用场景">应用场景</a></li>
+<li><a href="#本地转发">本地转发</a>
+<ul>
+<li><a href="#第一种场景">第一种场景</a></li>
+<li><a href="#第二种场景">第二种场景</a></li>
+</ul></li>
+<li><a href="#远程端口转发">远程端口转发</a></li>
+<li><a href="#动态转发">动态转发</a>
+<ul>
+<li><a href="#问题">问题</a>
+<ul>
+<li><a href="#账号已登录成功就被退出了">账号已登录成功就被退出了</a></li>
+<li><a href="#让该进程在后台运行">让该进程在后台运行</a></li>
+<li><a href="#给ssh-增加http代理">给ssh 增加http代理</a></li>
+<li><a href="#连接一段时间后-自耦东断开了">连接一段时间后 自耦东断开了</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#x-转发">-X 转发</a></li>
+<li><a href="#真实场景">真实场景</a></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="ssh端口转发">SSH端口转发</h1>
+
+<h2 id="端口转发">端口转发</h2>
+
+<p>ssh 会自动加密和解密所有的ssh客户端与服务端之间的网络数据。但是ssh 还提供了一个端口转发的功能。转发是一种与其他网络应用程序交互的方式，它能将其他TCP端口的网络数据通过SSH链接来转发，并且自动提供了相应的加密以及解密服务。这一过程有时也被叫做隧道</p>
+
+<h2 id="应用场景">应用场景</h2>
+
+<p>A：  本地服务器(IP: 10.0.0.1)</p>
+
+<p>B:   中间服务器(IP: 10.10.10.1)</p>
+
+<p>C:   目标服务器(C可以看到都是中间服务器B 在访问自己)</p>
+
+<h2 id="本地转发">本地转发</h2>
+
+<h3 id="第一种场景">第一种场景</h3>
+
+<p>A： 10.0.0.1</p>
+
+<p>B:    10.0.0.2 (安装Mysql service,监听端口3306)</p>
+
+<p>B 上数据库 限制了 只有本机上的应用才可以直接连接Mysql 服务，如果我们由于调试需要用A上直接连接这个LDAP服务器，就需要使用本地转发实现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ssh -L &lt;本地端口&gt;：&lt;远程主机&gt;：&lt;远程端口&gt;  &lt;ssh hostaname&gt;</code></pre></td></tr></table>
+</div>
+</div>
+<p>本例中应该如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ssh -L <span class="m">30000</span>:10.0.0.2:80 root@10.0.0.2</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>-L 表示 使用 本地转发 建立ssh隧道
+
+<ul>
+<li>选用 -f 后台建立隧道</li>
+<li>-N 建议隧道后不执行命令</li>
+<li>-fNR</li>
+</ul></li>
+<li>本地转发： 本地转发是 表示本地的端口上的数据通讯都会被转发到目标主机的对应端口上，这里可以抽象成是一种映射，执行命令的主机 为  本地主机。
+
+<ul>
+<li>访问本地主机的30000 端口A，就相当于访问目标主机的端口B，当方粉本地的端口时，通讯数据会转发到目标主机的端口B，这就是本地转发</li>
+<li>访问A的30000 端口 就转发到了10.0.0.2 上的 80 端口上了</li>
+</ul></li>
+<li>30000 表示本地端口的监听地址</li>
+<li>10.0.0.2 表示远程主机以及端口</li>
+<li>root@10.0.0.2   创建的ssh隧道是连接到10.0.0.2 上的root用户的</li>
+<li>综上
+
+<ul>
+<li>从本机10.0.0.1 建议到10.0.0.2的隧道，使用本地转发模式，监听本机的30000端口，当访问本机的30000端口时，数据会被转发到10.0.0.2的80 端口上</li>
+</ul></li>
+</ul>
+
+<h3 id="第二种场景">第二种场景</h3>
+
+<p>A. 本地服务器 10.0.0.1</p>
+
+<p>B： 中间服务器 10.0.0.2</p>
+
+<p>C： 目标服务器 192.168.0.2</p>
+
+<p>A——能访问——&gt;B——能访问——&gt;C</p>
+
+<p>A——不能访问————&gt; C</p>
+
+<p>A 通过该本地端口 以B的名义去访问——&gt;C</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ssh -Nf -L &lt;本地IP&gt;:&lt;本地端口&gt;:&lt;目标主机&gt;：&lt;目标端口&gt;  &lt;中间服务器地址&gt;</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ssh -Nf -L <span class="m">30001</span>:192.168.0.2:80 root@10.0.0.2</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="远程端口转发">远程端口转发</h2>
+
+<p>应用场景：</p>
+
+<p>A： 客户端PC 10.0.0.1</p>
+
+<p>B: 服务器端 10.0.0.2</p>
+
+<p>B 可以ssh连接A，但是A无法连接B</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">服务器端操作，这时 服务器端就是操作端
+ssh -R AIP:&lt;A端口&gt;：&lt;B服务器端IP&gt;：&lt;服务器端端口&gt;  &lt;Aip&gt;</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">在10.0.0.2 上操作
+ssh -R <span class="m">30001</span>:localhost:80 root@10.0.0.1</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>在 10.0.0.1 建立隧道连接 并在10.0.0.1上建立端口 30001 端口监听</li>
+<li>在10.0.0.1 访问30001 的端口 会通过转发 到 服务端10.0.0.2 的 80 端口</li>
+</ul>
+
+<h2 id="动态转发">动态转发</h2>
+
+<p>A: 10.0.0.1</p>
+
+<p>B: 10.0.0.2</p>
+
+<p>本地转发、远程转发都是需要一个我们已知的一个应用服务的端口的，但是如果没有端口的话，这里就需要用动态转发。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">A 上操作
+ssh -D &lt;<span class="nb">local</span> port&gt; &lt;B SSH server&gt;</code></pre></td></tr></table>
+</div>
+</div>
+<p>例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ssh -D <span class="m">30002</span> root@10.0.0.2</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>-D [bind_address:]port    D参数说明我们开启了一个本地的端口转发。通过在本地分配了一个socket去监听端口。只要连接请求到这个port上来时，这个连接就会被安全通过该转发出去，应用程序的协议将有远程机器来决定连接到哪里。</li>
+</ul>
+
+<p>A 把B 作为了自己的全权代理，不限定目标服务器以及端口</p>
+
+<p>场景说明：</p>
+
+<p>​   浏览器访问google.com,此时浏览器开启了一个端口15435，但是发现在访问某个节点时，此网络包被丢弃了或者返回了错误的信息，导致我们无法访问google.com. 但是我们可以访问proxy.remotehost.com,而且该代理机器可以访问google.com,因此我们用 proxy.remotehost.com 做一个跳转。</p>
+
+<p>因此我们利用的ssh动态端口转发技术来达到这个目的，在本地开启30002端口，并且将端口关联到proxy.remote.com的22端口上，通过浏览器的设置，将所有的请求都转发到 127.0.0.1:30002上，通过ssh隧道，会将数据包传递到proxy.remotehost.com:22 上。proxy 服务器会随机开启一个端口访问google.com.然后将数据返回给proxy,然后再返回给浏览器，这就是代理的转发。</p>
+
+<h3 id="问题">问题</h3>
+
+<h4 id="账号已登录成功就被退出了">账号已登录成功就被退出了</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">ssh -D <span class="m">30002</span> -l username proxy.remotehost.com -N</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>增加-N 选项 参数是 不请求shell界面，不执行远程命令。这个只是在端口转发的时候使用，其他不会请求</li>
+</ul>
+
+<h4 id="让该进程在后台运行">让该进程在后台运行</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ssh -D 30002 -l username proxy.remotehost.com -Nf</pre></td></tr></table>
+</div>
+</div>
+<h4 id="给ssh-增加http代理">给ssh 增加http代理</h4>
+
+<p>在某些场景下，PC 无法直接访问到ssh服务器，但是只有http代理可以访问，那么我们要建立这个socket5的端口转发只能为他增加一个代理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ssh -D <span class="m">30002</span> -l username proxy.remotehost.com -Nf -o <span class="nv">ProxyCommand</span><span class="o">=</span><span class="s2">&#34;connect -H web-proxy.oa.com:8282 %h %p &#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>其中  ProxyCommand 执行了使用connect 程序来进行代理，通常还可以使用 corkscrew 来达到相同的效果。</p>
+
+<ul>
+<li>安装 ubuntu 下</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">  apt-get install connect-proxy</pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>mac下安装corkscrew</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">  brew install corkscrew</pre></td></tr></table>
+</div>
+</div>
+<h4 id="连接一段时间后-自耦东断开了">连接一段时间后 自耦东断开了</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ssh -D 30002 -l username proxy.remotehost.com -Nf -o ProxyCommand=&#34;connect -H web-proxy.oa.com:8080 %h %p &#34; -o ServerAliveInterval=60</pre></td></tr></table>
+</div>
+</div>
+<h2 id="x-转发">-X 转发</h2>
+
+<p>a</p>
+
+<h2 id="真实场景">真实场景</h2>
+
+<p>A—— 10.0.0.11</p>
+
+<p>B:   10.0.0.2     可以访问内网A  也可以联网到B</p>
+
+<p>B: 115.xx.x     公有云机器</p>
+
+<p>C:    笔记本</p>
+
+<p>A——可以联网&ndash;可以访问——B</p>
+
+<p>C——可以联网 可以访问&mdash;-B</p>
+
+<p>B 无法访问A</p>
+
+<p>B 无法访问C</p>
+
+<p>目标：C想访问A</p>
+
+<ol>
+<li>在A上建立动态连接</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"> ssh -D <span class="m">0</span>.0.0.0:1080 root@127.0.0.1
+ 在A 上建立自身的动态连接</code></pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>在B上建立远程连接到公有云C</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">   ssh -R 0.0.0.0：30000:10.0.0.1:1080 root@115.X.X.X
+   
+   在B上建立远程转发，在115.X.X.X上启用建立端口 30000 目标主机为 10.0.0.1</pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>在公有云上确认是否30000 端口建立成功</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">   ss -luntp |grep 30000</pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>在笔记本上 建立本地连接到公有云30000端口</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">   ssh -L 11080:127.0.0.1:30000 root@115.x.x.x
+   在本机笔记本上开启端口11080 将所有访问11080的流量转发到 115.XX.X.X 30000 端口上</pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>在笔记本上连接到 A机器</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">   ssh -o <span class="nv">ProxyCommand</span><span class="o">=</span><span class="s1">&#39;/usr/bin/nc -X 5 -x 127.0.0.1:11080 %h %p&#39;</span> root@10.0.0.1</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="参考">参考</h2>
+
+<p><a href="https://www.jqhtml.com/down/2170.html">ssh权威指南</a></p>
+
+<p>[<a href="https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/index.html](">https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/index.html](</a>)</p>
+
+<p>[<a href="http://www.zsythink.net/archives/2450](">http://www.zsythink.net/archives/2450](</a>)</p>
+
+<p>[<a href="https://www.chenyudong.com/archives/linux-ssh-port-dynamic-forward.html](">https://www.chenyudong.com/archives/linux-ssh-port-dynamic-forward.html](</a>)</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">smallwormer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-01-15</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/blog/post/ansible_hostname/">
+            <span class="next-text nav-default">Ansible_hostname</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2019-01-15 10:34:06 \x2b0800 CST',
+        title: 'Ssh_forward',
+        link: decodeURI(location.href),
+        desc: 'SSH端口转发 端口转发 ssh 会自动加密和解密所有的ssh客户端与服务端之间的网络数据。但是ssh 还提供了一个端口转发的功能。转发是一种与其他网络',
+        owner: 'smalwormer',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://smallwormer.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">smallwormer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/blog/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

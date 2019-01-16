@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Jan 2019 10:44:51 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jan 2019 10:34:06 +0800</lastBuildDate>
     
 	<atom:link href="https://smallwormer.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ssh_forward</title>
+      <link>https://smallwormer.github.io/blog/post/ssh_forward/</link>
+      <pubDate>Tue, 15 Jan 2019 10:34:06 +0800</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/ssh_forward/</guid>
+      <description>SSH端口转发 端口转发 ssh 会自动加密和解密所有的ssh客户端与服务端之间的网络数据。但是ssh 还提供了一个端口转发的功能。转发是一种与其他网络</description>
+    </item>
     
     <item>
       <title>Ansible_hostname</title>
