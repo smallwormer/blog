@@ -3,8 +3,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://smallwormer.github.io/blog/post/ubuntu_server/</loc>
-    <lastmod>2019-04-05T17:01:55+08:00</lastmod>
+    <loc>https://smallwormer.github.io/blog/centos_install_kubernetes/</loc>
+    <lastmod>2019-06-14T15:47:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -65,14 +65,14 @@
   
   <url>
     <loc>https://smallwormer.github.io/blog/</loc>
-    <lastmod>2019-04-05T17:01:55+08:00</lastmod>
+    <lastmod>2019-06-14T15:47:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://smallwormer.github.io/blog/post/</loc>
-    <lastmod>2019-04-05T17:01:55+08:00</lastmod>
+    <lastmod>2019-01-15T10:34:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

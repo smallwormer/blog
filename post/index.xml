@@ -6,19 +6,10 @@
     <description>Recent content in Posts on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 05 Apr 2019 17:01:55 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jan 2019 10:34:06 +0800</lastBuildDate>
     
 	<atom:link href="https://smallwormer.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>ubuntu software 记录</title>
-      <link>https://smallwormer.github.io/blog/post/ubuntu_server/</link>
-      <pubDate>Fri, 05 Apr 2019 17:01:55 +0800</pubDate>
-      
-      <guid>https://smallwormer.github.io/blog/post/ubuntu_server/</guid>
-      <description>环境说明 Ubuntu 18.04 Desktop 记录 软件准备 terminator Ubuntu 代理Mac Iterm2的软件, 重度mac用户切换到ubuntu后出现了不适应的工具，主要常用的为 水平、垂直切分</description>
-    </item>
     
     <item>
       <title>Ssh_forward</title>
