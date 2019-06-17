@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.40.1 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://smallwormer.github.io/blog/post/ssh_forward/" />
@@ -42,22 +42,8 @@
 <meta property="og:description" content="SSH端口转发 端口转发 ssh 会自动加密和解密所有的ssh客户端与服务端之间的网络数据。但是ssh 还提供了一个端口转发的功能。转发是一种与其他网络" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://smallwormer.github.io/blog/post/ssh_forward/" />
-
-
-
 <meta property="article:published_time" content="2019-01-15T10:34:06&#43;08:00"/>
-
 <meta property="article:modified_time" content="2019-01-15T10:34:06&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
 
 <meta itemprop="name" content="Ssh_forward">
 <meta itemprop="description" content="SSH端口转发 端口转发 ssh 会自动加密和解密所有的ssh客户端与服务端之间的网络数据。但是ssh 还提供了一个端口转发的功能。转发是一种与其他网络">
@@ -65,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-01-15T10:34:06&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-15T10:34:06&#43;08:00" />
-<meta itemprop="wordCount" content="2176">
+<meta itemprop="wordCount" content="2243">
 
 
 
@@ -381,27 +367,27 @@ ssh -D &lt;<span class="nb">local</span> port&gt; &lt;B SSH server&gt;</code></p
 <p>其中  ProxyCommand 执行了使用connect 程序来进行代理，通常还可以使用 corkscrew 来达到相同的效果。</p>
 
 <ul>
-<li>安装 ubuntu 下</li>
-</ul>
+<li><p>安装 ubuntu 下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">  apt-get install connect-proxy</pre></td></tr></table>
+<pre class="chroma">apt-get install connect-proxy</pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>mac下安装corkscrew</li>
-</ul>
+</div></li>
+
+<li><p>mac下安装corkscrew</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">  brew install corkscrew</pre></td></tr></table>
+<pre class="chroma">brew install corkscrew</pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <h4 id="连接一段时间后-自耦东断开了">连接一段时间后 自耦东断开了</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -449,8 +435,7 @@ ssh -D &lt;<span class="nb">local</span> port&gt; &lt;B SSH server&gt;</code></p
 </div>
 </div>
 <ol>
-<li>在B上建立远程连接到公有云C</li>
-</ol>
+<li><p>在B上建立远程连接到公有云C</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
@@ -458,37 +443,35 @@ ssh -D &lt;<span class="nb">local</span> port&gt; &lt;B SSH server&gt;</code></p
 </span><span class="lnt">3
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">   ssh -R 0.0.0.0：30000:10.0.0.1:1080 root@115.X.X.X
+<pre class="chroma">ssh -R 0.0.0.0：30000:10.0.0.1:1080 root@115.X.X.X
    
-   在B上建立远程转发，在115.X.X.X上启用建立端口 30000 目标主机为 10.0.0.1</pre></td></tr></table>
+在B上建立远程转发，在115.X.X.X上启用建立端口 30000 目标主机为 10.0.0.1</pre></td></tr></table>
 </div>
-</div>
-<ol>
-<li>在公有云上确认是否30000 端口建立成功</li>
-</ol>
+</div></li>
+
+<li><p>在公有云上确认是否30000 端口建立成功</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">   ss -luntp |grep 30000</pre></td></tr></table>
+<pre class="chroma">ss -luntp |grep 30000</pre></td></tr></table>
 </div>
-</div>
-<ol>
-<li>在笔记本上 建立本地连接到公有云30000端口</li>
-</ol>
+</div></li>
+
+<li><p>在笔记本上 建立本地连接到公有云30000端口</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">   ssh -L 11080:127.0.0.1:30000 root@115.x.x.x
-   在本机笔记本上开启端口11080 将所有访问11080的流量转发到 115.XX.X.X 30000 端口上</pre></td></tr></table>
+<pre class="chroma">ssh -L 11080:127.0.0.1:30000 root@115.x.x.x
+在本机笔记本上开启端口11080 将所有访问11080的流量转发到 115.XX.X.X 30000 端口上</pre></td></tr></table>
 </div>
-</div>
-<ol>
-<li>在笔记本上连接到 A机器</li>
+</div></li>
+
+<li><p>在笔记本上连接到 A机器</p></li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

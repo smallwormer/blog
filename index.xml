@@ -17,7 +17,7 @@
       <pubDate>Fri, 14 Jun 2019 15:47:05 +0800</pubDate>
       
       <guid>https://smallwormer.github.io/blog/centos_install_kubernetes/</guid>
-      <description>CentOS 7.5(minimal) 安装Kubernetes (kubeadmin方式) 安装基础常用包 yum install net-tools bash-completion yum-utils 关闭firewalld 1 2 3 systemctl stop firewalld &amp;amp;&amp;amp; systemctl disable firewalld setenforce 0 sed -i &amp;#39;s/SELINUX=enforcing/SELINUX=disabled/g&amp;#39; /etc/selinux/config 设置ho</description>
+      <description>CentOS 7.5(minimal) 安装Kubernetes (kubeadmin方式) 安装基础常用包 1 yum install net-tools bash-completion yum-utils 关闭firewalld 1 2 3 systemctl stop firewalld &amp;amp;&amp;amp; systemctl disable firewalld setenforce 0 sed -i &amp;#39;s/SELINUX=enforcing/SELINUX=disabled/g&amp;#39; /etc/selinux/config 设置h</description>
     </item>
     
     <item>
