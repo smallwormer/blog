@@ -1,23 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <?xml-stylesheet type="text/xsl" href="https://smallwormer.github.io/blog/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://smallwormer.github.io/blog/centos_install_kubernetes/</loc>
+    <loc>https://smallwormer.github.io/blog/post/centos_install_kubernetes/</loc>
     <lastmod>2019-06-14T15:47:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://smallwormer.github.io/blog/</loc>
-    <lastmod>2019-06-14T15:47:05+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://smallwormer.github.io/blog/post/</loc>
-    <lastmod>2019-01-15T10:34:06+08:00</lastmod>
-    <priority>0</priority>
+    <loc>https://smallwormer.github.io/blog/post/ubuntu_server/</loc>
+    <lastmod>2019-04-05T17:01:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -64,16 +60,33 @@
   
   <url>
     <loc>https://smallwormer.github.io/blog/post/go-snip/</loc>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://smallwormer.github.io/blog/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/</loc>
+    <lastmod>2019-06-14T15:47:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/</loc>
+    <lastmod>2019-06-14T15:47:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://smallwormer.github.io/blog/tags/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   

@@ -13,11 +13,20 @@
     
     <item>
       <title>Centos_install_kubernetes</title>
-      <link>https://smallwormer.github.io/blog/centos_install_kubernetes/</link>
+      <link>https://smallwormer.github.io/blog/post/centos_install_kubernetes/</link>
       <pubDate>Fri, 14 Jun 2019 15:47:05 +0800</pubDate>
       
-      <guid>https://smallwormer.github.io/blog/centos_install_kubernetes/</guid>
-      <description>CentOS 7.5(minimal) 安装Kubernetes (kubeadmin方式) 安装基础常用包 1 yum install net-tools bash-completion yum-utils 关闭firewalld 1 2 3 systemctl stop firewalld &amp;amp;&amp;amp; systemctl disable firewalld setenforce 0 sed -i &amp;#39;s/SELINUX=enforcing/SELINUX=disabled/g&amp;#39; /etc/selinux/config 设置h</description>
+      <guid>https://smallwormer.github.io/blog/post/centos_install_kubernetes/</guid>
+      <description>CentOS 7.5(minimal) 安装Kubernetes (kubeadmin方式) 安装基础常用包 yum install net-tools bash-completion yum-utils 关闭firewalld 1 2 3 systemctl stop firewalld &amp;amp;&amp;amp; systemctl disable firewalld setenforce 0 sed -i &amp;#39;s/SELINUX=enforcing/SELINUX=disabled/g&amp;#39; /etc/selinux/config 设置ho</description>
+    </item>
+    
+    <item>
+      <title>ubuntu software 记录</title>
+      <link>https://smallwormer.github.io/blog/post/ubuntu_server/</link>
+      <pubDate>Fri, 05 Apr 2019 17:01:55 +0800</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/ubuntu_server/</guid>
+      <description>环境说明 Ubuntu 18.04 Desktop 记录 软件准备 terminator Ubuntu 代理Mac Iterm2的软件, 重度mac用户切换到ubuntu后出现了不适应的工具，主要常用的为 水平、垂直切分</description>
     </item>
     
     <item>
