@@ -2,22 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://smallwormer.github.io/blog/post/centos_install_kubernetes/</loc>
-    <lastmod>2019-06-14T15:47:05+08:00</lastmod>
+    <loc>https://smallwormer.github.io/blog/post/centos7_install_k8s_binary/</loc>
+    <lastmod>2019-06-17T16:33:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://smallwormer.github.io/blog/</loc>
-    <lastmod>2019-06-14T15:47:05+08:00</lastmod>
+    <lastmod>2019-06-17T16:33:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://smallwormer.github.io/blog/post/</loc>
-    <lastmod>2019-06-14T15:47:05+08:00</lastmod>
+    <lastmod>2019-06-17T16:33:54+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/centos_install_kubernetes/</loc>
+    <lastmod>2019-06-14T15:47:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
