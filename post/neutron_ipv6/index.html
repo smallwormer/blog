@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="smallwormer" /><meta name="description" content="IPV6 OpenStack IPV6地址简介 OpenStack 网络支持租户网路中使用IPV6,这就可以为租户内的虚拟机动态的分配IPV6地址. 其中OpenStack 网络也可以集成物" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://smallwormer.github.io/blog/post/neutron_ipv6/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/blog/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="IPV6 OpenStack IPV6地址简介 OpenStack 网络支持租户网路中使用IPV6,这就可以为租户内的虚拟机动态的分配IPV6地址. 其中OpenStack 网络也可以集成物" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smallwormer.github.io/blog/post/neutron_ipv6/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="IPV6 OpenStack IPV6地址简介 OpenStack 网络支持租户网路中使用IPV6,这就可以为租户内的虚拟机动态的分配IPV6地址. 其中OpenStack 网络也可以集成物">
+
+<meta itemprop="wordCount" content="1808">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="IPV6 OpenStack IPV6地址简介 OpenStack 网络支持租户网路中使用IPV6,这就可以为租户内的虚拟机动态的分配IPV6地址. 其中OpenStack 网络也可以集成物"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ipv6">IPV6</a></li>
+        <li><a href="#openstack-ipv6地址简介">OpenStack IPV6地址简介</a></li>
+        <li><a href="#openstack中ipv6模式">OpenStack中IPV6模式</a></li>
+        <li><a href="#路由支持">路由支持</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h3 id="ipv6">IPV6</h3>
+<h3 id="openstack-ipv6地址简介">OpenStack IPV6地址简介</h3>
+<p>OpenStack 网络支持租户网路中使用IPV6,这就可以为租户内的虚拟机动态的分配IPV6地址.</p>
+<p>其中OpenStack 网络也可以集成物理路由器上的SLAAC,从而使虚拟机可以从以后的dhcp系统中获取IPV6地址.</p>
+<p>IPV6的子网可以存在的租户网络中创建,并支持以下的地址分配模式,SLAAC,Stateful DHCPv6, Stateless DHCPv6,</p>
+<h4 id="ipv6地址获取的三种模式">IPV6地址获取的三种模式</h4>
+<ul>
+<li>
+<p>SLAAC(Stateless Adress Autoconfiguration) 利用路由宣告信息RA来确定前缀和长度,利用EUI-64 算法接口算出接口ID,该种分配地址的方法 不需要DHCPv6 server. 运行IPV6的路由器可以为寻找IPv6的客户端提供网络前缀以及网关地址,IPV6使用NDP(邻居发现协议),使用RS 路由请求,和RA路由通告信息,帮助IPV6客户端设备自动配置IPV6地址,无状态地址的好处是在没有dhcp的网络中无需手工配置IP地址,省事省力,网络的整体迁移比较容易,当一个站点的网络前缀发生变化时,主机能够方便地进行重新编址而不影响网络链接.</p>
+<p>OpenStack 中SLAAC分为两种,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">第一种为 利用OpenStack router路由宣告消息RA 报文来生成IPV6地址
+第二种为 利用外部router路由宣告消息RA报文来 生成IPV6地址
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>客户端的IPV6地址基于RA(Router advertisement)</li>
+<li>网关也同样被配置</li>
+<li>可选, DNS信息,MTU 域名等信息</li>
+<li>仅支持/64 的前缀信息</li>
+</ul>
+</li>
+<li>
+<p>DHCPv6 statefull  有状态的IPV6地址配置,DHCPv6是一种地址配置协议,它可以获得IP地址, IP前缀 和IPV6网络中所需要操作的其他配置数据, DNS,域名 等</p>
+</li>
+<li>
+<p>DHCPv6 stateless.  无状态的IPV6地址配置,一般是 客户端由RA信息来获取自己的地址配置信息,其他的可选信息等 从dhcpv6处获得</p>
+</li>
+</ul>
+<h3 id="openstack中ipv6模式">OpenStack中IPV6模式</h3>
+<ul>
+<li>
+<p>ipv6_ra_mode  主要是定义 谁 来发布RA信息, 用于控制子网的RA发布。</p>
+</li>
+<li>
+<p>ipv6-address-mode, 定义虚拟机怎么包含IPV6地址,默认的网管.和可选信息,</p>
+</li>
+</ul>
+<p>在OpenStack中 使用这两种属性,必须要求enable_dhcp必须为true</p>
+<h6 id="slaac">SLAAC</h6>
+<table>
+<thead>
+<tr>
+<th>ipv6_ra_mode</th>
+<th>ipv6_address_mode</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SLAAC</td>
+<td>不指定</td>
+<td>地址由neutron路由器指定</td>
+</tr>
+<tr>
+<td>不指定</td>
+<td>SLAAC</td>
+<td>地址用EUI-64,外部路由器用户提供路由</td>
+</tr>
+<tr>
+<td>SLAAC</td>
+<td>SLAAC</td>
+<td>地址用EUI-64,OpenStack 虚拟路由器用户提供路由，这里提供的RADVD由L3namespace中运行的radvd进程管理</td>
+</tr>
+</tbody>
+</table>
+<p>设置ipv6_ra_mode =slaac时, 这时,将由OpenStack路由器将被配置发送RA数据包信息,,在被创建该网络并挂载到虚拟机路由后,将设置地址的配置flags在RA信息中,</p>
+<ul>
+<li>Auto Configuration Flag = 1</li>
+<li>Managed COnfiguratioN Flag = 0</li>
+<li>Other Configuration Flag = 0</li>
+</ul>
+<h6 id="dhcpv6">DHCPv6</h6>
+<p>对于DHCPv6-stateless. 目前支持包含的方式如下</p>
+<table>
+<thead>
+<tr>
+<th>ipv6_ra_mode</th>
+<th>ipv6_address_mode</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DHCPv6-stateless</td>
+<td>DHCPv6-stateless</td>
+<td>地址由neutron routrerRA分配，可选信息由dhcp 分配</td>
+</tr>
+<tr>
+<td>DHCPv6-stateful</td>
+<td>DHCPv6-stateful</td>
+<td>地址以及可选信息全部由dhcpv6提供</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>ipv6_ra_mode 由 DHCPv6-stateless提供，neutron 路由器会使用radvd agent 发送RA信息，其中附带的标记信息如下</p>
+<ul>
+<li>Auto Configuration Flag = 1</li>
+<li>Managed COnfiguratioN Flag = 0</li>
+<li>Other Configuration Flag = 0</li>
+</ul>
+<h3 id="路由支持">路由支持</h3>
+<p>在neutron中由于不需要使用浮动IP,所以这里不需要使用L3的路由模式，在整个云平台的使用过程中，目前可以使用的 有两种方式</p>
+<ol>
+<li>pd prefix delegation</li>
+<li>bgp</li>
+</ol>
+<p>nova boot &ndash;image a8111162-ab2b-4503-9f2d-e24dd1c8c104 &ndash;nic  net-id=1b37e817-1c48-4644-a1ec-4293b8ff8be1 &ndash;flavor c35e7676-1d4f-41c5-86f5-85984a2a36de yyp</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">neutron net-create yyp_ipv6_v7_4
+
++---------------------------+--------------------------------------+
+| Field                     | Value                                |
++---------------------------+--------------------------------------+
+| admin_state_up            | True                                 |
+| availability_zone_hints   |                                      |
+| availability_zones        |                                      |
+| created_at                | 2019-10-15T01:54:03Z                 |
+| description               |                                      |
+| id                        | d7109a50-0b29-4101-a053-25ac6a3eb767 |
+| ipv4_address_scope        |                                      |
+| ipv6_address_scope        |                                      |
+| is_default                | False                                |
+| mtu                       | 1450                                 |
+| name                      | yyp_ipv6_v7_h3c                      |
+| port_security_enabled     | True                                 |
+| project_id                | a04ee1a8fdc841ecbd20e353b3f41d53     |
+| provider:network_type     | vxlan                                |
+| provider:physical_network |                                      |
+| provider:segmentation_id  | 53                                   |
+| revision_number           | 2                                    |
+| router:external           | False                                |
+| shared                    | False                                |
+| status                    | ACTIVE                               |
+| subnets                   |                                      |
+| tags                      |                                      |
+| tenant_id                 | a04ee1a8fdc841ecbd20e353b3f41d53     |
+| updated_at                | 2019-10-15T01:54:03Z                 |
++---------------------------+--------------------------------------+
+
+
+neutron subnet-create yyp_ipv6_v7_h3c --name yyp_ipv6_v7_h3c_sub --ip_version 6 --ipv6_ra_mode dhcpv6-stateless --ipv6_address_mode dhcpv6-stateless --use_default_subnetpool
+
++-------------------+--------------------------------------------------+
+| Field             | Value                                            |
++-------------------+--------------------------------------------------+
+| allocation_pools  | {&#34;start&#34;: &#34;::2&#34;, &#34;end&#34;: &#34;::ffff:ffff:ffff:ffff&#34;} |
+| cidr              | ::/64                                            |
+| created_at        | 2019-10-15T01:55:28Z                             |
+| description       |                                                  |
+| dns_nameservers   |                                                  |
+| enable_dhcp       | True                                             |
+| gateway_ip        | ::1                                              |
+| host_routes       |                                                  |
+| id                | 1e9ada6b-9521-44cb-ada3-c920f88f8946             |
+| ip_version        | 6                                                |
+| ipv6_address_mode | dhcpv6-stateless                                 |
+| ipv6_ra_mode      | dhcpv6-stateless                                 |
+| name              | yyp_ipv6_v7_h3c_sub                              |
+| network_id        | d7109a50-0b29-4101-a053-25ac6a3eb767             |
+| project_id        | a04ee1a8fdc841ecbd20e353b3f41d53                 |
+| revision_number   | 0                                                |
+| service_types     |                                                  |
+| subnetpool_id     | prefix_delegation                                |
+| tags              |                                                  |
+| tenant_id         | a04ee1a8fdc841ecbd20e353b3f41d53                 |
+| updated_at        | 2019-10-15T01:55:28Z                             |
++-------------------+--------------------------------------------------+
+
+
+neutron subnet-show 1e9ada6b-9521-44cb-ada3-c920f88f8946
+
+
+/var/lib/neutron/pd/1090f1b5-5bc2-4d0d-abe4-04ccff9a635d\:36d2f13c-05d0-427c-a766-d68dc72b3ebf\:qr-0675ebd5-c3/
+
+[root@openstack-con01 1090f1b5-5bc2-4d0d-abe4-04ccff9a635d:36d2f13c-05d0-427c-a766-d68dc72b3ebf:qr-0675ebd5-c3(keystone_admin)]# ls -l
+总用量 40
+-rw-r----- 1 root    root     612 10月 14 20:37 client-AddrMgr.xml
+-rw-r----- 1 root    root    1258 10月 14 20:37 client-CfgMgr.xml
+-rw-r--r-- 1 neutron neutron  637 10月 14 20:37 client.conf
+-rw-r----- 1 root    root      65 10月 14 20:37 client-duid
+-rw-r----- 1 root    root    2226 10月 14 20:37 client-IfaceMgr.xml
+-rw-r--r-- 1 root    root    5491 10月 14 20:37 client.log
+-rw-r--r-- 1 root    root       7 10月 14 20:37 client.pid
+-rwxr--r-- 1 neutron neutron  169 10月 14 20:37 notify.sh
+-rw-r--r-- 1 root    root      20 10月 14 20:37 prefix
+
+
+
+
+/var/lib/neutron/ra/1090f1b5-5bc2-4d0d-abe4-04ccff9a635d.radvd.conf
+
+interface qr-0675ebd5-c3
+{
+   AdvSendAdvert on;
+   MinRtrAdvInterval 30;
+   MaxRtrAdvInterval 100;
+
+   
+   AdvLinkMTU 1450;
+   
+
+   
+   AdvOtherConfigFlag on;
+   
+
+   
+
+   
+
+   
+   prefix 2001:bd8:a521:4::/64
+   {
+        AdvOnLink on;
+        AdvAutonomous on;
+   };
+   
+
+   
+};interface qr-a2888ac9-aa
+{
+   AdvSendAdvert on;
+   MinRtrAdvInterval 30;
+   MaxRtrAdvInterval 100;
+
+   
+   AdvLinkMTU 1450;
+   
+
+   
+   AdvOtherConfigFlag on;
+   
+
+   
+
+   
+
+   
+   prefix 2001:bd8:a521:5::/64
+   {
+        AdvOnLink on;
+        AdvAutonomous on;
+   };
+   
+
+   
+};
+
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="../../imeges/1571104647907s.png" alt="1571104647907"></p>
+<p><img src="../../imeges/1571104739288.png" alt="1571104739288"></p>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">smallwormer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">0001-01-01</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/neutron_dhcp/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/blog/post/neutron_pd_ipv6/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '0001-01-01 00:00:00 \u002b0000 UTC',
+        title: '',
+        link: decodeURI(location.href),
+        desc: 'IPV6 OpenStack IPV6地址简介 OpenStack 网络支持租户网路中使用IPV6,这就可以为租户内的虚拟机动态的分配IPV6地址. 其中OpenStack 网络也可以集成物',
+        owner: 'smalwormer',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://smallwormer.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">smallwormer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/blog/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

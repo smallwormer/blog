@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="smallwormer" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="smallwormer" /><meta name="description" content="嵌套虚拟化 所有实验室环境 计算节点(建议所有节点) 查询是否开启了嵌套虚拟化 1 2 3 4 cat /sys/module/kvm_intel/parameters/nested N N 表示未开启 Y表示开启 如果未开启嵌套虚拟化 如果有虚拟化" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.73.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://smallwormer.github.io/blog/post/go-snip/" />
+<link rel="canonical" href="https://smallwormer.github.io/blog/post/%E5%B5%8C%E5%A5%97%E8%99%9A%E6%8B%9F%E5%8C%96/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
@@ -39,20 +39,20 @@
 
 
 <meta property="og:title" content="" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="嵌套虚拟化 所有实验室环境 计算节点(建议所有节点) 查询是否开启了嵌套虚拟化 1 2 3 4 cat /sys/module/kvm_intel/parameters/nested N N 表示未开启 Y表示开启 如果未开启嵌套虚拟化 如果有虚拟化" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://smallwormer.github.io/blog/post/go-snip/" />
+<meta property="og:url" content="https://smallwormer.github.io/blog/post/%E5%B5%8C%E5%A5%97%E8%99%9A%E6%8B%9F%E5%8C%96/" />
 
 <meta itemprop="name" content="">
-<meta itemprop="description" content="">
+<meta itemprop="description" content="嵌套虚拟化 所有实验室环境 计算节点(建议所有节点) 查询是否开启了嵌套虚拟化 1 2 3 4 cat /sys/module/kvm_intel/parameters/nested N N 表示未开启 Y表示开启 如果未开启嵌套虚拟化 如果有虚拟化">
 
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="145">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="嵌套虚拟化 所有实验室环境 计算节点(建议所有节点) 查询是否开启了嵌套虚拟化 1 2 3 4 cat /sys/module/kvm_intel/parameters/nested N N 表示未开启 Y表示开启 如果未开启嵌套虚拟化 如果有虚拟化"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -131,7 +131,84 @@
   </div>
 </div>
     <div class="post-content">
-      
+      <h1 id="嵌套虚拟化">嵌套虚拟化</h1>
+<ol>
+<li>
+<p>所有实验室环境 计算节点(建议所有节点)</p>
+<ul>
+<li>
+<p>查询是否开启了嵌套虚拟化</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cat /sys/module/kvm_intel/parameters/nested 
+N
+N 表示未开启
+Y表示开启
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>如果未开启嵌套虚拟化</p>
+<ul>
+<li>如果有虚拟化的 关闭虚拟机 或者迁移</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">vim /etc/modprobe.d/kvm-nested.conf
+     
+options kvm-intel nested=1
+options kvm-intel enable_shadow_vmcs=1
+options kvm-intel enable_apicv=1
+options kvm-intel ept=1
+     
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>卸载模块 重新加载模块 或者重启物理机</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">modprobe -r kvm_intel &amp;&amp; modprobe -a kvm_intel
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>重新确认是否开启了嵌套虚拟化</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cat /sys/module/kvm_intel/parameters/nested
+Y
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
     </div>
 
     <div class="post-copyright">
@@ -148,16 +225,12 @@
 </div><footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/blog/post/eve-ng-network/">
+        <a class="prev" href="/blog/post/%E5%86%85%E5%AD%98%E6%8E%92%E6%9F%A5/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default"></span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/blog/post/ipv6_subpool/">
-            <span class="next-text nav-default"></span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
+        
       </nav>
     </footer>
   </article>
@@ -170,7 +243,7 @@
         id: '0001-01-01 00:00:00 \u002b0000 UTC',
         title: '',
         link: decodeURI(location.href),
-        desc: '',
+        desc: '嵌套虚拟化 所有实验室环境 计算节点(建议所有节点) 查询是否开启了嵌套虚拟化 1 2 3 4 cat \/sys\/module\/kvm_intel\/parameters\/nested N N 表示未开启 Y表示开启 如果未开启嵌套虚拟化 如果有虚拟化',
         owner: 'smalwormer',
         repo: '',
         oauth: {

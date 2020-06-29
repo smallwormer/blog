@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Even - A super concise theme for Hugo</title>
@@ -85,11 +85,200 @@
     
     <item>
       <title></title>
+      <link>https://smallwormer.github.io/blog/post/eve-ng-network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/eve-ng-network/</guid>
+      <description>EVE-NG 模拟器网络 说明 在使用eve-ng的使用中 下载的OVA导入到vmware中后，使用的nat的模式，这里遇到了一个问题 虚拟机使用 nat cloud0 方式下 虚拟</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://smallwormer.github.io/blog/post/go-snip/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://smallwormer.github.io/blog/post/go-snip/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/ipv6_subpool/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/ipv6_subpool/</guid>
+      <description>IPV6 重新设计 概念说明 Address scope 地址范围 什么是address scope？ 任何有权访问网络的人都可以创建私有的地址范围，管理员也可以创建共享的地址范围，</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/l2gw/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/l2gw/</guid>
+      <description>网络vxlan ironic l2 gateway 接口说明 功能说明 接口说明 说明: 采用neutron endpoint : http://x.x.x.x:9696/v2.0 认证方式使用标准openstack token, headers: X-Auth-Token: {token} 隧道接口 隧道接口主要的操</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/lvs_ospf_keepalived/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/lvs_ospf_keepalived/</guid>
+      <description>LVS OSPF Keepalived 架构图 环境说明 类型 主机IP 节点说明 交换机 172.16.237.120 华为三层交换机 lvs1+quagga ens3: 172.16.237.10 ens4:172.16.3.15 lvs主机 两网卡,ens3做ospf互联,ens4为互联后端网卡 lvs2+quagga ens3: 172.16.237.12</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/lvsdr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/lvsdr/</guid>
+      <description>LVS+DR 配置 主机说明 192.168.144.141 LVS keepalived master 192.168.144.142 LVS keepalived backup 192.168.144.143 web 1 192.168.144.144 web2 VIP: 192.168.144.220 客户端 192.168.144.2 配置说明 第一步骤 配置LVS （192.168.144.141)） LVS 配置： 安装keepali</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/neutron-db/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/neutron-db/</guid>
+      <description>1 2 3 title: &amp;#34;Macvlan&amp;#34; date: 2019-06-24T11:58:48+08:00 draft: true neutron db Alembic Migrations 为何需要数据库的版本管理 一般在开发的过程中 诸如 git svn等 都作为代码的管理工具，使用版本控制管理的好处显而易见，多版</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/neutron_dhcp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/neutron_dhcp/</guid>
+      <description>patch 1。 dhcp agent 社区pike 和我们的差异(先后何必顺序) https://review.opendev.org/#/c/625387/ 主要解决一个网路多个子网的dhcp 关闭或者开启时，tap设备下dhcp IP 不正常的问题 https://review.opendev.org/#/c/605562/ dhcp</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/neutron_ipv6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/neutron_ipv6/</guid>
+      <description>IPV6 OpenStack IPV6地址简介 OpenStack 网络支持租户网路中使用IPV6,这就可以为租户内的虚拟机动态的分配IPV6地址. 其中OpenStack 网络也可以集成物</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/neutron_pd_ipv6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/neutron_pd_ipv6/</guid>
+      <description>Prefix Delegation IPV6 Prefix Delegation(PD) 驱动，提供了一种在路由器上自动配置IPV6地址前缀的方式， 对于PD来说，一般是由一个分配地址前缀的PD Server 物理路由器，这里使用H3C</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/ospf_lvs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/ospf_lvs/</guid>
+      <description>Qugga 使用 QUAGGA 说明 ## quagga 安装 前提开启ip forward转发 1 2 echo &amp;#34;net.ipv4.ip_forward = 1&amp;#34; &amp;gt;&amp;gt; /etc/sysctl.conf sysctl -p 生效 apt install 1 apt-get install quagga 配置/etc/quagga/daemons 1 2 3 4 5 6</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/ovn-northbound/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/ovn-northbound/</guid>
+      <description>1 2 3 title: &amp;#34;Openstack Northbound&amp;#34; date: 2018-12-31T16:00:03+08:00 draft: true OVN Northbound DB 说明 Northbound DB 默认show 展示 1 2 3 4 5 6 7 8 9 10 11 12 [root@openstack-con78 ~(keystone_admin)]# ovn-nbctl show switch 3b39e578-2a90-45e8-832b-2602acb10815 (sw0) port sw0-port1 addresses: [&amp;#34;00:00:00:00:00:01&amp;#34;] port sw0-port2 addresses: [&amp;#34;00:00:00:00:00:02&amp;#34;] switch eb9aa1f9-7abc-4482-9d00-3e0906635065 (neutron-37b406fa-f907-470d-89d5-5a5b884d21f6) (aka yyp) port 07bf80a7-66e4-4d94-9f0d-d2f7b8ae98d4 addresses: [&amp;#34;fa:16:3e:74:a6:03 12.0.0.11&amp;#34;] port 3537e781-071d-49d2-9499-c9b440858b6a addresses: [&amp;#34;fa:16:3e:25:ba:ee 12.0.0.2&amp;#34;] 说明 switch:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/ovn-sourthdb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/ovn-sourthdb/</guid>
+      <description>1 2 3 title: &amp;#34;Openstack Olso1&amp;#34; date: 2018-12-31T16:00:03+08:00 draft: true OVN Sourthbound DB 说明 Sourthbond DB 默认show 展示 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 [root@openstack-con78 ~(keystone_admin)]# ovn-sbctl show Chassis &amp;#34;5d9d3ec8-3034-4f88-aae5-73a5e2b51a5d&amp;#34; hostname: &amp;#34;openstack-con78&amp;#34; Encap geneve ip: &amp;#34;10.12.75.78&amp;#34; options: {csum=&amp;#34;true&amp;#34;} Encap vxlan ip: &amp;#34;10.12.75.78&amp;#34; options: {csum=&amp;#34;true&amp;#34;} Chassis &amp;#34;ca1e366e-6b2d-45bf-9ea4-4c5d367a6d9d&amp;#34; hostname: &amp;#34;openstack-com79&amp;#34; Encap geneve</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/ovn_arch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/ovn_arch/</guid>
+      <description>OVN Arch OVN 架构说明 ovn 官方架构指引说明 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 CMS | | +-----------|-----------+ | | | | OVN/CMS Plugin | | | | | | | | OVN Northbound DB |</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/quagga/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/quagga/</guid>
+      <description>Qugga 使用 QUAGGA 说明 ## Ｑuagga安装 前提开启ip forward转发 1 2 3 **echo** &amp;#34;net.ipv4.ip_forward = 1&amp;#34; &amp;gt;&amp;gt; /etc/sysctl.conf sysctl -p 生效 apt install 1 apt-get install quagga * 配置/etc/quagga/daemon</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/switchvtep%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/switchvtep%E9%85%8D%E7%BD%AE/</guid>
+      <description>物理机vxlan 模拟 物理机使用vxlan 模拟如何将两个虚拟机的端口使用vxlan进行跨物理机进行通信 拓扑图如下 环境信息 host1: 2.2.2.101 ​ 模拟虚拟机：3.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/test1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/test1/</guid>
+      <description>单独测试 ｈｔｔｐｄ !(../../imeges/1577171516648.png) LVS-DR 模式下 测试 ２倍 ospf wrk 测试 １． 关闭ospf 后保留keepalived 测试，测试vip 以及测试 以及单节点 （使用ｋｅｅｐａｌｉ</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/ubuntu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/ubuntu/</guid>
+      <description>Ubuntu 使用遇到问题 在使用vmware 的时候出现了vmnet-natd: RTM_DELADDR: index 然后工作机就出现了ipaddress 消失的问题， 需要重新dhcp 才可以</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/untitled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/untitled/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/vxlan-ironic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/vxlan-ironic/</guid>
+      <description>如何使用neutron 管理ironic 裸机 方案目的： ​ 1. 该目标主要实现，vxlan网络下的 ironic的部署/ironic 使用vpc 网络、以</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/%E5%86%85%E5%AD%98%E6%8E%92%E6%9F%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/%E5%86%85%E5%AD%98%E6%8E%92%E6%9F%A5/</guid>
+      <description>linux 内存排查 背景 在linux的使用 过程中经常遇到内存耗尽的问题，一般是有几种排查思路 查看总共内存大小 1 2 3 4 5 6 7 8 free -g [root@openstack-con01 agent(keystone_admin)]# free -g total used free shared buff/cache available Mem:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smallwormer.github.io/blog/post/%E5%B5%8C%E5%A5%97%E8%99%9A%E6%8B%9F%E5%8C%96/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/%E5%B5%8C%E5%A5%97%E8%99%9A%E6%8B%9F%E5%8C%96/</guid>
+      <description>嵌套虚拟化 所有实验室环境 计算节点(建议所有节点) 查询是否开启了嵌套虚拟化 1 2 3 4 cat /sys/module/kvm_intel/parameters/nested N N 表示未开启 Y表示开启 如果未开启嵌套虚拟化 如果有虚拟化</description>
     </item>
     
   </channel>

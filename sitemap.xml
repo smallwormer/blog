@@ -11,13 +11,15 @@
   <url>
     <loc>https://smallwormer.github.io/blog/</loc>
     <lastmod>2019-06-17T16:33:54+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://smallwormer.github.io/blog/post/</loc>
     <lastmod>2019-06-17T16:33:54+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -70,18 +72,147 @@
   </url>
   
   <url>
+    <loc>https://smallwormer.github.io/blog/post/eve-ng-network/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://smallwormer.github.io/blog/post/go-snip/</loc>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/ipv6_subpool/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/l2gw/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/lvs_ospf_keepalived/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/lvsdr/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/neutron-db/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/neutron_dhcp/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/neutron_ipv6/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/neutron_pd_ipv6/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/ospf_lvs/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/ovn-northbound/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/ovn-sourthdb/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/ovn_arch/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/quagga/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/switchvtep%E9%85%8D%E7%BD%AE/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/test1/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/ubuntu/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/untitled/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/vxlan-ironic/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/%E5%86%85%E5%AD%98%E6%8E%92%E6%9F%A5/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallwormer.github.io/blog/post/%E5%B5%8C%E5%A5%97%E8%99%9A%E6%8B%9F%E5%8C%96/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://smallwormer.github.io/blog/categories/</loc>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://smallwormer.github.io/blog/tags/</loc>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>

@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="smallwormer" /><meta name="description" content="IPV6 重新设计 概念说明 Address scope 地址范围 什么是address scope？ 任何有权访问网络的人都可以创建私有的地址范围，管理员也可以创建共享的地址范围，" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://smallwormer.github.io/blog/post/ipv6_subpool/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/blog/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="IPV6 重新设计 概念说明 Address scope 地址范围 什么是address scope？ 任何有权访问网络的人都可以创建私有的地址范围，管理员也可以创建共享的地址范围，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smallwormer.github.io/blog/post/ipv6_subpool/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="IPV6 重新设计 概念说明 Address scope 地址范围 什么是address scope？ 任何有权访问网络的人都可以创建私有的地址范围，管理员也可以创建共享的地址范围，">
+
+<meta itemprop="wordCount" content="2884">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="IPV6 重新设计 概念说明 Address scope 地址范围 什么是address scope？ 任何有权访问网络的人都可以创建私有的地址范围，管理员也可以创建共享的地址范围，"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概念说明">概念说明</a>
+      <ul>
+        <li><a href="#如果使用地址范围">如果使用地址范围</a></li>
+        <li><a href="#在地址范围内-创建响应的地址池">在地址范围内 创建响应的地址池</a></li>
+        <li><a href="#创建外部网络地址池ipv4以及ipv6">创建外部网络地址池(IPV4以及IPV6)</a></li>
+        <li><a href="#创建网路测试虚拟机的nat以及路由情况">创建网路测试虚拟机的nat以及路由情况</a></li>
+        <li><a href="#使用旧方法创建网路旧方法创建网络即-没有地址范围的概念或者是创建另一个地址范围然后创建内部网路也可以">使用旧方法创建网路(旧方法创建网络,即 没有地址范围的概念,或者是创建另一个地址范围,然后创建内部网路也可以)</a></li>
+        <li><a href="#测试">测试</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>IPV6 重新设计</p>
+<h2 id="概念说明">概念说明</h2>
+<ul>
+<li>
+<p>Address scope  地址范围</p>
+<p>什么是address scope？</p>
+<p>任何有权访问网络的人都可以创建私有的地址范围，管理员也可以创建共享的地址范围，允许其他项目在该地址范围内创建网络。其中地址范围 与子网池来进行地址管理。子网池可以在地址范围内创建，也可以更新为属于的地址范围。地址范围 与子网池是一对多的关系，其中一个地址范围内的地址池是不可以重叠的</p>
+<p>没什么要使用地址范围？</p>
+<p>多个地址范围怎么借助路由器联通？</p>
+<p>​	在多个子网在一个地址范围内的话，使用L3 可以直接的将两个子网打通，可以自由进行通信。如果在两个地址范围内的地址挂载同一个路由器下面也可以保证相互隔离。</p>
+<p>如果外部网络属于address scope1  而内部网络使用的地址范围为 address scope2,那么如果挂载一个路由器下面，可以直接做使用nat方式 使内部网络出网。如果是内部网络和外部网络均为address scope1 则可以使用路由器的 路由功能(非nat),直接使两个网络连通。</p>
+</li>
+<li>
+<p>subnetpool</p>
+<p>什么是地址池？</p>
+<p>地址池是一个逻辑的概念，以前subnet是由用户自己申请cidr,对于cidr没有有效的管理，这样的话，就会造成地址的重叠(虽然看上去并没有任何使用上的影响)，但是如果重叠了就导致很多网络连接到一个L3上面就无法通信的情况，在实际的使用中，我们云就像一个数据中心，应该保证网络最好是不重叠，这样针对网络的高级功能如VPN，对等连接等都可以无障碍使用，而不会造成任何功能受限。这里引申出一个地址池的概念，每个租户分配地址从地址池中可以自动分配，分配的地址CIDR也不可能会重叠，特别是在后期的IPV6改造过程中，这样就保证了IPV6的也是全局唯一性，不重叠。保证CIDR唯一、IP唯一。</p>
+<p>subpool与subnet是一对多的关系，在一个地址池中的申请子网是不互相重叠的。</p>
+</li>
+<li>
+<p>subnet</p>
+<p>每个租户创建的自己的子网，可以由地址池分配，也可以自由选择CIDR。如果借助于地址池，建议使用地址池统一分配</p>
+</li>
+</ul>
+<p>为什么要这么做:</p>
+<ol>
+<li>目前网络部分 不可以也不需要做ipv6的浮动ip.无需nat.</li>
+</ol>
+<h3 id="如果使用地址范围">如果使用地址范围</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">创建地址范围v6
+
+[root@openstack-con01 ~(keystone_admin)]# openstack address scope create --share --ip-version 6 address-scope-ip6-tstack
++------------+--------------------------------------+
+| Field      | Value                                |
++------------+--------------------------------------+
+| id         | 30d08a33-96b9-433d-8226-76f437cc86ba |
+| ip_version | 6                                    |
+| name       | address-scope-ip6-tstack             |
+| project_id | 83a7ddd3c9cb4b46872a5ec69695be59     |
+| shared     | True                                 |
++------------+--------------------------------------+
+
+创建地址范围v4
+
+[root@openstack-con01 ~(keystone_admin)]# openstack address scope create --share --ip-version 4 address-scope-ip4-tstack
++------------+--------------------------------------+
+| Field      | Value                                |
++------------+--------------------------------------+
+| id         | 9af43b84-b71c-404f-bbc5-9edd126c0f62 |
+| ip_version | 4                                    |
+| name       | address-scope-ip4-tstack             |
+| project_id | 83a7ddd3c9cb4b46872a5ec69695be59     |
+| shared     | True                                 |
++------------+--------------------------------------+
+
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="在地址范围内-创建响应的地址池">在地址范围内 创建响应的地址池</h3>
+<h4 id="创建ipv6的地址池">创建IPV6的地址池</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@openstack-con01 ~(keystone_admin)]# openstack subnet pool create --address-scope address-scope-ip6-tstack --share --pool-prefix 2001:db8:a583::/48 --default-prefix-length 64 subnet-pool-ip6-tstack
++-------------------+--------------------------------------+
+| Field             | Value                                |
++-------------------+--------------------------------------+
+| address_scope_id  | 30d08a33-96b9-433d-8226-76f437cc86ba |
+| created_at        | 2019-08-26T08:11:26Z                 |
+| default_prefixlen | 64                                   |
+| default_quota     | None                                 |
+| description       |                                      |
+| id                | 55f590ca-4495-46f5-9a2b-0219cbf7a05d |
+| ip_version        | 6                                    |
+| is_default        | False                                |
+| max_prefixlen     | 128                                  |
+| min_prefixlen     | 64                                   |
+| name              | subnet-pool-ip6-tstack               |
+| prefixes          | 2001:db8:a583::/48                   |
+| project_id        | 83a7ddd3c9cb4b46872a5ec69695be59     |
+| revision_number   | 0                                    |
+| shared            | True                                 |
+| tags              |                                      |
+| updated_at        | 2019-08-26T08:11:26Z                 |
++-------------------+--------------------------------------+
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="创建ipv4的地址池">创建IPV4的地址池</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@openstack-con01 ~(keystone_admin)]# openstack subnet pool create --address-scope address-scope-ip4-tstack --share --pool-prefix 203.0.113.0/24 --default-prefix-length 26 subnet-pool-ip4-tstack
++-------------------+--------------------------------------+
+| Field             | Value                                |
++-------------------+--------------------------------------+
+| address_scope_id  | 9af43b84-b71c-404f-bbc5-9edd126c0f62 |
+| created_at        | 2019-08-26T08:12:34Z                 |
+| default_prefixlen | 26                                   |
+| default_quota     | None                                 |
+| description       |                                      |
+| id                | 47a55ac9-22c7-4cba-9bd4-92f73a0c5387 |
+| ip_version        | 4                                    |
+| is_default        | False                                |
+| max_prefixlen     | 32                                   |
+| min_prefixlen     | 8                                    |
+| name              | subnet-pool-ip4-tstack               |
+| prefixes          | 203.0.113.0/24                       |
+| project_id        | 83a7ddd3c9cb4b46872a5ec69695be59     |
+| revision_number   | 0                                    |
+| shared            | True                                 |
+| tags              |                                      |
+| updated_at        | 2019-08-26T08:12:34Z                 |
++-------------------+--------------------------------------+
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="创建外部网络地址池ipv4以及ipv6">创建外部网络地址池(IPV4以及IPV6)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">openstack subnet pool create --address-scope address-scope-ip4-tstack --share --pool-prefix 10.85.44.0/24 --default-prefix-length 26 subnet-pool-ip4-tstack-pub
++-------------------+--------------------------------------+
+| Field             | Value                                |
++-------------------+--------------------------------------+
+| address_scope_id  | 9af43b84-b71c-404f-bbc5-9edd126c0f62 |
+| created_at        | 2019-08-26T08:13:27Z                 |
+| default_prefixlen | 26                                   |
+| default_quota     | None                                 |
+| description       |                                      |
+| id                | 12d3911d-eb0c-40de-9cf6-c0617147ea6c |
+| ip_version        | 4                                    |
+| is_default        | False                                |
+| max_prefixlen     | 32                                   |
+| min_prefixlen     | 8                                    |
+| name              | subnet-pool-ip4-tstack-pub           |
+| prefixes          | 10.85.44.0/24                        |
+| project_id        | 83a7ddd3c9cb4b46872a5ec69695be59     |
+| revision_number   | 0                                    |
+| shared            | True                                 |
+| tags              |                                      |
+| updated_at        | 2019-08-26T08:13:27Z                 |
++-------------------+--------------------------------------+
+
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="基于地址池创建外部网络可以界面">基于地址池创建外部网络(可以界面)</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">neutron   net-create flat-pub --provider:network_type flat --provider:physical_network physnet1
+
+基于地址池为该网络创建子网
+openstack subnet create --subnet-pool subnet-pool-ip4-tstack-pub --network flat-pub subnet-ip4-pubsub-tstack
+
+
+[root@openstack-con01 ~(keystone_admin)]# neutron subnet-show 7b2918d9-172f-43a2-8510-3eb3e132feca
+neutron CLI is deprecated and will be removed in the future. Use openstack CLI instead.
++-------------------+--------------------------------------------------+
+| Field             | Value                                            |
++-------------------+--------------------------------------------------+
+| allocation_pools  | {&#34;start&#34;: &#34;10.85.44.223&#34;, &#34;end&#34;: &#34;10.85.44.226&#34;} |
+|                   | {&#34;start&#34;: &#34;10.85.44.234&#34;, &#34;end&#34;: &#34;10.85.44.234&#34;} |
+|                   | {&#34;start&#34;: &#34;10.85.44.232&#34;, &#34;end&#34;: &#34;10.85.44.232&#34;} |
+| cidr              | 10.85.44.192/26                                  |
+| created_at        | 2019-08-26T03:38:58Z                             |
+| description       |                                                  |
+| dns_nameservers   |                                                  |
+| enable_dhcp       | False                                            |
+| gateway_ip        | 10.85.44.193                                     |
+| host_routes       |                                                  |
+| id                | 7b2918d9-172f-43a2-8510-3eb3e132feca             |
+| ip_version        | 4                                                |
+| ipv6_address_mode |                                                  |
+| ipv6_ra_mode      |                                                  |
+| name              | ssss                                             |
+| network_id        | 2880558e-5cb6-4609-b443-a87410d64987             |
+| project_id        | 83a7ddd3c9cb4b46872a5ec69695be59                 |
+| revision_number   | 1                                                |
+| service_types     |                                                  |
+| subnetpool_id     | 12d3911d-eb0c-40de-9cf6-c0617147ea6c             |
+| tags              |                                                  |
+| tenant_id         | 83a7ddd3c9cb4b46872a5ec69695be59                 |
+| updated_at        | 2019-08-26T03:39:16Z                             |
++-------------------+--------------------------------------------------+
+
+</code></pre></td></tr></table>
+</div>
+</div><p><code>这里因为目前主机没有ipv6网络暂时不创建ipv6的地址池</code></p>
+<h3 id="创建网路测试虚拟机的nat以及路由情况">创建网路测试虚拟机的nat以及路由情况</h3>
+<p>假定目标:</p>
+<pre><code>1.	在同一个地址范围内的内网以及外网(可以是一个地址范围内的两个地址池),挂在一个路由器下面,可以不需要nat既可以访问虚拟机,这时候路由器作为一个路由模式
+2.	在不同地址范围内的内网以及外网,挂在一个路由器下面,无法直接访问虚拟机,需要有nat的方式才可以进行出网以及外部访问
+</code></pre>
+<h3 id="使用旧方法创建网路旧方法创建网络即-没有地址范围的概念或者是创建另一个地址范围然后创建内部网路也可以">使用旧方法创建网路(旧方法创建网络,即 没有地址范围的概念,或者是创建另一个地址范围,然后创建内部网路也可以)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">openstack network create network1-yy
+
+openstack subnet create --network network1 --subnet-range 192.168.10.0/26 subnet-ipv4-yy
+
+[root@openstack-con01 ~(keystone_admin)]# neutron net-show network1-yy
+neutron CLI is deprecated and will be removed in the future. Use openstack CLI instead.
++---------------------------+--------------------------------------+
+| Field                     | Value                                |
++---------------------------+--------------------------------------+
+| admin_state_up            | True                                 |
+| availability_zone_hints   |                                      |
+| availability_zones        | nova                                 |
+| created_at                | 2019-08-26T03:39:55Z                 |
+| description               |                                      |
+| id                        | 37af1d13-6e7b-4621-a25d-29719a2d9c21 |
+| ipv4_address_scope        |                                      |
+| ipv6_address_scope        |                                      |
+| mtu                       | 1450                                 |
+| name                      | network1-yy                          |
+| port_security_enabled     | True                                 |
+| project_id                | 83a7ddd3c9cb4b46872a5ec69695be59     |
+| provider:network_type     | vxlan                                |
+| provider:physical_network |                                      |
+| provider:segmentation_id  | 35                                   |
+| revision_number           | 3                                    |
+| router:external           | False                                |
+| shared                    | False                                |
+| status                    | ACTIVE                               |
+| subnets                   | 8a35ef62-2666-4a01-b17a-8d8ff601ba3c |
+| tags                      |                                      |
+| tenant_id                 | 83a7ddd3c9cb4b46872a5ec69695be59     |
+| updated_at                | 2019-08-26T03:40:58Z                 |
++---------------------------+--------------------------------------+
+
+
+[root@openstack-con01 ~(keystone_admin)]# neutron subnet-show 8a35ef62-2666-4a01-b17a-8d8ff601ba3c
+neutron CLI is deprecated and will be removed in the future. Use openstack CLI instead.
++-------------------+---------------------------------------------------+
+| Field             | Value                                             |
++-------------------+---------------------------------------------------+
+| allocation_pools  | {&#34;start&#34;: &#34;192.168.10.2&#34;, &#34;end&#34;: &#34;192.168.10.62&#34;} |
+| cidr              | 192.168.10.0/26                                   |
+| created_at        | 2019-08-26T03:40:58Z                              |
+| description       |                                                   |
+| dns_nameservers   |                                                   |
+| enable_dhcp       | True                                              |
+| gateway_ip        | 192.168.10.1                                      |
+| host_routes       |                                                   |
+| id                | 8a35ef62-2666-4a01-b17a-8d8ff601ba3c              |
+| ip_version        | 4                                                 |
+| ipv6_address_mode |                                                   |
+| ipv6_ra_mode      |                                                   |
+| name              | subnet-ipv4-1                                     |
+| network_id        | 37af1d13-6e7b-4621-a25d-29719a2d9c21              |
+| project_id        | 83a7ddd3c9cb4b46872a5ec69695be59                  |
+| revision_number   | 0                                                 |
+| service_types     |                                                   |
+| subnetpool_id     |                                                   |
+| tags              |                                                   |
+| tenant_id         | 83a7ddd3c9cb4b46872a5ec69695be59                  |
+| updated_at        | 2019-08-26T03:40:58Z                              |
++-------------------+---------------------------------------------------+
+
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="使用新的方法创建一个网络使用在地址范围内的一个地址池来进行创建">使用新的方法创建一个网络(使用在地址范围内的一个地址池来进行创建)</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">openstack network create network2-yy
+openstack subnet create --subnet-pool subnet-pool-ip4-tstack --network network2-yy subnet-ip4-2
+
+[root@openstack-con01 ~(keystone_admin)]# neutron net-show 1c0e95f3-5faf-4112-9c1a-67c908fa8cf9
+neutron CLI is deprecated and will be removed in the future. Use openstack CLI instead.
++---------------------------+--------------------------------------+
+| Field                     | Value                                |
++---------------------------+--------------------------------------+
+| admin_state_up            | True                                 |
+| availability_zone_hints   |                                      |
+| availability_zones        | nova                                 |
+| created_at                | 2019-08-26T07:38:04Z                 |
+| description               |                                      |
+| id                        | 1c0e95f3-5faf-4112-9c1a-67c908fa8cf9 |
+| ipv4_address_scope        | f063be79-edd5-428c-b9e8-9d26ef2b49e0 |
+| ipv6_address_scope        |                                      |
+| mtu                       | 1450                                 |
+| name                      | subnet-ppol-ip4                      |
+| port_security_enabled     | True                                 |
+| project_id                | 83a7ddd3c9cb4b46872a5ec69695be59     |
+| provider:network_type     | vxlan                                |
+| provider:physical_network |                                      |
+| provider:segmentation_id  | 65                                   |
+| revision_number           | 3                                    |
+| router:external           | False                                |
+| shared                    | False                                |
+| status                    | ACTIVE                               |
+| subnets                   | c7184697-5559-400b-b8eb-e7c2568318e4 |
+| tags                      |                                      |
+| tenant_id                 | 83a7ddd3c9cb4b46872a5ec69695be59     |
+| updated_at                | 2019-08-26T07:38:05Z                 |
++---------------------------+--------------------------------------+
+
+
+
+[root@openstack-con01 ~(keystone_admin)]# neutron subnet-show c7184697-5559-400b-b8eb-e7c2568318e4
+neutron CLI is deprecated and will be removed in the future. Use openstack CLI instead.
++-------------------+-------------------------------------------------+
+| Field             | Value                                           |
++-------------------+-------------------------------------------------+
+| allocation_pools  | {&#34;start&#34;: &#34;203.0.112.2&#34;, &#34;end&#34;: &#34;203.0.112.62&#34;} |
+| cidr              | 203.0.112.0/26                                  |
+| created_at        | 2019-08-26T07:38:05Z                            |
+| description       |                                                 |
+| dns_nameservers   |                                                 |
+| enable_dhcp       | True                                            |
+| gateway_ip        | 203.0.112.1                                     |
+| host_routes       |                                                 |
+| id                | c7184697-5559-400b-b8eb-e7c2568318e4            |
+| ip_version        | 4                                               |
+| ipv6_address_mode |                                                 |
+| ipv6_ra_mode      |                                                 |
+| name              | subnet-pool-ip4-yy                              |
+| network_id        | 1c0e95f3-5faf-4112-9c1a-67c908fa8cf9            |
+| project_id        | 83a7ddd3c9cb4b46872a5ec69695be59                |
+| revision_number   | 0                                               |
+| service_types     |                                                 |
+| subnetpool_id     | 01160af6-a736-421c-8d2d-3c5aed1743de            |
+| tags              |                                                 |
+| tenant_id         | 83a7ddd3c9cb4b46872a5ec69695be59                |
+| updated_at        | 2019-08-26T07:38:05Z                            |
++-------------------+-------------------------------------------------+
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="准备路由器">准备路由器</h4>
+<p>创建路由器绑定外部网络,并直接绑定 上面创建的两个网络(一个是和外部网络在一个地址范围内的内网,一个是和外部网络不在一个地址范围内的内网)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">openstack  router create router1
+
+neutron  router-gateway-set router1 pub-flat
+
+添加其他内网接口
+openstack  router add subnet router1  subnet-pool-ip4-yy
+openstack  router add subnet router1 subnet-ipv4-1 
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="创建两个虚拟机分别使用-新方法创建的网络以及使用旧方法创建的网络">创建两个虚拟机,分别使用 新方法创建的网络,以及使用旧方法创建的网络</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">| 3e3054d0-11e2-43eb-b8b2-34f9941d6170 | ssss   | ACTIVE  | -          | Running     | subnet-ppol-ip4=203.0.112.5, 10.85.44.225 |
+| d4816239-94c1-4dd3-b2c9-17ce75cd13f8 | ssss   | ACTIVE  | -          | Running     | network1-yy=192.168.10.13, 10.85.44.232   |
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="测试">测试</h3>
+<ol>
+<li>两个全部绑定了浮动IP,这时候两个内网虚拟机均可以使用浮动IP进行转发直接出网访问</li>
+</ol>
+<h5 id="内网外网同一个地址范围内的虚拟机">内网外网同一个地址范围内的虚拟机</h5>
+<ol>
+<li>
+<p>找到目前的路由器的IP 10.85.44.224</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ip route add 203.0.112.0/25 via 10.85.44.224
+   
+在添加路由的机器上 可以直接访问到 内网的IP 203.0.112.5
+   
+</code></pre></td></tr></table>
+</div>
+</div><p>同样的方法 对不在同一地址范围内的内网虚拟机 不生效</p>
+</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">smallwormer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">0001-01-01</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/go-snip/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/blog/post/l2gw/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '0001-01-01 00:00:00 \u002b0000 UTC',
+        title: '',
+        link: decodeURI(location.href),
+        desc: 'IPV6 重新设计 概念说明 Address scope 地址范围 什么是address scope？ 任何有权访问网络的人都可以创建私有的地址范围，管理员也可以创建共享的地址范围，',
+        owner: 'smalwormer',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://smallwormer.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">smallwormer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/blog/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

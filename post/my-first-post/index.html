@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.73.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://smallwormer.github.io/blog/post/my-first-post/" />
@@ -42,21 +42,17 @@
 <meta property="og:description" content="安装go Mac OS X 安装go 下载安装 下载安装包跟随安装 [go下载]: https://golang.org/dl/ 说明： 安装完成后 此安装包会将go安装到/usr/local/go/bin 目录" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://smallwormer.github.io/blog/post/my-first-post/" />
-<meta property="article:published_time" content="2018-12-30T17:12:17&#43;08:00"/>
-<meta property="article:modified_time" content="2018-12-30T17:12:17&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-12-30T17:12:17+08:00" />
+<meta property="article:modified_time" content="2018-12-30T17:12:17+08:00" />
 <meta itemprop="name" content="go 安装">
 <meta itemprop="description" content="安装go Mac OS X 安装go 下载安装 下载安装包跟随安装 [go下载]: https://golang.org/dl/ 说明： 安装完成后 此安装包会将go安装到/usr/local/go/bin 目录">
-
-
 <meta itemprop="datePublished" content="2018-12-30T17:12:17&#43;08:00" />
 <meta itemprop="dateModified" content="2018-12-30T17:12:17&#43;08:00" />
 <meta itemprop="wordCount" content="398">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go 安装"/>
 <meta name="twitter:description" content="安装go Mac OS X 安装go 下载安装 下载安装包跟随安装 [go下载]: https://golang.org/dl/ 说明： 安装完成后 此安装包会将go安装到/usr/local/go/bin 目录"/>
 
@@ -134,30 +130,23 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#安装go">安装go</a>
-<ul>
-<li><a href="#mac-os-x-安装go">Mac OS X 安装go</a>
-<ul>
-<li><a href="#下载安装">下载安装</a></li>
-</ul></li>
-<li><a href="#测试go的安装">测试GO的安装</a></li>
-<li><a href="#卸载go">卸载GO</a></li>
-<li><a href="#参考链接">参考链接</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#mac-os-x-安装go">Mac OS X 安装go</a>
+      <ul>
+        <li><a href="#下载安装">下载安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#测试go的安装">测试GO的安装</a></li>
+    <li><a href="#卸载go">卸载GO</a></li>
+    <li><a href="#参考链接">参考链接</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h1 id="安装go">安装go</h1>
-
+      <h1 id="安装go">安装go</h1>
 <h2 id="mac-os-x-安装go">Mac OS X 安装go</h2>
-
 <h3 id="下载安装">下载安装</h3>
-
 <ol>
 <li>下载安装包跟随安装  [go下载]: <a href="https://golang.org/dl/">https://golang.org/dl/</a></li>
 <li>说明： 安装完成后 此安装包会将go安装到/usr/local/go/bin 目录 放到你的PATH环境变量中</li>
@@ -165,7 +154,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -220,30 +209,28 @@
 <span class="nv">CGO_FFLAGS</span><span class="o">=</span><span class="s2">&#34;-g -O2&#34;</span>
 <span class="nv">CGO_LDFLAGS</span><span class="o">=</span><span class="s2">&#34;-g -O2&#34;</span>
 <span class="nv">PKG_CONFIG</span><span class="o">=</span><span class="s2">&#34;pkg-config&#34;</span>
-<span class="nv">GOGCCFLAGS</span><span class="o">=</span><span class="s2">&#34;-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/n9/78fzg6x95z7bc_yf1x63fq140000gn/T/go-build017305881=/tmp/go-build -gno-record-gcc-switches -fno-common&#34;</span></code></pre></td></tr></table>
+<span class="nv">GOGCCFLAGS</span><span class="o">=</span><span class="s2">&#34;-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/n9/78fzg6x95z7bc_yf1x63fq140000gn/T/go-build017305881=/tmp/go-build -gno-record-gcc-switches -fno-common&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Note: 在新的go版本中 GOPATH GOBIN  GOROOT等是无需手工重新设置的，安装后会自动设置</p>
-
+</div><p>Note:	在新的go版本中 GOPATH GOBIN  GOROOT等是无需手工重新设置的，安装后会自动设置</p>
 <p>默认go二进制发行版会将go安装到 /usr/local/go 下面。也可以将go安装到不同的位置，但是这时就要使用GOROOT环境变量来指定它的安装位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">export</span> <span class="nv">GOTOOT</span><span class="o">=</span><span class="nv">$HOME</span>/go
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOROOT</span>/bin</code></pre></td></tr></table>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOROOT</span>/bin
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="测试go的安装">测试GO的安装</h2>
-
+</div><h2 id="测试go的安装">测试GO的安装</h2>
 <ol>
-<li>创建一个 helloworld.go 文件</li>
-</ol>
+<li>
+<p>创建一个 helloworld.go 文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -252,39 +239,35 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go">   <span class="kn">package</span> <span class="nx">main</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
    
-   <span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
    
-   <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-       <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;hello, world\n&#34;</span><span class="p">)</span>
-   <span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<ol>
-<li><p>运行go 工具确认</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">smallwormer# ~ » go run hello.go
-hello, world</pre></td></tr></table>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;hello, world\n&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
+<li>
+<p>运行go 工具确认</p>
+</li>
 </ol>
-
-<p>如果看到了上面的信息 说明go已经被正确安装</p>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">smallwormer# ~ » go run hello.go
+hello, world
+</code></pre></td></tr></table>
+</div>
+</div><p>如果看到了上面的信息 说明go已经被正确安装</p>
 <h2 id="卸载go">卸载GO</h2>
-
 <p>如果需要卸载go的安装，需要删除go目录，在Linux MAC 等系统下通常为 /usr/local/go</p>
-
 <h2 id="参考链接">参考链接</h2>
-
 <p><a href="https://golang.org/dl/">go官方下载链接</a></p>
-
 <p><a href="http://docscn.studygolang.com/doc/">go语言学习</a></p>
 
     </div>
@@ -308,7 +291,7 @@ hello, world</pre></td></tr></table>
             <span class="prev-text nav-default">Test</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/blog/post/go-snip/">
+        <a class="next" href="/blog/post/eve-ng-network/">
             <span class="next-text nav-default"></span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
@@ -322,7 +305,7 @@ hello, world</pre></td></tr></table>
     <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2018-12-30 17:12:17 \x2b0800 CST',
+        id: '2018-12-30 17:12:17 \u002b0800 CST',
         title: 'go 安装',
         link: decodeURI(location.href),
         desc: '安装go Mac OS X 安装go 下载安装 下载安装包跟随安装 [go下载]: https:\/\/golang.org\/dl\/ 说明： 安装完成后 此安装包会将go安装到\/usr\/local\/go\/bin 目录',
@@ -375,7 +358,7 @@ hello, world</pre></td></tr></table>
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

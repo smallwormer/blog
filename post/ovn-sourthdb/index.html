@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="smallwormer" /><meta name="description" content="1 2 3 title: &amp;#34;Openstack Olso1&amp;#34; date: 2018-12-31T16:00:03&#43;08:00 draft: true OVN Sourthbound DB 说明 Sourthbond DB 默认show 展示 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 [root@openstack-con78 ~(keystone_admin)]# ovn-sbctl show Chassis &amp;#34;5d9d3ec8-3034-4f88-aae5-73a5e2b51a5d&amp;#34; hostname: &amp;#34;openstack-con78&amp;#34; Encap geneve ip: &amp;#34;10.12.75.78&amp;#34; options: {csum=&amp;#34;true&amp;#34;} Encap vxlan ip: &amp;#34;10.12.75.78&amp;#34; options: {csum=&amp;#34;true&amp;#34;} Chassis &amp;#34;ca1e366e-6b2d-45bf-9ea4-4c5d367a6d9d&amp;#34; hostname: &amp;#34;openstack-com79&amp;#34; Encap geneve" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://smallwormer.github.io/blog/post/ovn-sourthdb/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/blog/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="1 2 3 title: &#34;Openstack Olso1&#34; date: 2018-12-31T16:00:03&#43;08:00 draft: true OVN Sourthbound DB 说明 Sourthbond DB 默认show 展示 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 [root@openstack-con78 ~(keystone_admin)]# ovn-sbctl show Chassis &#34;5d9d3ec8-3034-4f88-aae5-73a5e2b51a5d&#34; hostname: &#34;openstack-con78&#34; Encap geneve ip: &#34;10.12.75.78&#34; options: {csum=&#34;true&#34;} Encap vxlan ip: &#34;10.12.75.78&#34; options: {csum=&#34;true&#34;} Chassis &#34;ca1e366e-6b2d-45bf-9ea4-4c5d367a6d9d&#34; hostname: &#34;openstack-com79&#34; Encap geneve" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smallwormer.github.io/blog/post/ovn-sourthdb/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="1 2 3 title: &#34;Openstack Olso1&#34; date: 2018-12-31T16:00:03&#43;08:00 draft: true OVN Sourthbound DB 说明 Sourthbond DB 默认show 展示 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 [root@openstack-con78 ~(keystone_admin)]# ovn-sbctl show Chassis &#34;5d9d3ec8-3034-4f88-aae5-73a5e2b51a5d&#34; hostname: &#34;openstack-con78&#34; Encap geneve ip: &#34;10.12.75.78&#34; options: {csum=&#34;true&#34;} Encap vxlan ip: &#34;10.12.75.78&#34; options: {csum=&#34;true&#34;} Chassis &#34;ca1e366e-6b2d-45bf-9ea4-4c5d367a6d9d&#34; hostname: &#34;openstack-com79&#34; Encap geneve">
+
+<meta itemprop="wordCount" content="1557">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="1 2 3 title: &#34;Openstack Olso1&#34; date: 2018-12-31T16:00:03&#43;08:00 draft: true OVN Sourthbound DB 说明 Sourthbond DB 默认show 展示 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 [root@openstack-con78 ~(keystone_admin)]# ovn-sbctl show Chassis &#34;5d9d3ec8-3034-4f88-aae5-73a5e2b51a5d&#34; hostname: &#34;openstack-con78&#34; Encap geneve ip: &#34;10.12.75.78&#34; options: {csum=&#34;true&#34;} Encap vxlan ip: &#34;10.12.75.78&#34; options: {csum=&#34;true&#34;} Chassis &#34;ca1e366e-6b2d-45bf-9ea4-4c5d367a6d9d&#34; hostname: &#34;openstack-com79&#34; Encap geneve"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">title: &#34;Openstack Olso1&#34;
+date: 2018-12-31T16:00:03+08:00
+draft: true
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="ovn-sourthbound-db-说明">OVN Sourthbound DB 说明</h1>
+<p>Sourthbond DB 默认show 展示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@openstack-con78 ~(keystone_admin)]# ovn-sbctl show
+Chassis &#34;5d9d3ec8-3034-4f88-aae5-73a5e2b51a5d&#34;
+    hostname: &#34;openstack-con78&#34;
+    Encap geneve
+        ip: &#34;10.12.75.78&#34;
+        options: {csum=&#34;true&#34;}
+    Encap vxlan
+        ip: &#34;10.12.75.78&#34;
+        options: {csum=&#34;true&#34;}
+Chassis &#34;ca1e366e-6b2d-45bf-9ea4-4c5d367a6d9d&#34;
+    hostname: &#34;openstack-com79&#34;
+    Encap geneve
+        ip: &#34;10.12.75.79&#34;
+        options: {csum=&#34;true&#34;}
+    Encap vxlan
+        ip: &#34;10.12.75.79&#34;
+        options: {csum=&#34;true&#34;}
+    Port_Binding &#34;07bf80a7-66e4-4d94-9f0d-d2f7b8ae98d4&#34;
+    Port_Binding &#34;3537e781-071d-49d2-9499-c9b440858b6a&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>说明</p>
+<ul>
+<li>Chassis: chassis 默认在OVS中是没有的,这个是OVN新增的概念.Chassis表中的数据由Ovn-controller更新,包含了chassis的名字和chassis支持的封装配置(指向表Encap),如果chassis 是VETP的网关上和OVN的逻辑交换机 也保存在这个表里面.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@openstack-con78 ~(keystone_admin)]# ovn-nbctl list Connection
+_uuid               : 99407155-d70f-4ccc-bcc9-dd630ad47d84
+external_ids        : {}
+inactivity_probe    : []
+is_connected        : true
+max_backoff         : []
+other_config        : {}
+status              : {bound_port=&#34;6641&#34;, n_connections=&#34;13&#34;, sec_since_connect=&#34;0&#34;, sec_since_disconnect=&#34;0&#34;}
+target              : &#34;ptcp:6641:10.12.75.78&#34;
+[root@openstack-con78 ~(keystone_admin)]# ovn-nbctl list DHCP_Options
+_uuid               : bd834f80-a741-49e9-a06a-af09cab347ba
+cidr                : &#34;12.0.0.0/24&#34;
+external_ids        : {subnet_id=&#34;eeee9f2a-1ee9-45f8-848a-709499473dbe&#34;}
+options             : {lease_time=&#34;43200&#34;, mtu=&#34;1442&#34;, router=&#34;12.0.0.1&#34;, server_id=&#34;12.0.0.1&#34;, server_mac=&#34;fa:16:3e:a2:70:31&#34;}
+[root@openstack-con78 ~(keystone_admin)]# ovn-sbctl list Chassis
+_uuid               : 3f745b10-5c2c-405a-9480-9fe086fac31e
+encaps              : [6c49355f-fbb4-497f-a758-5c294865e870, c12113c2-9e73-4ff9-ae6f-ee23ef8edb04]
+external_ids        : {datapath-type=&#34;&#34;, iface-types=&#34;geneve,gre,internal,lisp,patch,stt,system,tap,vxlan&#34;, ovn-bridge-mappings=&#34;&#34;}
+hostname            : &#34;openstack-con78&#34;
+name                : &#34;5d9d3ec8-3034-4f88-aae5-73a5e2b51a5d&#34;
+nb_cfg              : 0
+vtep_logical_switches: []
+
+_uuid               : fdafe38f-b089-42ab-ad48-372f2e72ae3d
+encaps              : [520e53bf-a06b-4716-84d7-fece9116f597, c5a57620-df33-4a72-9dba-e7f890a6b5a7]
+external_ids        : {datapath-type=system, iface-types=&#34;geneve,gre,internal,lisp,patch,stt,system,tap,vxlan&#34;, ovn-bridge-mappings=&#34;&#34;}
+hostname            : &#34;openstack-com79&#34;
+name                : &#34;ca1e366e-6b2d-45bf-9ea4-4c5d367a6d9d&#34;
+nb_cfg              : 0
+vtep_logical_switches: []
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>Encap:  其中主要保存着tunnel 的类型以及tunnel 对端endpoint的IP地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@openstack-con78 ~(keystone_admin)]# ovn-sbctl list Encap
+_uuid               : c5a57620-df33-4a72-9dba-e7f890a6b5a7
+chassis_name        : &#34;ca1e366e-6b2d-45bf-9ea4-4c5d367a6d9d&#34;
+ip                  : &#34;10.12.75.79&#34;
+options             : {csum=&#34;true&#34;}
+type                : vxlan
+  
+_uuid               : c12113c2-9e73-4ff9-ae6f-ee23ef8edb04
+chassis_name        : &#34;5d9d3ec8-3034-4f88-aae5-73a5e2b51a5d&#34;
+ip                  : &#34;10.12.75.78&#34;
+options             : {csum=&#34;true&#34;}
+type                : vxlan
+  
+_uuid               : 520e53bf-a06b-4716-84d7-fece9116f597
+chassis_name        : &#34;ca1e366e-6b2d-45bf-9ea4-4c5d367a6d9d&#34;
+ip                  : &#34;10.12.75.79&#34;
+options             : {csum=&#34;true&#34;}
+type                : geneve
+  
+_uuid               : 6c49355f-fbb4-497f-a758-5c294865e870
+chassis_name        : &#34;5d9d3ec8-3034-4f88-aae5-73a5e2b51a5d&#34;
+ip                  : &#34;10.12.75.78&#34;
+options             : {csum=&#34;true&#34;}
+type                : geneve
+  
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Logical_Flow: 每一行代表一个逻辑的流表,这张表是OVN-northd 根据Nourthbound DB里面的二三层拓扑信息和ACL信息转换为来(从north acl 翻译),ovn-controller 把这个表里面的流表转换成OVS流表,配置HV上的OVS table.刘表主要包含的匹配规则,匹配方向,优先级,table ID和执行动作.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@openstack-con78 ~(keystone_admin)]# ovn-sbctl list Logical_Flow
+_uuid               : 0185e400-f2cf-4fb4-85d7-f417b572d47c
+actions             : &#34;next;&#34;
+external_ids        : {source=&#34;ovn-northd.c:3476&#34;, stage-name=ls_out_stateful}
+logical_datapath    : 4001dc70-0241-4dd9-8aad-85d8312d1307
+match               : &#34;1&#34;
+pipeline            : egress
+priority            : 0
+table_id            : 7
+  
+_uuid               : 2d311900-5021-4185-ad14-e5ca1a6e4e3d
+actions             : &#34;drop;&#34;
+external_ids        : {source=&#34;ovn-northd.c:3135&#34;, stage-name=ls_out_acl}
+logical_datapath    : 4001dc70-0241-4dd9-8aad-85d8312d1307
+match               : &#34;ct.inv || (ct.est &amp;&amp; ct.rpl &amp;&amp; ct_label.blocked == 1)&#34;
+pipeline            : egress
+priority            : 65535
+table_id            : 4
+  
+_uuid               : 2dbc1381-f557-4a05-b446-a3187e4247d8
+actions             : &#34;output;&#34;
+external_ids        : {source=&#34;ovn-northd.c:5953&#34;, stage-name=lr_in_arp_request}
+logical_datapath    : e866aad2-40ad-400f-a9f2-8906eac730e9
+match               : &#34;1&#34;
+pipeline            : ingress
+priority            : 0
+table_id            : 10
+  
+_uuid               : 2eb01d02-c983-4a25-8797-712757b15871
+actions             : &#34;next;&#34;
+external_ids        : {source=&#34;ovn-northd.c:2514&#34;, stage-name=ls_in_port_sec_nd}
+logical_datapath    : 20d04885-441c-4d52-b4d1-97147ab7756c
+match               : &#34;inport == \&#34;sw0-port1\&#34; &amp;&amp; eth.src == 00:00:00:00:00:01 &amp;&amp; ip6 &amp;&amp; nd &amp;&amp; ((nd.sll == 00:00:00:00:00:00 || nd.sll == 00:00:00:00:00:01) || ((nd.tll == 00:00:00:00:00:00 || nd.tll == 00:00:00:00:00:01)))&#34;
+pipeline            : ingress
+priority            : 90
+table_id            : 2
+  
+_uuid               : 72ab6b82-984e-4b3f-af3b-99a5194b771a
+actions             : &#34;get_arp(outport, reg0); next;&#34;
+external_ids        : {source=&#34;ovn-northd.c:5882&#34;, stage-name=lr_in_arp_resolve}
+logical_datapath    : e866aad2-40ad-400f-a9f2-8906eac730e9
+match               : &#34;ip4&#34;
+pipeline            : ingress
+priority            : 0
+table_id            : 8
+  
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Multicast_Group: 每一行代表一个组播组,组播报文和广播报文的转换由这张表决定,它保存了组播组所属的datapath,组播组包含的端口,还有代表logical datapath identifier的tunnel_key</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@openstack-con78 ~(keystone_admin)]# ovn-sbctl list multicast_group
+_uuid               : 2fc2a4ad-02f6-4664-849b-172d6f9178fa
+datapath            : 20d04885-441c-4d52-b4d1-97147ab7756c
+name                : _MC_flood
+ports               : [274a1384-5c83-4e51-b82f-c4aef4bfafb3, d2d3c506-3e3f-4be4-9e25-7bc449deea2c]
+tunnel_key          : 65535
+  
+_uuid               : 22f4f5b1-ef0e-4fae-9bd7-c98f9d1478ed
+datapath            : 4001dc70-0241-4dd9-8aad-85d8312d1307
+name                : _MC_flood
+ports               : [80998547-fd92-442a-8b1c-e0d21716e138, e48a4a9e-7291-4220-add8-b0dcb0ac722d]
+tunnel_key          : 65535
+  
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Datapath_Binding: 每一行代表一个datapath 和物理网络的绑定关系, 每个logical switch 和logical router对应一行, 它主要保存了OVN给datapath 分配的logical datapath identifier 的tunnel_key</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@openstack-con78 ~(keystone_admin)]# ovn-sbctl list Datapath_Binding
+_uuid               : 4001dc70-0241-4dd9-8aad-85d8312d1307
+external_ids        : {logical-switch=&#34;eb9aa1f9-7abc-4482-9d00-3e0906635065&#34;, name=&#34;neutron-37b406fa-f907-470d-89d5-5a5b884d21f6&#34;, &#34;name2&#34;=yyp}
+tunnel_key          : 1
+  
+_uuid               : 20d04885-441c-4d52-b4d1-97147ab7756c
+external_ids        : {logical-switch=&#34;3b39e578-2a90-45e8-832b-2602acb10815&#34;, name=&#34;sw0&#34;}
+tunnel_key          : 2
+  
+_uuid               : e866aad2-40ad-400f-a9f2-8906eac730e9
+external_ids        : {logical-router=&#34;88250afd-3ca0-4914-891e-53bda97aa3f5&#34;, name=&#34;neutron-6843740d-0b46-4469-896a-960f245eece2&#34;, &#34;name2&#34;=yyp}
+tunnel_key          : 3
+  
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Port_Binding: 这张表主要用来确定 logicalport 处在哪个chassis上面,每一行包含的内容主要有 logical port的MAC和IP地址,端口类型.端口属于哪个datapath binding, 端口所处chassis由ovn-controller配置,其余的值由ovn-northd设置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@openstack-con78 ~(keystone_admin)]# ovn-sbctl list Port_Binding
+_uuid               : 274a1384-5c83-4e51-b82f-c4aef4bfafb3
+chassis             : []
+datapath            : 20d04885-441c-4d52-b4d1-97147ab7756c
+external_ids        : {}
+gateway_chassis     : []
+logical_port        : &#34;sw0-port2&#34;
+mac                 : [&#34;00:00:00:00:00:02&#34;]
+nat_addresses       : []
+options             : {}
+parent_port         : []
+tag                 : []
+tunnel_key          : 2
+type                : &#34;&#34;
+  
+_uuid               : e48a4a9e-7291-4220-add8-b0dcb0ac722d
+chassis             : fdafe38f-b089-42ab-ad48-372f2e72ae3d
+datapath            : 4001dc70-0241-4dd9-8aad-85d8312d1307
+external_ids        : {&#34;neutron:cidrs&#34;=&#34;12.0.0.11/24&#34;, &#34;neutron:device_id&#34;=&#34;5cecea4d-0f68-4e28-b12f-f7c48aabba2a&#34;, &#34;neutron:port_name&#34;=&#34;&#34;, &#34;neutron:project_id&#34;=&#34;cc1fbfcba0b34f8ebfdec305c76801c1&#34;}
+gateway_chassis     : []
+logical_port        : &#34;07bf80a7-66e4-4d94-9f0d-d2f7b8ae98d4&#34;
+mac                 : [&#34;fa:16:3e:74:a6:03 12.0.0.11&#34;]
+nat_addresses       : []
+options             : {}
+parent_port         : []
+tag                 : []
+tunnel_key          : 2
+type                : &#34;&#34;
+  
+_uuid               : d2d3c506-3e3f-4be4-9e25-7bc449deea2c
+chassis             : []
+datapath            : 20d04885-441c-4d52-b4d1-97147ab7756c
+external_ids        : {}
+gateway_chassis     : []
+logical_port        : &#34;sw0-port1&#34;
+mac                 : [&#34;00:00:00:00:00:01&#34;]
+nat_addresses       : []
+options             : {}
+parent_port         : []
+tag                 : []
+tunnel_key          : 1
+type                : &#34;&#34;
+  
+_uuid               : 80998547-fd92-442a-8b1c-e0d21716e138
+chassis             : fdafe38f-b089-42ab-ad48-372f2e72ae3d
+datapath            : 4001dc70-0241-4dd9-8aad-85d8312d1307
+external_ids        : {&#34;neutron:cidrs&#34;=&#34;12.0.0.2/24&#34;, &#34;neutron:device_id&#34;=&#34;c776cf51-8e33-4dac-8635-3bba778090ec&#34;, &#34;neutron:port_name&#34;=&#34;&#34;, &#34;neutron:project_id&#34;=&#34;cc1fbfcba0b34f8ebfdec305c76801c1&#34;}
+gateway_chassis     : []
+logical_port        : &#34;3537e781-071d-49d2-9499-c9b440858b6a&#34;
+mac                 : [&#34;fa:16:3e:25:ba:ee 12.0.0.2&#34;]
+nat_addresses       : []
+options             : {}
+parent_port         : []
+tag                 : []
+tunnel_key          : 1
+type                : &#34;&#34;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>表 Chassis 和表 Encap 包含的是物理网络的数据，表 Logical_Flow 和表 Multicast_Group包含的是逻辑网络的数据，表 Datapath_Binding 和表 Port_Binding 包含的是逻辑网络和物理网络绑定关系的数据。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">smallwormer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">0001-01-01</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/ovn-northbound/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/blog/post/ovn_arch/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '0001-01-01 00:00:00 \u002b0000 UTC',
+        title: '',
+        link: decodeURI(location.href),
+        desc: '1 2 3 title: \u0026#34;Openstack Olso1\u0026#34; date: 2018-12-31T16:00:03\u002b08:00 draft: true OVN Sourthbound DB 说明 Sourthbond DB 默认show 展示 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 [root@openstack-con78 ~(keystone_admin)]# ovn-sbctl show Chassis \u0026#34;5d9d3ec8-3034-4f88-aae5-73a5e2b51a5d\u0026#34; hostname: \u0026#34;openstack-con78\u0026#34; Encap geneve ip: \u0026#34;10.12.75.78\u0026#34; options: {csum=\u0026#34;true\u0026#34;} Encap vxlan ip: \u0026#34;10.12.75.78\u0026#34; options: {csum=\u0026#34;true\u0026#34;} Chassis \u0026#34;ca1e366e-6b2d-45bf-9ea4-4c5d367a6d9d\u0026#34; hostname: \u0026#34;openstack-com79\u0026#34; Encap geneve',
+        owner: 'smalwormer',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://smallwormer.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">smallwormer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/blog/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

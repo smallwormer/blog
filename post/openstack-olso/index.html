@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.73.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://smallwormer.github.io/blog/post/openstack-olso/" />
@@ -42,21 +42,17 @@
 <meta property="og:description" content="OpenStack Oslo 项目 随着OpenStack项目越来越多，在每个项目中都有一套处理自己配置文件的代码，也越来越多的重复的工作需要来做，而且这些代码也总是项" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://smallwormer.github.io/blog/post/openstack-olso/" />
-<meta property="article:published_time" content="2018-12-31T15:56:21&#43;08:00"/>
-<meta property="article:modified_time" content="2018-12-31T15:56:21&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-12-31T15:56:21+08:00" />
+<meta property="article:modified_time" content="2018-12-31T15:56:21+08:00" />
 <meta itemprop="name" content="Openstack Olso">
 <meta itemprop="description" content="OpenStack Oslo 项目 随着OpenStack项目越来越多，在每个项目中都有一套处理自己配置文件的代码，也越来越多的重复的工作需要来做，而且这些代码也总是项">
-
-
 <meta itemprop="datePublished" content="2018-12-31T15:56:21&#43;08:00" />
 <meta itemprop="dateModified" content="2018-12-31T15:56:21&#43;08:00" />
-<meta itemprop="wordCount" content="986">
+<meta itemprop="wordCount" content="977">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Openstack Olso"/>
 <meta name="twitter:description" content="OpenStack Oslo 项目 随着OpenStack项目越来越多，在每个项目中都有一套处理自己配置文件的代码，也越来越多的重复的工作需要来做，而且这些代码也总是项"/>
 
@@ -134,93 +130,76 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#openstack-oslo-项目">OpenStack Oslo 项目</a>
-<ul>
-<li><a href="#oslo-conf-使用">Oslo.conf 使用</a></li>
-</ul></li>
-<li><a href="#使用举例">使用举例</a>
-<ul>
-<li><a href="#声明配置项-config-py">声明配置项 config.py</a></li>
-<li><a href="#注册">注册</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#register-paste-configuration-声明组-paste-deploy">register paste configuration 声明组 paste_deploy</a>
-<ul>
-<li>
-<ul>
-<li><a href="#注册-1">注册</a></li>
-<li><a href="#配置文件-freezer-conf">配置文件 freezer.conf</a></li>
-<li><a href="#配置项">配置项</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#openstack-oslo-项目">OpenStack Oslo 项目</a>
+      <ul>
+        <li><a href="#osloconf-使用">Oslo.conf 使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用举例">使用举例</a>
+      <ul>
+        <li><a href="#声明配置项-configpy">声明配置项 config.py</a></li>
+        <li><a href="#注册">注册</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#注册-1">注册</a></li>
+        <li><a href="#配置文件-freezerconf">配置文件 freezer.conf</a></li>
+        <li><a href="#配置项">配置项</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="openstack-oslo-项目">OpenStack Oslo 项目</h2>
-
+      <h2 id="openstack-oslo-项目">OpenStack Oslo 项目</h2>
 <p>随着OpenStack项目越来越多，在每个项目中都有一套处理自己配置文件的代码，也越来越多的重复的工作需要来做，而且这些代码也总是项目之间来回的<code>copy-and-paste</code>, 为此，社区提出了Oslo项目。Oslo项目的宗旨是提供一些列的OpenStack项目的公共库。用于解析OpenStack中命令行（CLI）或配置文件(.conf)中的配置信息</p>
-
-<h3 id="oslo-conf-使用">Oslo.conf 使用</h3>
-
+<h3 id="osloconf-使用">Oslo.conf 使用</h3>
 <ul>
-<li><p>配置文件：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">用来配置OpenStack各个服务的配置文件 .ini风格，通常以.conf结尾</pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>组(option groups):</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">划分以组为单位的配置的组值，通常例如 [keystone_auth]， 默认为 [DEFAULT]</pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>配置项:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">具体的配置项的值，在命令行中注册后既可以使用，例如：host_ip = 127.0.0.1 等等</pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>使用步骤</p></li>
+<li>
+<p>配置文件：</p>
+<pre><code>  用来配置OpenStack各个服务的配置文件 .ini风格，通常以.conf结尾
+</code></pre>
+</li>
+<li>
+<p>组(option groups):</p>
+<pre><code>  划分以组为单位的配置的组值，通常例如 [keystone_auth]， 默认为 [DEFAULT]
+</code></pre>
+</li>
+<li>
+<p>配置项:</p>
+<pre><code>  具体的配置项的值，在命令行中注册后既可以使用，例如：host_ip = 127.0.0.1 等等
+</code></pre>
+</li>
+<li>
+<p>使用步骤</p>
+</li>
 </ul>
-
 <ol>
-<li><p>在需要使用的配置信息的模块中进行声明配置项，包括配置型的类型，名称，默认值 以及帮助信息等</p></li>
-
-<li><p>创建一个可以配置管理器的对象，这个对象可以来存储这些值，例如 opts = []</p></li>
-
-<li><p>将上面的对象注册进全局的CONF中，这样会将上面对象中的配置项的key,value进行注册，这样就可以调用了</p></li>
-
-<li><p>配置配置文件，例如 freezer.conf 通常的路径为 ~/.freezer/freezer.conf 或者 /etc/freezer.conf</p>
-
-<p>或者 /etc/freezer/freezer.</p></li>
+<li>
+<p>在需要使用的配置信息的模块中进行声明配置项，包括配置型的类型，名称，默认值 以及帮助信息等</p>
+</li>
+<li>
+<p>创建一个可以配置管理器的对象，这个对象可以来存储这些值，例如 opts = []</p>
+</li>
+<li>
+<p>将上面的对象注册进全局的CONF中，这样会将上面对象中的配置项的key,value进行注册，这样就可以调用了</p>
+</li>
+<li>
+<p>配置配置文件，例如 freezer.conf 通常的路径为 ~/.freezer/freezer.conf 或者 /etc/freezer.conf</p>
+<p>或者 /etc/freezer/freezer.</p>
+</li>
 </ol>
-
 <h2 id="使用举例">使用举例</h2>
-
-<h3 id="声明配置项-config-py">声明配置项 config.py</h3>
+<h3 id="声明配置项-configpy">声明配置项 config.py</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -277,18 +256,14 @@
 
                     <span class="p">)</span>
 
-    <span class="p">]</span></code></pre></td></tr></table>
+    <span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
+</div><pre><code>组配置项
+</code></pre>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">组配置项</pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -323,57 +298,29 @@
 
                         <span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;test1&#34;</span><span class="p">,</span> <span class="s2">&#34;test2&#34;</span><span class="p">]</span>
 
-                        <span class="n">help</span><span class="o">=</span><span class="s2">&#34;list&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&#34;list&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>​</p>
-
+</div><p>​</p>
 <h3 id="注册">注册</h3>
-
 <p>#注册单个配置项</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">    CONF.register_opt(test)</pre></td></tr></table>
-</div>
-</div>
+<pre><code>    CONF.register_opt(test)
+</code></pre>
 <p>#注册多个配置项的配置组</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">    CONF.register_opts(_COMMON)</pre></td></tr></table>
-</div>
-</div>
+<pre><code>    CONF.register_opts(_COMMON)
+</code></pre>
 <p>#将配置项加载进命令行中显示（可以用命令行进行直接配置等）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">    CONF.register_cli_opts(_COMMON)</pre></td></tr></table>
-</div>
-</div>
-<h1 id="register-paste-configuration-声明组-paste-deploy">register paste configuration 声明组 paste_deploy</h1>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">    paste_grp = cfg.OptGroup(&#39;paste_deploy&#39;,
+<pre><code>    CONF.register_cli_opts(_COMMON)
+</code></pre>
+<h1 id="register-paste-configuration-声明组-paste_deploy">register paste configuration 声明组 paste_deploy</h1>
+<pre><code>    paste_grp = cfg.OptGroup('paste_deploy',
 
-                             &#39;Paste Configuration&#39;)</pre></td></tr></table>
-</div>
-</div>
+                             'Paste Configuration')
+</code></pre>
 <h3 id="注册-1">注册</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -418,17 +365,15 @@
             <span class="n">default_config_files</span><span class="o">=</span><span class="n">default_config_files</span><span class="p">,</span>
 
             <span class="n">version</span><span class="o">=</span><span class="n">FREEZER_API_VERSION</span>
-           <span class="p">)</span></code></pre></td></tr></table>
+           <span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="配置文件-freezer-conf">配置文件 freezer.conf</h3>
-
+</div><h3 id="配置文件-freezerconf">配置文件 freezer.conf</h3>
 <p>这里使用Freezer进行举例</p>
-
 <p>vim /etc/freezer/freezer.conf</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -466,9 +411,10 @@
 </span><span class="lnt">36
 </span><span class="lnt">37
 </span><span class="lnt">38
-</span></pre></td>
+</span><span class="lnt">39
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">#默认组
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#默认组
 
 [DEFAULT] 
 
@@ -505,10 +451,11 @@ config_file = /etc/freezer/freezer-paste.ini
 hosts = http://172.16.214.81:9200
 number_of_replicas = 0
 index = freezer
-db = elasticsearch</pre></td></tr></table>
+db = elasticsearch
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="配置项">配置项</h3>
+</div><h3 id="配置项">配置项</h3>
 
     </div>
 
@@ -545,7 +492,7 @@ db = elasticsearch</pre></td></tr></table>
     <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2018-12-31 15:56:21 \x2b0800 CST',
+        id: '2018-12-31 15:56:21 \u002b0800 CST',
         title: 'Openstack Olso',
         link: decodeURI(location.href),
         desc: 'OpenStack Oslo 项目 随着OpenStack项目越来越多，在每个项目中都有一套处理自己配置文件的代码，也越来越多的重复的工作需要来做，而且这些代码也总是项',
@@ -598,7 +545,7 @@ db = elasticsearch</pre></td></tr></table>
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="smallwormer" /><meta name="description" content="物理机vxlan 模拟 物理机使用vxlan 模拟如何将两个虚拟机的端口使用vxlan进行跨物理机进行通信 拓扑图如下 环境信息 host1: 2.2.2.101 ​ 模拟虚拟机：3." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://smallwormer.github.io/blog/post/switchvtep%E9%85%8D%E7%BD%AE/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/blog/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="物理机vxlan 模拟 物理机使用vxlan 模拟如何将两个虚拟机的端口使用vxlan进行跨物理机进行通信 拓扑图如下 环境信息 host1: 2.2.2.101 ​ 模拟虚拟机：3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smallwormer.github.io/blog/post/switchvtep%E9%85%8D%E7%BD%AE/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="物理机vxlan 模拟 物理机使用vxlan 模拟如何将两个虚拟机的端口使用vxlan进行跨物理机进行通信 拓扑图如下 环境信息 host1: 2.2.2.101 ​ 模拟虚拟机：3.">
+
+<meta itemprop="wordCount" content="3521">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="物理机vxlan 模拟 物理机使用vxlan 模拟如何将两个虚拟机的端口使用vxlan进行跨物理机进行通信 拓扑图如下 环境信息 host1: 2.2.2.101 ​ 模拟虚拟机：3."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#物理机使用vxlan">物理机使用vxlan</a>
+      <ul>
+        <li><a href="#拓扑图如下">拓扑图如下</a></li>
+        <li><a href="#环境信息">环境信息</a></li>
+        <li><a href="#配置">配置</a></li>
+        <li><a href="#创建隧道">创建隧道</a></li>
+        <li><a href="#测试">测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用vxlan-将虚拟机-与物理机联通">使用vxlan 将虚拟机 与物理机联通</a>
+      <ul>
+        <li></li>
+        <li><a href="#交换机vxlan-验证">交换机vxlan 验证</a></li>
+        <li><a href="#测试-1">测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#如何与neutron-集成并接入vpc">如何与neutron 集成并接入vpc</a>
+      <ul>
+        <li><a href="#节点信息">节点信息</a></li>
+        <li><a href="#交换机配置">交换机配置</a></li>
+        <li><a href="#测试-2">测试</a></li>
+        <li><a href="#测试-3">测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#如何使用neutron-管理ironic-裸机">如何使用neutron 管理ironic 裸机</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#如何使用ovsdb-控制协议-管理交换机vxlan-ovsdb表信息">如何使用ovsdb 控制协议 管理交换机vxlan ovsdb表信息</a>
+      <ul>
+        <li></li>
+        <li><a href="#具体验证">具体验证</a></li>
+        <li><a href="#设备说明">设备说明：</a></li>
+        <li><a href="#说明">说明</a></li>
+        <li><a href="#配置说明">配置说明：</a></li>
+        <li><a href="#接口对应关系">接口对应关系</a></li>
+        <li><a href="#统一接口参数统一下发">统一接口参数统一下发：</a></li>
+        <li><a href="#问题说明">问题说明</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="物理机vxlan-模拟">物理机vxlan 模拟</h1>
+<h2 id="物理机使用vxlan">物理机使用vxlan</h2>
+<p>模拟如何将两个虚拟机的端口使用vxlan进行跨物理机进行通信</p>
+<h3 id="拓扑图如下">拓扑图如下</h3>
+<h3 id="环境信息">环境信息</h3>
+<p>host1: 2.2.2.101</p>
+<p>​	模拟虚拟机：3.3.3.10</p>
+<p>host2：2.2.2.107</p>
+<p>​	模拟虚拟机： 3.3.3.11</p>
+<h3 id="配置">配置</h3>
+<p>host1配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># 增加网络命名空间
+ip netns add ns-ovsdb1
+# 添加对端接口
+ip link add name veth1 type veth peer name veth1p
+# 将虚拟机接口一端添加到namesapce
+ip link set dev veth1 netns ns-ovsdb1
+ip netns exec ns-ovsdb1 ifconfig veth1 3.3.3.10/24 up
+
+## ovs 增加隧道使用的网桥
+ovs-vsctl add-br ovs-vxlan
+
+# 将虚拟机的对端口加入到 ovs 桥
+ovs-vsctl add-port ovs-vxlan veth1p
+
+# 激活接口
+
+ip link set ovs-vxlan up
+ip link set veth1p up
+</code></pre></td></tr></table>
+</div>
+</div><p>host2 配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 增加网络命名空间</span>
+ip netns add ns-ovsdb2
+<span class="c1"># 添加对端接口</span>
+ip link add name veth2 <span class="nb">type</span> veth peer name veth2p
+<span class="c1"># 将虚拟机接口一端添加到namesapce</span>
+ip link <span class="nb">set</span> dev veth2 netns ns-ovsdb2
+ip netns <span class="nb">exec</span> ns-ovsdb2 ifconifg veth2 3.3.3.11/24 up
+
+<span class="c1">## ovs 增加隧道使用的网桥</span>
+ovs-vsctl add-br ovs-vxlan
+
+<span class="c1"># 将虚拟机的对端口加入到 ovs 桥</span>
+ovs-vsctl add-port ovs-vxlan veth2p
+
+<span class="c1"># 激活接口</span>
+
+ip link <span class="nb">set</span> ovs-vxlan up
+ip link <span class="nb">set</span> veth2p up
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="创建隧道">创建隧道</h3>
+<p>Host1 操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ovs-vsctl add-port ovs-vxlan vxlan0 -- <span class="nb">set</span> interface vxlan0 <span class="nv">type</span><span class="o">=</span>vxlan options:remote_ip<span class="o">=</span>2.2.2.107 options:local_ip<span class="o">=</span>2.2.2.101
+</code></pre></td></tr></table>
+</div>
+</div><p>Host2操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ovs-vsctl add-port ovs-vxlan vxlan0 -- set interface vxlan0 type=vxlan options:remote_ip=2.2.2.101 options:local_ip=2.2.2.107
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="测试">测试</h3>
+<p>host1 namespace 中操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ip netns os-ovsdb1 ping 3.3.3.11
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="使用vxlan-将虚拟机-与物理机联通">使用vxlan 将虚拟机 与物理机联通</h2>
+<p>将物理机纳入到vpc操作实现方式</p>
+<h4 id="设备信息">设备信息</h4>
+<p>物理交换机支持vxlan    H3C6800</p>
+<p>交换机管理地址  2.2.2.1</p>
+<p>接入vxlan接口物理机IP: 3.3.3.180</p>
+<h4 id="h3c-6800-系列配置">H3C 6800 系列配置</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;h3c&gt;system-view
+
+[h3c]hardware-resource vxlan l2gw 
+[h3c]l2vpn enable
+
+## 创建vxlan 10 以及vsi
+vsi vsi0
+[H3C-vsi-vsi0]display this 
+#
+vsi vsi0
+ vxlan 0
+  tunnel all
+
+## 配置vxlan隧道
+#tunnel global source-address 2.2.2.1
+
+[H3C]interface Tunnel 1 mode vxlan
+[H3C-Tunnel1]display this 
+#
+interface Tunnel1 mode vxlan
+ source 2.2.2.1
+ destination 2.2.2.5
+ 
+ 
+ # 关联vxlan 和vxlan 隧道
+[H3C]vsi vsi0
+[H3C-vsi-vsi0]display this 
+#
+vsi vsi0
+ vxlan 0
+  tunnel all
+  
+  
+  # 接口配置
+  
+ interface Ten-GigabitEthernet1/0/17
+ port link-mode bridge
+ #
+ service-instance 1000
+  encapsulation default
+  xconnect vsi vsi0
+#
+return
+
+</code></pre></td></tr></table>
+</div>
+</div><p>物理机IP 配置为上述vxlan 内的IP     3.3.3.0/24</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">4: enp8s0f0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc mq state UP group default qlen <span class="m">1000</span>
+    link/ether f8:75:88:8b:ef:c2 brd ff:ff:ff:ff:ff:ff
+    inet 3.3.3.180/24 brd 3.3.3.255 scope global enp8s0f0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::fa75:88ff:fe8b:efc2/64 scope link 
+       valid_lft forever preferred_lft forever
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="交换机vxlan-验证">交换机vxlan 验证</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[H3C]display interface Tunnel
+Tunnel1
+Current state: UP
+Line protocol state: UP
+Description: Tunnel1 Interface
+Bandwidth: 64 kbps
+Maximum transmission unit: 1464
+Internet protocol processing: Disabled
+Last clearing of counters: Never
+Tunnel source 2.2.2.1, destination 2.2.2.5
+Tunnel protocol/transport UDP_VXLAN/IP
+Last 300 seconds input rate: 0 bytes/sec, 0 bits/sec, 0 packets/sec
+Last 300 seconds output rate: 0 bytes/sec, 0 bits/sec, 0 packets/sec
+Input: 0 packets, 0 bytes, 0 drops
+Output: 0 packets, 0 bytes, 0 drops
+
+
+
+
+
+[H3C]display l2vpn vsi verbose
+VSI Name: vsi0
+  VSI Index               : 1
+  VSI State               : Down
+  MTU                     : 1500
+  Bandwidth               : Unlimited
+  Broadcast Restrain      : Unlimited
+  Multicast Restrain      : Unlimited
+  Unknown Unicast Restrain: Unlimited
+  MAC Learning            : Enabled
+  MAC Table Limit         : -
+  MAC Learning rate       : -
+  Drop Unknown            : -
+  Flooding                : Enabled
+  Statistics              : Disabled
+  VXLAN ID                : 0
+  Tunnels:
+    Tunnel Name          Link ID    State    Type        Flood proxy
+    Tunnel1              0x5000001  UP       Manual      Disabled
+
+
+[H3C]display l2vpn mac-address 
+MAC Address    State    VSI Name                        Link ID/Name    Aging   
+f875-888b-efc2 Dynamic  vsi0                            XGE1/0/17       Aging   
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="测试-1">测试</h3>
+<p>在物理机上测试模拟虚拟机IP</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@bm-test network-scripts]# ping 3.3.3.10
+PING 3.3.3.100 (3.3.3.100) 56(84) bytes of data.
+64 bytes from 3.3.3.10: icmp_seq=1 ttl=64 time=0.660 ms
+64 bytes from 3.3.3.10: icmp_seq=2 ttl=64 time=0.149 ms
+64 bytes from 3.3.3.10: icmp_seq=3 ttl=64 time=0.164 ms
+</code></pre></td></tr></table>
+</div>
+</div><p>交换机mac address  学习</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[H3C]display l2vpn mac-address 
+MAC Address    State    VSI Name                        Link ID/Name    Aging   
+f875-888b-efc2 Dynamic  vsi0                            XGE1/0/17       Aging   
+fa16-3e90-d19c Dynamic  vsi0                            Tunnel1         Aging   
+fa16-3ed2-a43c Dynamic  vsi0                            Tunnel1         Aging
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="如何与neutron-集成并接入vpc">如何与neutron 集成并接入vpc</h2>
+<h3 id="节点信息">节点信息</h3>
+<p>控制节点 2.2.2.5</p>
+<p>vxlan local_ip： 2.2.2.5</p>
+<p>vxlan id： 91</p>
+<p>vxlan虚拟机 3.3.3.108/3.3.3.109</p>
+<p>物理交换机 ： 2.2.2.1</p>
+<p>物理机: 3.3.3.180</p>
+<h3 id="交换机配置">交换机配置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">vsi vpna
+ description ovsdb vxlan91
+ statistics enable
+ vxlan 91
+  tunnel all
+  
+  interface Ten-GigabitEthernet1/0/17
+ port link-mode bridge
+ #
+ service-instance 1000
+  encapsulation default
+  xconnect vsi vpna
+</code></pre></td></tr></table>
+</div>
+</div><p><code>note</code> 参考第一节 增加 br-tun 到交换机的vxlan 隧道</p>
+<h3 id="测试-2">测试</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">直接物理机测试 无法通信
+ping 3.3.3.108
+
+</code></pre></td></tr></table>
+</div>
+</div><p>控制节点抓包分析<code>tcpdump  -i enp5s0f1 </code></p>
+<p><img src="../../imeges/image-20200325200729478.png" alt="image-20200325200729478"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">16:37:50.758440 IP 2.2.2.1.35592 &gt; 2.2.2.5.4789: VXLAN, flags [I] (0x08), vni 91
+ARP, Request who-has 3.3.3.108 tell 3.3.3.180, length 46
+16:37:51.761302 IP 2.2.2.1.35592 &gt; 2.2.2.5.4789: VXLAN, flags [I] (0x08), vni 91
+ARP, Request who-has 3.3.3.108 tell 3.3.3.180, length 46
+16:37:52.763290 IP 2.2.2.1.35592 &gt; 2.2.2.5.4789: VXLAN, flags [I] (0x08), vni 91
+ARP, Request who-has 3.3.3.108 tell 3.3.3.180, length 46
+16:37:54.760437 IP 2.2.2.1.35592 &gt; 2.2.2.5.4789: VXLAN, flags [I] (0x08), vni 91
+ARP, Request who-has 3.3.3.108 tell 3.3.3.180, length 46
+16:37:54.762384 IP 2.2.2.1.6630 &gt; 2.2.2.5.51766: Flags [P.], seq 328:369, ack 345, win 8145, options [nop,nop,TS val 507533771 ecr 194312746], length 41
+16:37:54.762893 IP 2.2.2.5.51766 &gt; 2.2.2.1.6630: Flags [P.], seq 345:388, ack 369, win 243, options [nop,nop,TS val 194317749 ecr 507533771], length 43
+16:37:54.763609 IP 2.2.2.1.6630 &gt; 2.2.2.5.51766: Flags [.], ack 388, win 8139, options [nop,nop,TS val 507533772 ecr 194317749], length 0
+16:37:55.761286 IP 2.2.2.1.35592 &gt; 2.2.2.5.4789: VXLAN, flags [I] (0x08), vni 91
+ARP, Request who-has 3.3.3.108 tell 3.3.3.180, length 46
+16:37:56.763272 IP 2.2.2.1.35592 &gt; 2.2.2.5.4789: VXLAN, flags [I] (0x08), vni 91
+ARP, Request who-has 3.3.3.108 tell 3.3.3.180, length 46
+16:37:58.762415 IP 2.2.2.1.35592 &gt; 2.2.2.5.4789: VXLAN, flags [I] (0x08), vni 91
+ARP, Request who-has 3.3.3.108 tell 3.3.3.180, length 46
+16:37:59.765277 IP 2.2.2.1.35592 &gt; 2.2.2.5.4789: VXLAN, flags [I] (0x08), vni 91
+ARP, Request who-has 3.3.3.108 tell 3.3.3.180, length 46
+
+</code></pre></td></tr></table>
+</div>
+</div><p>包分析 可以看包数据报文arp 已经到达 隧道物理口，但是无法通过br-tun 以及使用patch peer 对转发到 br-int，所以无法通信。</p>
+<p>查看<code>br-tun</code></p>
+<p><img src="../../imeges/image-20200325200700335.png" alt="image-20200325200700335"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@controller-ovsdb ~]# ovs-ofctl dump-flows br-tun
+cookie=0x1e8ef6dec30704fb, duration=158088.749s, table=0, n_packets=66189, n_bytes=2781190, priority=1,in_port=&#34;patch-int&#34; actions=resubmit(,2)
+cookie=0x1e8ef6dec30704fb, duration=158088.747s, table=0, n_packets=431, n_bytes=26036, priority=0 actions=drop
+cookie=0x1e8ef6dec30704fb, duration=158088.745s, table=2, n_packets=1, n_bytes=74, priority=0,dl_dst=00:00:00:00:00:00/01:00:00:00:00:00 actions=resubmit(,20)
+cookie=0x1e8ef6dec30704fb, duration=158088.743s, table=2, n_packets=66188, n_bytes=2781116, priority=0,dl_dst=01:00:00:00:00:00/01:00:00:00:00:00 actions=resubmit(,22)
+cookie=0x1e8ef6dec30704fb, duration=158088.741s, table=3, n_packets=0, n_bytes=0, priority=0 actions=drop
+cookie=0x1e8ef6dec30704fb, duration=158086.402s, table=4, n_packets=0, n_bytes=0, priority=1,tun_id=0x5b actions=mod_vlan_vid:1,resubmit(,10)
+cookie=0x1e8ef6dec30704fb, duration=158088.739s, table=4, n_packets=0, n_bytes=0, priority=0 actions=drop
+cookie=0x1e8ef6dec30704fb, duration=158088.738s, table=6, n_packets=0, n_bytes=0, priority=0 actions=drop
+cookie=0x1e8ef6dec30704fb, duration=158088.736s, table=10, n_packets=0, n_bytes=0, priority=1 actions=learn(table=20,hard_timeout=300,priority=1,cookie=0x1e8ef6dec30704fb,NXM_OF_VLAN_TCI[0..11],NXM_OF_ETH_DST[]=NXM_OF_ETH_SRC[],load:0-&gt;NXM_OF_VLAN_TCI[],load:NXM_NX_TUN_ID[]-&gt;NXM_NX_TUN_ID[],output:OXM_OF_IN_PORT[]),output:&#34;patch-int&#34;
+cookie=0x1e8ef6dec30704fb, duration=158088.732s, table=20, n_packets=1, n_bytes=74, priority=0 actions=resubmit(,22)
+cookie=0x1e8ef6dec30704fb, duration=158088.730s, table=22, n_packets=66189, n_bytes=2781190, priority=0 actions=drop
+
+</code></pre></td></tr></table>
+</div>
+</div><p>手工添加的隧道 而非neutron 主动添加，缺少了一些oflow 流</p>
+<h4 id="解决方法">解决方法</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">数据库操作：
+use neutron;
+SELECT * FROM neutron.ml2_vxlan_endpoints;
+INSERT INTO `neutron`.`ml2_vxlan_endpoints` (`ip_address`, `udp_port`, `host`) VALUES (&#39;2.2.2.1&#39;, &#39;4789&#39;, &#39;h3c&#39;);
+
+# 重启 neutron-openvswitch-agent 使 ovs 自动增加隧道  以及对于该vxlan vtep的流表
+
+</code></pre></td></tr></table>
+</div>
+</div><p>查看隧道  br-tun</p>
+<p><img src="../../imeges/image-20200325200611209.png" alt="image-20200325200611209"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">   Bridge br-tun
+        Controller &#34;tcp:127.0.0.1:6633&#34;
+            is_connected: true
+        fail_mode: secure
+        Port &#34;vxlan1&#34;
+            Interface &#34;vxlan1&#34;
+                type: vxlan
+                options: {local_ip=&#34;2.2.2.5&#34;, remote_ip=&#34;2.2.2.1&#34;}    ##可以移除该port
+        Port patch-int
+            Interface patch-int
+                type: patch
+                options: {peer=patch-tun}
+        Port br-tun
+            Interface br-tun
+                type: internal
+        Port &#34;vxlan-02020201&#34;
+            Interface &#34;vxlan-02020201&#34;
+                type: vxlan
+                options: {df_default=&#34;true&#34;, in_key=flow, local_ip=&#34;2.2.2.5&#34;, out_key=flow, remote_ip=&#34;2.2.2.1&#34;}
+                
+</code></pre></td></tr></table>
+</div>
+</div><p><code>br-tun</code></p>
+<p><img src="../../imeges/image-20200325200540331.png" alt="image-20200325200540331"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@controller-ovsdb ~]# ovs-ofctl dump-flows br-tun
+ cookie=0x980592692fbe8ff8, duration=11061.455s, table=0, n_packets=73209, n_bytes=3078214, priority=1,in_port=&#34;patch-int&#34; actions=resubmit(,2)
+ cookie=0x980592692fbe8ff8, duration=11059.496s, table=0, n_packets=45, n_bytes=4182, priority=1,in_port=&#34;vxlan-02020201&#34; actions=resubmit(,4)
+ cookie=0x980592692fbe8ff8, duration=11061.453s, table=0, n_packets=431, n_bytes=26036, priority=0 actions=drop
+ cookie=0x980592692fbe8ff8, duration=11061.451s, table=2, n_packets=46, n_bytes=4148, priority=0,dl_dst=00:00:00:00:00:00/01:00:00:00:00:00 actions=resubmit(,20)
+ cookie=0x980592692fbe8ff8, duration=11061.449s, table=2, n_packets=73163, n_bytes=3074066, priority=0,dl_dst=01:00:00:00:00:00/01:00:00:00:00:00 actions=resubmit(,22)
+ cookie=0x980592692fbe8ff8, duration=11061.447s, table=3, n_packets=0, n_bytes=0, priority=0 actions=drop
+ cookie=0x980592692fbe8ff8, duration=11059.061s, table=4, n_packets=45, n_bytes=4182, priority=1,tun_id=0x5b actions=mod_vlan_vid:1,resubmit(,10)
+ cookie=0x980592692fbe8ff8, duration=11061.446s, table=4, n_packets=0, n_bytes=0, priority=0 actions=drop
+ cookie=0x980592692fbe8ff8, duration=11061.444s, table=6, n_packets=0, n_bytes=0, priority=0 actions=drop
+ cookie=0x980592692fbe8ff8, duration=11061.442s, table=10, n_packets=45, n_bytes=4182, priority=1 actions=learn(table=20,hard_timeout=300,priority=1,cookie=0x980592692fbe8ff8,NXM_OF_VLAN_TCI[0..11],NXM_OF_ETH_DST[]=NXM_OF_ETH_SRC[],load:0-&gt;NXM_OF_VLAN_TCI[],load:NXM_NX_TUN_ID[]-&gt;NXM_NX_TUN_ID[],output:OXM_OF_IN_PORT[]),output:&#34;patch-int&#34;
+ cookie=0x980592692fbe8ff8, duration=11061.439s, table=20, n_packets=1, n_bytes=74, priority=0 actions=resubmit(,22)
+ cookie=0x980592692fbe8ff8, duration=11059.066s, table=22, n_packets=6007, n_bytes=252294, priority=1,dl_vlan=1 actions=strip_vlan,load:0x5b-&gt;NXM_NX_TUN_ID[],output:&#34;vxlan-02020201&#34;
+ cookie=0x980592692fbe8ff8, duration=11061.437s, table=22, n_packets=67157, n_bytes=2821846, priority=0 actions=drop
+</code></pre></td></tr></table>
+</div>
+</div><p>增加了 第二条流表</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> cookie=0x980592692fbe8ff8, duration=11059.496s, table=0, n_packets=45, n_bytes=4182, priority=1,in_port=&#34;vxlan-02020201&#34; actions=resubmit(,4)  
+</code></pre></td></tr></table>
+</div>
+</div><p>增加了 入口为 vxlan-02020201 的表，转发到表4</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cookie=0x980592692fbe8ff8, duration=11059.061s, table=4, n_packets=45, n_bytes=4182, priority=1,tun_id=0x5b actions=mod_vlan_vid:1,resubmit(,10)
+</code></pre></td></tr></table>
+</div>
+</div><p>table 4  匹配的vxlan id 为 vxlan 91</p>
+<h3 id="测试-3">测试</h3>
+<p>虚拟机测试到 物理机完成</p>
+<h2 id="如何使用neutron-管理ironic-裸机">如何使用neutron 管理ironic 裸机</h2>
+<h4 id="方案目的">方案目的：</h4>
+<p>​	1. 该目标主要实现，vxlan网络下的 ironic的部署/ironic 使用vpc 网络、以及云平台对已有的业务可以接入vpc网络。主要实现方式是，将物理机所在的网络，通过交换机的隧道方式 接入到云平台的自身vpc内，形成一个vpc内的一个广播域实现，使物理机与vpc内虚拟机进行互通。</p>
+<p>​	2. 两套OpenStack 如何 使用vxlan隧道进行打通</p>
+<h2 id="如何使用ovsdb-控制协议-管理交换机vxlan-ovsdb表信息">如何使用ovsdb 控制协议 管理交换机vxlan ovsdb表信息</h2>
+<p><img src="../../imeges/image-20200331194133080.png" alt="image-20200331194133080"></p>
+<h4 id="具体实现说明">具体实现说明：</h4>
+<h4 id="网络上的通信实现">网络上的通信实现：</h4>
+<ol>
+<li>云平台三节点，控制、计算、网络节点 使用ovsdb控制节点在管理节点或者网络节点，接受api请求，使用ovsdb管理协议 对交换机进行配置，
+<ol>
+<li>将vxlan网络的信息、</li>
+<li>vxlan内的虚拟机的port信息</li>
+<li>建立交换机到所有节点的vtep隧道</li>
+<li>纳管裸机物理机所在的端口，并做map设置vlan与vxlan的绑定(可以是vlan1)</li>
+</ol>
+</li>
+</ol>
+<h4 id="ironic的虚拟机方式实现说明">ironic的虚拟机方式实现说明：</h4>
+<p>​	目前ironic的创建采用的是 部署虚拟机的方式，主要实现为 创建neutron port，更新neutron port的方式，在这种情况下主要实现分为两种</p>
+<pre><code>1.	使用部署网络部署好裸机(ironic), 然后更改网络为业务的vxlan网络，这时使用上述的网络通信方式，更改裸机的接口mapping关系以及隧道，保证裸机网络与vm进行通信正常
+2.	部署ironic的时候 直接使用 业务ironic网路
+            1.	更改交换机的端口mapping关系，建立隧道
+            2.	裸机 pxe dhcp tftp 广播查到服务器，包可以进入隧道 直接获取业务网的dhcp 等，来安装操作系统
+</code></pre>
+<h4 id="其他考虑">其他考虑</h4>
+<pre><code>1. 裸机原来没有lacp绑定等操作，后续需要做lacp
+2. 裸机原交换机已经做好了bond，直接使用业务网络
+</code></pre>
+<h3 id="具体验证">具体验证</h3>
+<h3 id="设备说明">设备说明：</h3>
+<p>控制节点： 2.2.2.6</p>
+<p>计算节点： 2.2.2.5</p>
+<p>交换机： 2.2.2.1</p>
+<p>物理服务器： 8.8.8.185  上联口1/0/18</p>
+<h3 id="说明">说明</h3>
+<p>目标： 使用ovsdb 协议调控交换机 配置端口 使裸机 报文直接经过隧道到云平台</p>
+<h3 id="配置说明">配置说明：</h3>
+<ol>
+<li>
+<p>查看目前的交换机数据表(<a href="http://www.openvswitch.org/support/dist-docs/vtep.5.html">http://www.openvswitch.org/support/dist-docs/vtep.5.html</a>)</p>
+<p><a href="http://www.openvswitch.org/support/dist-docs/ovsdb-client.1.txt">ovsdb-client</a></p>
+<p><a href="https://www.rfc-editor.org/rfc/rfc7047.txt">ovsdb rfc jsonrpc使用</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ovsdb-client dump tcp:2.2.2.1:6630
+ovsdb-client list-tables tcp:2.2.2.1:6630
+ovsdb-client list-columns tcp:2.2.2.1:6630  &lt;tables&gt;
+   
+ ovsdb-client transact tcp:2.2.2.1:6630                            增删改查表
+    
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>hardware_vtep 表说明</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Physical_Locator_Set                  ### 
+Physical_Port                                  ###   物理交换机管理的port   vtep access port 纳管的端口
+Mcast_Macs_Remote                   ###   远程多播的mac地址
+Logical_Switch                               ###  2层 网络逻辑域，这里一般是vxlan网络
+Global                                                 ###  根表配置
+ACL                                                      ###  ACL 配置
+Arp_Sources_Remote                 ###  
+Physical_Locator                           ### physical_locator 配置   一般配置为隧道remote_ip 等
+QoS                                 
+Ucast_Macs_Remote               ### 远端的单播mac地址
+Mcast_Macs_Local                   ### 本地端口上报的本地mac
+Ucast_Macs_Local                     ### 本地单播上报上来的mac
+Arp_Sources_Local                   ### 主要用于 三层路由 获得的arp
+Logical_Binding_Stats              ### 在physical_port 上绑定的网络的包状态分析
+ACL_entry                                       ### ACL_ENTRY 配置
+Logical_Router                             ### 三层 路由
+Manager                                          ### OVSDB 管理连接
+Physical_Switch                           ### 物理交换机配置，描述为 本交换机的信息以及管理的端口和隧道IP等
+Tunnel                                               ### 物理交换机创建的tunnel 隧道
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="接口对应关系">接口对应关系</h3>
+<p>1、 创建vxlan 网络对应的 Logical_Switch</p>
+<p>需求参数： vxlan id</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+#ovsdb-client transact -v tcp:2.2.2.1:6630 &#39;[&#34;hardware_vtep&#34;, {&#34;table&#34;: &#34;Logical_Switch&#34;,&#34;row&#34;: {&#34;tunnel_key&#34;: 62, &#34;description&#34;: &#34;l2gw_manual_test&#34;, &#34;name&#34;: &#34;38d525d1-089c-40f2-bf28-6bd5f1c91843&#34;}, &#34;op&#34;: &#34;insert&#34;}]&#39;
+</code></pre></td></tr></table>
+</div>
+</div><p>2、创建隧道</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ovsdb-client transact -v tcp:2.2.2.1:6630 &#39;[&#34;hardware_vtep&#34;, {&#34;table&#34;: &#34;Physical_Locator&#34;,&#34;row&#34;: {&#34;dst_ip&#34;: &#34;2.2.2.5&#34;, &#34;encapsulation_type&#34;: &#34;vxlan_over_ipv4&#34;}, &#34;op&#34;: &#34;insert&#34;}]&#39;
+</code></pre></td></tr></table>
+</div>
+</div><p>3、vxlan内的所有port 加入到 ucast_Macs_Remote表</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+</code></pre></td></tr></table>
+</div>
+</div><p>4、 更新Physwitch_Port 表，做vlan与vxlan  的映射关系</p>
+<p>需求参数： 交换机接口裸机的vlanID与vxlan的绑定关系</p>
+<h3 id="统一接口参数统一下发">统一接口参数统一下发：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#39;params&#39;: [&#39;hardware_vtep&#39;, {&#39;table&#39;: &#39;Logical_Switch&#39;, &#39;uuid-name&#39;: &#39;a90672625852268966949085801992249269423&#39;, &#39;row&#39;: {&#39;tunnel_key&#39;: 31, &#39;description&#39;: u&#39;vxlan_l2gw&#39;, &#39;name&#39;: u&#39;eeafb0a0-60c8-4496-aff7-e768a956fc30&#39;}, &#39;op&#39;: &#39;insert&#39;}, {&#39;table&#39;: &#39;Physical_Locator&#39;, &#39;uuid-name&#39;: &#39;a220479196367969230204429621024539915944&#39;, &#39;row&#39;: {&#39;dst_ip&#39;: u&#39;2.2.2.5&#39;, &#39;encapsulation_type&#39;: &#39;vxlan_over_ipv4&#39;}, &#39;op&#39;: &#39;insert&#39;}, {&#39;table&#39;: &#39;Ucast_Macs_Remote&#39;, &#39;uuid-name&#39;: &#39;a27913368442377473988757266543300569439&#39;, &#39;row&#39;: {&#39;locator&#39;: [&#39;named-uuid&#39;, &#39;a220479196367969230204429621024539915944&#39;], &#39;MAC&#39;: u&#39;fa:16:3e:4c:d7:ae&#39;, &#39;ipaddr&#39;: u&#39;8.8.8.2&#39;, &#39;logical_switch&#39;: [&#39;named-uuid&#39;, &#39;a90672625852268966949085801992249269423&#39;]}, &#39;op&#39;: &#39;insert&#39;}, {&#39;table&#39;: &#39;Physical_Port&#39;, &#39;where&#39;: [[&#39;_uuid&#39;, &#39;==&#39;, [&#39;uuid&#39;, u&#39;96a2b957-88eb-4aa9-a79e-5cb5fc641193&#39;]]], &#39;mutations&#39;: [[&#39;vlan_bindings&#39;, &#39;insert&#39;, [&#39;map&#39;, [[31, [&#39;named-uuid&#39;, &#39;a90672625852268966949085801992249269423&#39;]]]]]], &#39;op&#39;: &#39;mutate&#39;}, {&#39;durable&#39;: True, &#39;op&#39;: &#39;commit&#39;}], &#39;method&#39;: &#39;transact&#39;, &#39;id&#39;: &#39;59469794389961636286233953136115190516&#39;}
+</code></pre></td></tr></table>
+</div>
+</div><p>验证后结果：</p>
+<ol>
+<li>ovsdb-client  表</li>
+</ol>
+<p><img src="../../imeges/image-20200401143450747.png" alt="image-20200401143450747"></p>
+<p><img src="../../imeges/image-20200401143507751.png" alt="image-20200401143507751"></p>
+<p><img src="../../imeges/image-20200401143521332.png" alt="image-20200401143521332"></p>
+<p><img src="../../imeges/image-20200401143533928.png" alt="image-20200401143533928"></p>
+<ol start="2">
+<li>交换机
+<ul>
+<li>接口配置</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">interface Ten-GigabitEthernet1/0/18
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan all
+ vtep access port
+#
+return
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>隧道配置</li>
+</ul>
+<p>​	<img src="../../imeges/image-20200401144234588.png" alt="image-20200401144234588"></p>
+<ul>
+<li>bd 展示： dis l2vpn vsi verbose</li>
+</ul>
+<p><img src="../../imeges/image-20200401144318490.png" alt="image-20200401144318490"></p>
+<ul>
+<li>mapping 关系* display l2vpn service-instance verbose</li>
+</ul>
+<p><img src="../../imeges/image-20200401144434319.png" alt="image-20200401144434319"></p>
+<ul>
+<li>学到的mac</li>
+</ul>
+<p><img src="../../imeges/image-20200401144503243.png" alt="image-20200401144503243"></p>
+<ul>
+<li>通信情况</li>
+<li><img src="../../imeges/image-20200401144534809.png" alt="image-20200401144534809"></li>
+</ul>
+<h3 id="问题说明">问题说明</h3>
+<ol>
+<li>目前采用的是 vlan 与vxlan的转换在接口上，需要由裸机 出包时候带tag</li>
+<li>如果是采用vlan1的方式，则有安全如下：
+<ol>
+<li>​	交换机的其他vlan1</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">smallwormer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">0001-01-01</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/quagga/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/blog/post/test1/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '0001-01-01 00:00:00 \u002b0000 UTC',
+        title: '',
+        link: decodeURI(location.href),
+        desc: '物理机vxlan 模拟 物理机使用vxlan 模拟如何将两个虚拟机的端口使用vxlan进行跨物理机进行通信 拓扑图如下 环境信息 host1: 2.2.2.101 ​ 模拟虚拟机：3.',
+        owner: 'smalwormer',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://smallwormer.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">smallwormer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/blog/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

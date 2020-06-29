@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="smallwormer" /><meta name="description" content="网络vxlan ironic l2 gateway 接口说明 功能说明 接口说明 说明: 采用neutron endpoint : http://x.x.x.x:9696/v2.0 认证方式使用标准openstack token, headers: X-Auth-Token: {token} 隧道接口 隧道接口主要的操" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://smallwormer.github.io/blog/post/l2gw/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/blog/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="网络vxlan ironic l2 gateway 接口说明 功能说明 接口说明 说明: 采用neutron endpoint : http://x.x.x.x:9696/v2.0 认证方式使用标准openstack token, headers: X-Auth-Token: {token} 隧道接口 隧道接口主要的操" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smallwormer.github.io/blog/post/l2gw/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="网络vxlan ironic l2 gateway 接口说明 功能说明 接口说明 说明: 采用neutron endpoint : http://x.x.x.x:9696/v2.0 认证方式使用标准openstack token, headers: X-Auth-Token: {token} 隧道接口 隧道接口主要的操">
+
+<meta itemprop="wordCount" content="2157">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="网络vxlan ironic l2 gateway 接口说明 功能说明 接口说明 说明: 采用neutron endpoint : http://x.x.x.x:9696/v2.0 认证方式使用标准openstack token, headers: X-Auth-Token: {token} 隧道接口 隧道接口主要的操"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#隧道接口">隧道接口</a>
+      <ul>
+        <li><a href="#1-增加隧道">1. 增加隧道</a></li>
+        <li><a href="#2-删除隧道">2. 删除隧道</a></li>
+        <li><a href="#3-更新隧道">3. 更新隧道</a></li>
+        <li><a href="#4-查找所有隧道">4. 查找所有隧道</a></li>
+        <li><a href="#5-查询详细指定id隧道">5. 查询详细指定id隧道</a></li>
+      </ul>
+    </li>
+    <li><a href="#交换机port-管理">交换机port 管理</a>
+      <ul>
+        <li><a href="#1--创建l2-gateway">1.  创建l2-gateway</a></li>
+        <li><a href="#2-查询所有的l2-gateway">2. 查询所有的l2-gateway</a></li>
+        <li><a href="#3-查询指定l2-gateway">3. 查询指定l2-gateway</a></li>
+        <li><a href="#4-删除指定l2-gateway">4. 删除指定l2-gateway</a></li>
+      </ul>
+    </li>
+    <li><a href="#连接管理">连接管理</a>
+      <ul>
+        <li><a href="#1-创建l2gw-connection">1. 创建l2gw-connection</a></li>
+        <li><a href="#2-查询l2gw-connection">2. 查询l2gw-connection</a></li>
+        <li><a href="#3-查询指定的l2-gw-connection">3. 查询指定的l2-gw-connection</a></li>
+        <li><a href="#4-删除-l2-gw-connection">4. 删除 l2-gw-connection</a></li>
+        <li><a href="#json-rpc">json rpc</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>网络vxlan ironic l2  gateway 接口说明</p>
+<h1 id="功能说明">功能说明</h1>
+<h1 id="接口说明">接口说明</h1>
+<p>说明: 采用neutron endpoint  : <a href="http://x.x.x.x">http://x.x.x.x</a>:9696/v2.0</p>
+<p>认证方式使用标准openstack token,</p>
+<p>headers:</p>
+<p>X-Auth-Token: {token}</p>
+<h2 id="隧道接口">隧道接口</h2>
+<p>隧道接口主要的操作是, 交换机的ovsdb server 的vtep 地址以及端口 以及使用别名 写入到数据库中,</p>
+<p>但是是否与计算节点 创建隧道 等操作目前暂时不关联</p>
+<h3 id="1-增加隧道">1. 增加隧道</h3>
+<p>POST   /v2.0/l2_gateway_tunnels</p>
+<p>标准返回: 201</p>
+<p>错误返回码:</p>
+<p>400  401 409 500</p>
+<p>request:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ovsdb_identifier</td>
+<td>string</td>
+<td>交换机ovsdb server 别名</td>
+</tr>
+<tr>
+<td>ovsdb_port</td>
+<td>int(1-65535)</td>
+<td>ovsdb server port</td>
+</tr>
+<tr>
+<td>tunnel_ip</td>
+<td>string(ip_address_or_none自动校验ip)</td>
+<td>ovsdb server vtep 地址</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">{</span>
+	<span class="s2">&#34;l2_gateway_tunnel&#34;</span>:
+	<span class="o">{</span>
+		<span class="s2">&#34;ovsdb_port&#34;</span>: <span class="s2">&#34;6640&#34;</span>,
+		<span class="s2">&#34;ovsdb_identifier&#34;</span>: <span class="s2">&#34;h3c6810&#34;</span>,
+		<span class="s2">&#34;tunnel_ip&#34;</span>: <span class="s2">&#34;2.2.2.23&#34;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>response:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">{</span>
+    <span class="s2">&#34;l2_gateway_tunnel&#34;</span>: <span class="o">{</span>
+        <span class="s2">&#34;tunnel_ip&#34;</span>: <span class="s2">&#34;2.2.2.23&#34;</span>,
+        <span class="s2">&#34;ovsdb_identifier&#34;</span>: <span class="s2">&#34;h3c6810&#34;</span>,
+        <span class="s2">&#34;tenant_id&#34;</span>: <span class="s2">&#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;</span>,
+        <span class="s2">&#34;ovsdb_port&#34;</span>: <span class="s2">&#34;6650&#34;</span>,
+        <span class="s2">&#34;project_id&#34;</span>: <span class="s2">&#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;</span>,
+        <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;448ff969-bb53-4502-bebc-f291757f6a9e&#34;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-删除隧道">2. 删除隧道</h3>
+<p>DELETE   /v2.0/l2_gateway_tunnels/{ID}</p>
+<p>标准返回: 201</p>
+<p>错误返回码:</p>
+<p>400    401  500</p>
+<h3 id="3-更新隧道">3. 更新隧道</h3>
+<p>POST   /v2.0/l2_gateway_tunnels/{ID}</p>
+<p>标准返回: 201</p>
+<p>错误返回码:</p>
+<p>400</p>
+<p>401</p>
+<p>409</p>
+<p>500</p>
+<p>request:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ovsdb_identifier</td>
+<td>string</td>
+<td>交换机ovsdb server 别名</td>
+</tr>
+<tr>
+<td>ovsdb_port</td>
+<td>int(1-65535)</td>
+<td>ovsdb server port</td>
+</tr>
+<tr>
+<td>tunnel_ip</td>
+<td>string(ip_address_or_none自动校验ip)</td>
+<td>ovsdb server vtep 地址</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">{</span>
+	<span class="s2">&#34;l2_gateway_tunnel&#34;</span>:
+	<span class="o">{</span>
+		<span class="s2">&#34;ovsdb_port&#34;</span>: <span class="s2">&#34;6640&#34;</span>,
+		<span class="s2">&#34;ovsdb_identifier&#34;</span>: <span class="s2">&#34;h3c6810&#34;</span>,
+		<span class="s2">&#34;tunnel_ip&#34;</span>: <span class="s2">&#34;2.2.2.25&#34;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>response:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">{</span>
+    <span class="s2">&#34;l2_gateway_tunnel&#34;</span>: <span class="o">{</span>
+        <span class="s2">&#34;tunnel_ip&#34;</span>: <span class="s2">&#34;2.2.2.25&#34;</span>,
+        <span class="s2">&#34;ovsdb_identifier&#34;</span>: <span class="s2">&#34;h3c6810&#34;</span>,
+        <span class="s2">&#34;tenant_id&#34;</span>: <span class="s2">&#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;</span>,
+        <span class="s2">&#34;ovsdb_port&#34;</span>: <span class="s2">&#34;6650&#34;</span>,
+        <span class="s2">&#34;project_id&#34;</span>: <span class="s2">&#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;</span>,
+        <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;448ff969-bb53-4502-bebc-f291757f6a9e&#34;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4-查找所有隧道">4. 查找所有隧道</h3>
+<p>GET /v2.0/l2_gateway_tunnels</p>
+<p>response:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    &#34;l2_gateway_tunnels&#34;: [
+        {
+            &#34;tunnel_ip&#34;: &#34;2.2.2.13&#34;,
+            &#34;ovsdb_port&#34;: 6640,
+            &#34;id&#34;: &#34;221bcc37-d4c6-4a91-b413-afddd452a1eb&#34;,
+            &#34;ovsdb_identifier&#34;: &#34;h3c6810&#34;
+        },
+        {
+            &#34;tunnel_ip&#34;: &#34;2.2.2.23&#34;,
+            &#34;ovsdb_port&#34;: 6645,
+            &#34;id&#34;: &#34;33ca868a-d8fc-46ee-a8cb-06eb51045e6f&#34;,
+            &#34;ovsdb_identifier&#34;: &#34;h3c682&#34;
+        },
+        {
+            &#34;tunnel_ip&#34;: &#34;2.2.2.23&#34;,
+            &#34;ovsdb_port&#34;: 6650,
+            &#34;id&#34;: &#34;448ff969-bb53-4502-bebc-f291757f6a9e&#34;,
+            &#34;ovsdb_identifier&#34;: &#34;h3c6810&#34;
+        },
+        {
+            &#34;tunnel_ip&#34;: &#34;2.2.2.1&#34;,
+            &#34;ovsdb_port&#34;: 6630,
+            &#34;id&#34;: &#34;a48c0832-04eb-4691-9bc3-6b9ef2e6d8aa&#34;,
+            &#34;ovsdb_identifier&#34;: &#34;h3c6800&#34;
+        }
+    ]
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="5-查询详细指定id隧道">5. 查询详细指定id隧道</h3>
+<p>GET  /v2.0/l2_gateway_tunnels/{ID}</p>
+<p>response</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    &#34;l2_gateway_tunnel&#34;: {
+        &#34;tunnel_ip&#34;: &#34;2.2.2.23&#34;,
+        &#34;ovsdb_port&#34;: 6650,
+        &#34;id&#34;: &#34;448ff969-bb53-4502-bebc-f291757f6a9e&#34;,
+        &#34;ovsdb_identifier&#34;: &#34;h3c6810&#34;
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="交换机port-管理">交换机port 管理</h2>
+<p>说明:</p>
+<p>这里的交换机的port 管理 主要的作用为</p>
+<ol>
+<li>将交换机可以使用ovsdb 管理的port, 与交换机本身做绑定,并记录进数据库中.</li>
+<li>生成的交换机port 所拥有的唯一ID,为后面 将该交换机端口 根据ironic的变化 而做进一步的操作</li>
+</ol>
+<h3 id="1--创建l2-gateway">1.  创建l2-gateway</h3>
+<p>POST http://127.0.0.1:9696/v2.0/l2-gateways</p>
+<p>request:</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>值</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>字符串, gateway的名称</td>
+<td></td>
+</tr>
+<tr>
+<td>device_name</td>
+<td>这里是前面对应的交换机的ovsdb_identifier (不同交换机不同的值)</td>
+<td></td>
+</tr>
+<tr>
+<td>intefaces name</td>
+<td>这里是需要使用的交换机端口(裸机用的交换机端口)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#34;l2_gateway&#34;:
+	{&#34;name&#34;: &#34;l2gateway18&#34;,
+     &#34;devices&#34;: 
+    	[{&#34;device_name&#34;: &#34;h3c6800&#34;,
+          &#34;interfaces&#34;: 
+        	[{&#34;name&#34;:&#34;Ten-GigabitEthernet1/0/18&#34;}]
+        }]
+		
+	}
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>response:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    &#34;l2_gateway&#34;: {
+        &#34;tenant_id&#34;: &#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;,
+        &#34;id&#34;: &#34;eab9eb11-606d-48a8-a8de-77ef4241a04d&#34;,
+        &#34;devices&#34;: [
+            {
+                &#34;interfaces&#34;: [
+                    {
+                        &#34;segmentation_id&#34;: [],
+                        &#34;name&#34;: &#34;Ten-GigabitEthernet1/0/18&#34;
+                    }
+                ],
+                &#34;id&#34;: &#34;37cfdae3-6c67-43c5-b525-ba771b79d59b&#34;,
+                &#34;device_name&#34;: &#34;h3c6800&#34;
+            }
+        ],
+        &#34;name&#34;: &#34;l2gateway18&#34;
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-查询所有的l2-gateway">2. 查询所有的l2-gateway</h3>
+<p>GET http://127.0.0.1:9696/v2.0/l2_gateways</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    &#34;l2_gateways&#34;: [
+        {
+            &#34;tenant_id&#34;: &#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;,
+            &#34;id&#34;: &#34;eab9eb11-606d-48a8-a8de-77ef4241a04d&#34;,
+            &#34;devices&#34;: [
+                {
+                    &#34;interfaces&#34;: [
+                        {
+                            &#34;segmentation_id&#34;: [],
+                            &#34;name&#34;: &#34;Ten-GigabitEthernet1/0/18&#34;
+                        }
+                    ],
+                    &#34;id&#34;: &#34;37cfdae3-6c67-43c5-b525-ba771b79d59b&#34;,
+                    &#34;device_name&#34;: &#34;h3c6800&#34;
+                }
+            ],
+            &#34;name&#34;: &#34;l2gateway18&#34;
+        },
+        {
+            &#34;tenant_id&#34;: &#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;,
+            &#34;id&#34;: &#34;00b3aa88-9a22-44af-b626-ce0a5884c9af&#34;,
+            &#34;devices&#34;: [
+                {
+                    &#34;interfaces&#34;: [
+                        {
+                            &#34;segmentation_id&#34;: [],
+                            &#34;name&#34;: &#34;Ten1/0/12&#34;
+                        }
+                    ],
+                    &#34;id&#34;: &#34;828a47f9-bbaf-41b4-bebe-ea3db33e5894&#34;,
+                    &#34;device_name&#34;: &#34;H3C&#34;
+                }
+            ],
+            &#34;name&#34;: &#34;test&#34;
+        },
+        {
+            &#34;tenant_id&#34;: &#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;,
+            &#34;id&#34;: &#34;5536e3e7-5961-4b45-8c2f-5a818181afdf&#34;,
+            &#34;devices&#34;: [
+                {
+                    &#34;interfaces&#34;: [
+                        {
+                            &#34;segmentation_id&#34;: [],
+                            &#34;name&#34;: &#34;Ten1/0/12&#34;
+                        }
+                    ],
+                    &#34;id&#34;: &#34;94f02d0e-8b69-4d22-ac14-96cd24d6bb8b&#34;,
+                    &#34;device_name&#34;: &#34;H31C&#34;
+                }
+            ],
+            &#34;name&#34;: &#34;test&#34;
+        },
+        {
+            &#34;tenant_id&#34;: &#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;,
+            &#34;id&#34;: &#34;a3f01874-905b-4d03-a411-9f6ce48b002d&#34;,
+            &#34;devices&#34;: [
+                {
+                    &#34;interfaces&#34;: [
+                        {
+                            &#34;segmentation_id&#34;: [],
+                            &#34;name&#34;: &#34;Ten1/0/12&#34;
+                        }
+                    ],
+                    &#34;id&#34;: &#34;a0cd5fb5-f6a8-4591-9636-08855a2be33d&#34;,
+                    &#34;device_name&#34;: &#34;H3C&#34;
+                }
+            ],
+            &#34;name&#34;: &#34;test&#34;
+        },
+        {
+            &#34;tenant_id&#34;: null,
+            &#34;id&#34;: &#34;ssssss&#34;,
+            &#34;devices&#34;: [],
+            &#34;name&#34;: &#34;ssssss&#34;
+        }
+    ]
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-查询指定l2-gateway">3. 查询指定l2-gateway</h3>
+<p>GET: http://127.0.0.1:9696/v2.0/l2_gateways/00b3aa88-9a22-44af-b626-ce0a5884c9af</p>
+<p>response:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    &#34;l2_gateway&#34;: {
+        &#34;tenant_id&#34;: &#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;,
+        &#34;id&#34;: &#34;00b3aa88-9a22-44af-b626-ce0a5884c9af&#34;,
+        &#34;devices&#34;: [
+            {
+                &#34;interfaces&#34;: [
+                    {
+                        &#34;segmentation_id&#34;: [],
+                        &#34;name&#34;: &#34;Ten1/0/12&#34;
+                    }
+                ],
+                &#34;id&#34;: &#34;828a47f9-bbaf-41b4-bebe-ea3db33e5894&#34;,
+                &#34;device_name&#34;: &#34;H3C&#34;
+            }
+        ],
+        &#34;name&#34;: &#34;test&#34;
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4-删除指定l2-gateway">4. 删除指定l2-gateway</h3>
+<p>DELETE</p>
+<h2 id="连接管理">连接管理</h2>
+<p>说明:</p>
+<ol>
+<li>
+<p>这里的连接管理,主要是为了将 交换机的所在port 与 vpc的网络进行关联并记录进数据库</p>
+</li>
+<li>
+<p>设置一个默认的出报文是否带 tag, 不带tag 则表示 ironic使用该port 报文默认 不带tag</p>
+<p>交换机中操作:</p>
+<ol>
+<li>创建该网络下目前所有的port 所在的host 建立vxlan 隧道</li>
+<li>创建该网络在交换机上的LS</li>
+<li>将目前的l2-gateway (交换机port) 与该交换机上的LS (vsi) 进行绑定</li>
+<li>写表 mac  ls  表等</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-创建l2gw-connection">1. 创建l2gw-connection</h3>
+<p>POST:   /v2.0/l2-gateway-connections</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network_id</td>
+<td>string</td>
+<td>vpc 网络id</td>
+</tr>
+<tr>
+<td>default_segmentation_id</td>
+<td>int</td>
+<td>这里ironic 使用的时候默认全部为0.只有在l2gw 接管物理机时候可以根据目前时何种vlan网络 然后接入隧道</td>
+</tr>
+<tr>
+<td>l2_gateway_id</td>
+<td>string</td>
+<td>这里是 第二步中 创建的l2gw</td>
+</tr>
+</tbody>
+</table>
+<p>request:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+	&#34;l2_gateway_connection&#34;: {
+	   &#34;network_id&#34;: &#34;44a1acfb-d968-4cb4-b507-dda1d1ab5613&#34;,
+       &#34;segmentation_id&#34;: &#34;0&#34;,
+       &#34;l2_gateway_id&#34;: &#34;eab9eb11-606d-48a8-a8de-77ef4241a04d&#34;
+
+	}
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>response:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    &#34;l2_gateway_connection&#34;: {
+        &#34;network_id&#34;: &#34;44a1acfb-d968-4cb4-b507-dda1d1ab5613&#34;,
+        &#34;tenant_id&#34;: &#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;,
+        &#34;l2_gateway_id&#34;: &#34;eab9eb11-606d-48a8-a8de-77ef4241a04d&#34;,
+        &#34;id&#34;: &#34;7b72c519-5679-4f87-970e-8de7871ded57&#34;,
+        &#34;segmentation_id&#34;: &#34;0&#34;
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-查询l2gw-connection">2. 查询l2gw-connection</h3>
+<p>GET: /v2.0/l2-gateway-connections</p>
+<p>RESPONSE:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">{</span>
+    <span class="s2">&#34;l2_gateway_connections&#34;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&#34;network_id&#34;</span>: <span class="s2">&#34;44a1acfb-d968-4cb4-b507-dda1d1ab5613&#34;</span>,
+            <span class="s2">&#34;tenant_id&#34;</span>: <span class="s2">&#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;</span>,
+            <span class="s2">&#34;l2_gateway_id&#34;</span>: <span class="s2">&#34;eab9eb11-606d-48a8-a8de-77ef4241a04d&#34;</span>,
+            <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;7b72c519-5679-4f87-970e-8de7871ded57&#34;</span>,
+            <span class="s2">&#34;segmentation_id&#34;</span>: <span class="s2">&#34;&#34;</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-查询指定的l2-gw-connection">3. 查询指定的l2-gw-connection</h3>
+<p>GET: /v2.0/l2-gateway-connections/7b72c519-5679-4f87-970e-8de7871ded57</p>
+<p>RESPONSE:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">{</span>
+    <span class="s2">&#34;l2_gateway_connection&#34;</span>: <span class="o">{</span>
+        <span class="s2">&#34;network_id&#34;</span>: <span class="s2">&#34;44a1acfb-d968-4cb4-b507-dda1d1ab5613&#34;</span>,
+        <span class="s2">&#34;tenant_id&#34;</span>: <span class="s2">&#34;bf2b4f80ca05461e91bdc9dd8c30cf6b&#34;</span>,
+        <span class="s2">&#34;l2_gateway_id&#34;</span>: <span class="s2">&#34;eab9eb11-606d-48a8-a8de-77ef4241a04d&#34;</span>,
+        <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;7b72c519-5679-4f87-970e-8de7871ded57&#34;</span>,
+        <span class="s2">&#34;segmentation_id&#34;</span>: <span class="s2">&#34;&#34;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4-删除-l2-gw-connection">4. 删除 l2-gw-connection</h3>
+<p>DELETE:    /v2.0/l2-gateway-connections/7b72c519-5679-4f87-970e-8de7871ded57</p>
+<h3 id="json-rpc">json rpc</h3>
+<ol>
+<li>
+<p>插入mac</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml">{<span class="k">&#39;params&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;hardware_vtep&#39;</span><span class="p">,</span><span class="w"> </span>{<span class="k">&#39;table&#39;: &#39;Ucast_Macs_Remote&#39;, &#39;uuid-name&#39;: &#39;a331153226428030804097915672233280063271&#39;, &#39;row&#39;</span><span class="p">:</span><span class="w"> </span>{<span class="k">&#39;locator&#39;: [&#39;uuid&#39;, u&#39;1601e018-1c61-4196-9f50-7eba1dc22d0b&#39;], &#39;MAC&#39;: u&#39;fa:16:3e:01:5d:b3&#39;, &#39;ipaddr&#39;: u&#39;11.11.11.5&#39;, &#39;logical_switch&#39;: [&#39;uuid&#39;, u&#39;3aa9d3a1-6ffa-4ae0-ab13-6a10f711dd2c&#39;]}, &#39;op&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;insert&#39;</span>}<span class="p">,</span><span class="w"> </span>{<span class="k">&#39;durable&#39;: True, &#39;op&#39;: &#39;commit&#39;}], &#39;method&#39;: &#39;transact&#39;, &#39;id&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;231198306224079690469701978532160430404&#39;</span>}<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>插入 physical_locator</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="err">&#39;params&#39;:</span> <span class="err">[&#39;hardware_vtep&#39;,</span> <span class="err">{&#39;table&#39;:</span> <span class="err">&#39;Physical_Locator&#39;,</span> <span class="err">&#39;uuid-name&#39;:</span> <span class="err">&#39;a81686217450673059776434728390171289423&#39;,</span> <span class="err">&#39;row&#39;:</span> <span class="err">{&#39;dst_ip&#39;:</span> <span class="err">u&#39;2.2.2.5&#39;,</span> <span class="err">&#39;encapsulation_type&#39;:</span> <span class="err">&#39;vxlan_over_ipv4&#39;</span><span class="p">}</span><span class="err">,</span> <span class="err">&#39;op&#39;:</span> <span class="err">&#39;insert&#39;},</span> <span class="p">{</span><span class="err">&#39;table&#39;:</span> <span class="err">&#39;Ucast_Macs_Remote&#39;,</span> <span class="err">&#39;uuid-name&#39;:</span> <span class="err">&#39;a122747887554990406452454176247216683080&#39;,</span> <span class="err">&#39;row&#39;:</span> <span class="err">{&#39;locator&#39;:</span> <span class="err">[&#39;named-uuid&#39;,</span> <span class="err">&#39;a81686217450673059776434728390171289423&#39;],</span> <span class="err">&#39;MAC&#39;:</span> <span class="err">u&#39;fa:16:3e:9a:6d:ef&#39;,</span> <span class="err">&#39;ipaddr&#39;:</span> <span class="err">u&#39;12.12.0.2&#39;,</span> <span class="err">&#39;logical_switch&#39;:</span> <span class="err">[&#39;uuid&#39;,</span> <span class="err">u&#39;f6209139-8b35-4387-b01f-2fd97d05c7e6&#39;]</span><span class="p">}</span><span class="err">,</span> <span class="err">&#39;op&#39;:</span> <span class="err">&#39;insert&#39;},</span> <span class="p">{</span><span class="err">&#39;table&#39;:</span> <span class="err">&#39;Physical_Locator&#39;,</span> <span class="err">&#39;uuid-name&#39;:</span> <span class="err">&#39;a229508051108872189232268208829442657501&#39;,</span> <span class="err">&#39;row&#39;:</span> <span class="err">{&#39;dst_ip&#39;:</span> <span class="err">u&#39;192.168.1.112&#39;,</span> <span class="err">&#39;encapsulation_type&#39;:</span> <span class="err">&#39;vxlan_over_ipv4&#39;</span><span class="p">}</span><span class="err">,</span> <span class="err">&#39;op&#39;:</span> <span class="err">&#39;insert&#39;},</span> <span class="p">{</span><span class="err">&#39;table&#39;:</span> <span class="err">&#39;Ucast_Macs_Remote&#39;,</span> <span class="err">&#39;uuid-name&#39;:</span> <span class="err">&#39;a112391786605523535693128564896807458536&#39;,</span> <span class="err">&#39;row&#39;:</span> <span class="err">{&#39;locator&#39;:</span> <span class="err">[&#39;named-uuid&#39;,</span> <span class="err">&#39;a229508051108872189232268208829442657501&#39;],</span> <span class="err">&#39;MAC&#39;:</span> <span class="err">u&#39;fa:16:3e:ad:83:d2&#39;,</span> <span class="err">&#39;ipaddr&#39;:</span> <span class="err">u&#39;12.12.0.12&#39;,</span> <span class="err">&#39;logical_switch&#39;:</span> <span class="err">[&#39;uuid&#39;,</span> <span class="err">u&#39;f6209139-8b35-4387-b01f-2fd97d05c7e6&#39;]</span><span class="p">}</span><span class="err">,</span> <span class="err">&#39;op&#39;:</span> <span class="err">&#39;insert&#39;},</span> <span class="p">{</span><span class="err">&#39;table&#39;:</span> <span class="err">&#39;Physical_Port&#39;,</span> <span class="err">&#39;where&#39;:</span> <span class="err">[[&#39;_uuid&#39;,</span> <span class="err">&#39;==&#39;,</span> <span class="err">[&#39;uuid&#39;,</span> <span class="err">u&#39;e5c04905-29a2-480e-aabc-c1defccfa33c&#39;]]],</span> <span class="err">&#39;mutations&#39;:</span> <span class="err">[[&#39;vlan_bindings&#39;,</span> <span class="err">&#39;insert&#39;,</span> <span class="err">[&#39;map&#39;,</span> <span class="err">[[0,</span> <span class="err">[&#39;uuid&#39;,</span> <span class="err">u&#39;f6209139-8b35-4387-b01f-2fd97d05c7e6&#39;]]]]]],</span> <span class="err">&#39;op&#39;:</span> <span class="err">&#39;mutate&#39;</span><span class="p">}</span><span class="err">,</span> <span class="p">{</span><span class="err">&#39;durable&#39;:</span> <span class="err">True,</span> <span class="err">&#39;op&#39;:</span> <span class="err">&#39;commit&#39;</span><span class="p">}</span><span class="err">],</span> <span class="err">&#39;method&#39;:</span> <span class="err">&#39;transact&#39;,</span> <span class="err">&#39;id&#39;:</span> <span class="err">&#39;</span><span class="mi">182182977938488722506439760502052573349</span><span class="err">&#39;}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">result
+{u&#39;error&#39;: None, u&#39;id&#39;: u&#39;25168237332508666883454920535436311397&#39;, u&#39;result&#39;: [{u&#39;uuid&#39;: [u&#39;uuid&#39;, u&#39;de69a8df-d67f-4bfc-914a-b93e60ec5b9f&#39;]}, {u&#39;uuid&#39;: [u&#39;uuid&#39;, u&#39;fa0ee828-421d-4a55-9fe0-af435f6d0ebf&#39;]}, {u&#39;uuid&#39;: [u&#39;uuid&#39;, u&#39;23f295b2-3852-475d-9d9e-89fda93e4a7a&#39;]}, {u&#39;uuid&#39;: [u&#39;uuid&#39;, u&#39;82ba9e56-1145-4a1a-8128-513b3dbaef81&#39;]}, {u&#39;count&#39;: 1}, {}]}
+   
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span><span class="s1">&#39;hardware_vtep&#39;</span><span class="p">,</span><span class="w"> </span>{<span class="k">&#39;table&#39;: &#39;Physical_Locator&#39;, &#39;uuid-name&#39;: &#39;a249977647516286950484173796632195932040&#39;, &#39;row&#39;</span><span class="p">:</span><span class="w"> </span>{<span class="k">&#39;dst_ip&#39;: u&#39;2.2.2.5&#39;, &#39;encapsulation_type&#39;: &#39;vxlan_over_ipv4&#39;}, &#39;op&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;insert&#39;</span>}<span class="p">,</span><span class="w"> </span>{<span class="k">&#39;table&#39;: &#39;Ucast_Macs_Remote&#39;, &#39;uuid-name&#39;: &#39;a183239816116564915107361047687075072885&#39;, &#39;row&#39;</span><span class="p">:</span><span class="w"> </span>{<span class="k">&#39;locator&#39;: [&#39;named-uuid&#39;, &#39;a249977647516286950484173796632195932040&#39;], &#39;MAC&#39;: u&#39;fa:16:3e:9a:6d:ef&#39;, &#39;ipaddr&#39;: u&#39;12.12.0.2&#39;, &#39;logical_switch&#39;: [&#39;uuid&#39;, u&#39;f6209139-8b35-4387-b01f-2fd97d05c7e6&#39;]}, &#39;op&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;insert&#39;</span>}<span class="p">,</span><span class="w"> </span>{<span class="k">&#39;table&#39;: &#39;Physical_Locator&#39;, &#39;uuid-name&#39;: &#39;a274652008575862748817090366274398680734&#39;, &#39;row&#39;</span><span class="p">:</span><span class="w"> </span>{<span class="k">&#39;dst_ip&#39;: u&#39;192.168.1.112&#39;, &#39;encapsulation_type&#39;: &#39;vxlan_over_ipv4&#39;}, &#39;op&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;insert&#39;</span>}<span class="p">,</span><span class="w"> </span>{<span class="k">&#39;table&#39;: &#39;Ucast_Macs_Remote&#39;, &#39;uuid-name&#39;: &#39;a308615768339682507039250199291676411099&#39;, &#39;row&#39;</span><span class="p">:</span><span class="w"> </span>{<span class="k">&#39;locator&#39;: [&#39;named-uuid&#39;, &#39;a274652008575862748817090366274398680734&#39;], &#39;MAC&#39;: u&#39;fa:16:3e:ad:83:d2&#39;, &#39;ipaddr&#39;: u&#39;12.12.0.12&#39;, &#39;logical_switch&#39;: [&#39;uuid&#39;, u&#39;f6209139-8b35-4387-b01f-2fd97d05c7e6&#39;]}, &#39;op&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;insert&#39;</span>}<span class="p">,</span><span class="w"> </span>{<span class="k">&#39;table&#39;: &#39;Physical_Port&#39;, &#39;where&#39;: [[&#39;_uuid&#39;, &#39;==&#39;, [&#39;uuid&#39;, u&#39;e5c04905-29a2-480e-aabc-c1defccfa33c&#39;]]], &#39;mutations&#39;: [[&#39;vlan_bindings&#39;, &#39;insert&#39;, [&#39;map&#39;, [[0, [&#39;uuid&#39;, u&#39;f6209139-8b35-4387-b01f-2fd97d05c7e6&#39;]]]]]], &#39;op&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;mutate&#39;</span>}<span class="p">,</span><span class="w"> </span>{<span class="k">&#39;durable&#39;: True, &#39;op&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;commit&#39;</span>}<span class="p">]</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[&#39;hardware_vtep&#39;, {&#39;table&#39;: &#39;Physical_Locator&#39;, &#39;row&#39;: {&#39;dst_ip&#39;: u&#39;192.168.1.112&#39;, &#39;encapsulation_type&#39;: &#39;vxlan_over_ipv4&#39;}, &#39;op&#39;: &#39;insert&#39;}, {&#39;table&#39;: &#39;Physical_Locator&#39;, &#39;row&#39;: {&#39;dst_ip&#39;: u&#39;2.2.2.5&#39;, &#39;encapsulation_type&#39;: &#39;vxlan_over_ipv4&#39;}, &#39;op&#39;: &#39;insert&#39;}, {&#39;durable&#39;: True, &#39;op&#39;: &#39;commit&#39;}]
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#39;params&#39;: [&#39;hardware_vtep&#39;, {&#39;table&#39;: &#39;Physical_Locator&#39;, &#39;uuid-name&#39;: &#39;a249977647516286950484173796632195932040&#39;, &#39;row&#39;: {&#39;dst_ip&#39;: u&#39;2.2.2.5&#39;, &#39;encapsulation_type&#39;: &#39;vxlan_over_ipv4&#39;}, &#39;op&#39;: &#39;insert&#39;}, {&#39;table&#39;: &#39;Physical_Locator&#39;, &#39;uuid-name&#39;: &#39;a274652008575862748817090366274398680734&#39;, &#39;row&#39;: {&#39;dst_ip&#39;: u&#39;192.168.1.112&#39;, &#39;encapsulation_type&#39;: &#39;vxlan_over_ipv4&#39;}, &#39;op&#39;: &#39;insert&#39;}, {&#39;durable&#39;: True, &#39;op&#39;: &#39;commit&#39;}], &#39;method&#39;: &#39;transact&#39;, &#39;id&#39;: &#39;335165864537871644880983733535060542212&#39;}
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[&#39;hardware_vtep&#39;, {&#39;table&#39;: &#39;Physical_Locator&#39;, &#39;uuid-name&#39;: &#39;a249977647516286950484173796632195932040&#39;, &#39;row&#39;: {&#39;dst_ip&#39;: u&#39;2.2.2.5&#39;, &#39;encapsulation_type&#39;: &#39;vxlan_over_ipv4&#39;}, &#39;op&#39;: &#39;insert&#39;}, {&#39;table&#39;: &#39;Physical_Locator&#39;, &#39;uuid-name&#39;: &#39;a274652008575862748817090366274398680734&#39;, &#39;row&#39;: {&#39;dst_ip&#39;: u&#39;192.168.1.112&#39;, &#39;encapsulation_type&#39;: &#39;vxlan_over_ipv4&#39;}, &#39;op&#39;: &#39;insert&#39;}, {&#39;durable&#39;: True, &#39;op&#39;: &#39;commit&#39;}]
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ovsdb-client transact -v tcp:2.2.2.1:6630 &#39;[&#34;hardware_vtep&#34;,  {&#34;table&#34;: &#34;Physical_Locator&#34;, &#34;uuid-name&#34;: &#34;mytest1&#34;, &#34;row&#34;: {&#34;dst_ip&#34;: &#34;2.2.2.202&#34;, &#34;encapsulation_type&#34;: &#34;vxlan_over_ipv4&#34;}, &#34;op&#34;: &#34;insert&#34;}, {&#34;table&#34;: &#34;Physical_Locator&#34;, &#34;uuid-name&#34;: &#34;mytest2&#34;, &#34;row&#34;: {&#34;dst_ip&#34;: &#34;2.2.2.201&#34;, &#34;encapsulation_type&#34;: &#34;vxlan_over_ipv4&#34;}, &#34;op&#34;: &#34;insert&#34;}, {&#34;table&#34;: &#34;Physical_Locator_Set&#34;, &#34;uuid-name&#34;:  &#34;physical_locator_set_test&#34;, &#34;row&#34;: {&#34;locators&#34;:  [&#34;set&#34;, [[&#34;named-uuid&#34;, &#34;mytest1&#34;],[&#34;named-uuid&#34;, &#34;mytest2&#34;]]]}, &#34;op&#34;: &#34;insert&#34;}, {&#34;table&#34;: &#34;Mcast_Macs_Remote&#34;,  &#34;row&#34;: {&#34;MAC&#34;: &#34;unknown-dst&#34;, &#34;ipaddr&#34;: &#34;&#34;, &#34;locator_set&#34;: [&#34;named-uuid&#34;, &#34;physical_locator_set_test&#34;],  &#34;logical_switch&#34;: [&#34;uuid&#34;, &#34;f6209139-8b35-4387-b01f-2fd97d05c7e6&#34;]}, &#34;op&#34;: &#34;insert&#34;}]&#39;
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">vtep-ctl  --db=tcp:2.2.2.1:6630 destroy Physical_Locator 77fd929c-3980-4051-b315-6b40b5c86585
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#/bin/bash
+
+
+neutron-db-manage --subproject networking-l2gw revision -m &#34;create mcast_mac_local table&#34;  --expand
+
+
+su -s /bin/sh -c &#34;neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head&#34; neutron
+
+ovsdb-client transact -v tcp:2.2.2.1:6630 &#39;[&#34;hardware_vtep&#34;, {&#34;table&#34;: &#34;Logical_Switch&#34;,&#34;row&#34;: {&#34;tunnel_key&#34;: 62, &#34;description&#34;: &#34;l2gw_manual_test&#34;, &#34;name&#34;: &#34;38d525d1-089c-40f2-bf28-6bd5f1c91843&#34;}, &#34;op&#34;: &#34;insert&#34;}]&#39;
+
+
+
+
+ovsdb-client transact -v tcp:2.2.2.1:6630 &#39;[&#34;hardware_vtep&#34;, {&#34;table&#34;: &#34;Logical_Switch&#34;, &#34;row&#34;: {&#34;tunnel_key&#34;: 16, &#34;description&#34;: &#34;vxlan_l2gw-vxlan&#34;, &#34;name&#34;: &#34;d13eea18-819a-4671-9938-4cdb819d046f&#34;}, &#34;uuid-name&#34;: &#34;logicalswitch&#34;, &#34;op&#34;: &#34;insert&#34;}]&#39;
+
+
+vtep-ctl  --db=tcp:2.2.2.1:6630 create  Physical_Locator  dst_ip=2.2.2.7 encapsulation_type=&#34;vxlan_over_ipv4&#34;
+
+
+ovsdb-client transact -v tcp:2.2.2.1:6630 &#39;[&#39;hardware_vtep&#39;, {&#39;table&#39;: &#39;Physical_Locator&#39;, &#39;uuid-name&#39;: u&#39;8812d69d-265f-4b10-930e-22e26375f0f1&#39;, &#39;row&#39;: {&#39;dst_ip&#39;: u&#39;192.168.1.112&#39;, &#39;encapsulation_type&#39;: &#39;vxlan_over_ipv4&#39;}, &#39;op&#39;: &#39;insert&#39;}, {&#39;table&#39;: &#39;Tunnel&#39;, &#39;row&#39;: {&#39;remote&#39;: [&#39;named-uuid&#39;, u&#39;8812d69d-265f-4b10-930e-22e26375f0f1&#39;], &#39;local&#39;: [&#39;uuid&#39;, &#39;25744b11-dd3b-4046-a6d2-986d03ec62df&#39;]}, &#39;op&#39;: &#39;insert&#39;}, {&#39;durable&#39;: True, &#39;op&#39;: &#39;commit&#39;}]&#39;
+
+
+
+ovsdb-client transact -v tcp:2.2.2.1:6630 &#39;[&#34;hardware_vtep&#34;, {&#34;table&#34;: &#34;Physical_Locator&#34;, &#34;uuid-name&#34;: &#34;mytest&#34;, &#34;row&#34;: {&#34;dst_ip&#34;: &#34;2.2.2.200&#34;, &#34;encapsulation_type&#34;: &#34;vxlan_over_ipv4&#34;}, &#34;op&#34;: &#34;insert&#34;}, {&#34;table&#34;: &#34;Physical_Locator_Set&#34;, &#34;uuid-name&#34;:  &#34;physical_locator_set_test&#34;, &#34;row&#34;: {&#34;locators&#34;: [&#34;named-uuid&#34;, &#34;mytest&#34;]}, &#34;op&#34;: &#34;insert&#34;},  {&#34;table&#34;: &#34;Mcast_Macs_Remote&#34;,  &#34;row&#34;: {&#34;MAC&#34;: &#34;unknown-dst&#34;, &#34;ipaddr&#34;: &#34;&#34;, &#34;locator_set&#34;: [&#34;named-uuid&#34;, &#34;physical_locator_set_test&#34;], &#34;logical_switch&#34;: [&#34;uuid&#34;, &#34;f6209139-8b35-4387-b01f-2fd97d05c7e6&#34;]}, &#34;op&#34;: &#34;insert&#34;}]&#39;
+
+
+## add physical_port for segi
+ovsdb-client transact -v tcp:2.2.2.1:6630 &#39;[&#34;hardware_vtep&#34;, {&#34;table&#34;: &#34;Physical_Port&#34;, &#34;where&#34;: [[&#34;_uuid&#34;, &#34;==&#34;, [&#34;uuid&#34;, &#34;e5c04905-29a2-480e-aabc-c1defccfa33c&#34;]]], &#34;mutations&#34;: [[&#34;vlan_bindings&#34;, &#34;insert&#34;, [&#34;map&#34;, [[0, [&#34;uuid&#34;, &#34;6b655c64-9162-4d88-91f5-82e0c76ab78e&#34;]]]]]], &#34;op&#34;: &#34;mutate&#34;}]&#39;
+
+
+
+
+# add logical_switch and  mcast
+ovsdb-client transact -v tcp:2.2.2.1:6630 &#39;[&#34;hardware_vtep&#34;, {&#34;table&#34;: &#34;Logical_Switch&#34;, &#34;uuid-name&#34;: &#34;a83674416850895750000104553959462532719&#34;, &#34;row&#34;: {&#34;tunnel_key&#34;: 34, &#34;description&#34;: &#34;test-l2gw-net2&#34;, &#34;name&#34;: &#34;d090fa09-38f6-449a-8553-124c19ef5d63&#34;}, &#34;op&#34;: &#34;insert&#34;}, {&#34;table&#34;: &#34;Mcast_Macs_Remote&#34;, &#34;row&#34;: {&#34;locator_set&#34;: [&#34;uuid&#34;, &#34;cd21126b-8a06-49bd-892c-3f1ddbfb2a94&#34;], &#34;MAC&#34;: &#34;unknown-dst&#34;, &#34;ipaddr&#34;: &#34;&#34;, &#34;logical_switch&#34;: [&#34;named-uuid&#34;, &#34;a83674416850895750000104553959462532719&#34;]}, &#34;op&#34;: &#34;insert&#34;}, {&#34;table&#34;: &#34;Physical_Port&#34;, &#34;where&#34;: [[&#34;_uuid&#34;, &#34;==&#34;, [&#34;uuid&#34;, &#34;e5c04905-29a2-480e-aabc-c1defccfa33c&#34;]]], &#34;mutations&#34;: [[&#34;vlan_bindings&#34;, &#34;insert&#34;, [&#34;map&#34;, [[0, [&#34;named-uuid&#34;, &#34;a83674416850895750000104553959462532719&#34;]]]]]], &#34;op&#34;: &#34;mutate&#34;}]&#39;
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://tools.ietf.org/html/rfc7047">https://tools.ietf.org/html/rfc7047</a></p>
+<p><a href="http://www.openvswitch.org/support/dist-docs-2.5/ovsdb-client.1.html">http://www.openvswitch.org/support/dist-docs-2.5/ovsdb-client.1.html</a></p>
+<p><a href="http://www.openvswitch.org/support/dist-docs/vtep.5.html">http://www.openvswitch.org/support/dist-docs/vtep.5.html</a></p>
+<p><a href="http://www.openvswitch.org/support/dist-docs/ovsdb-client.1.txt">http://www.openvswitch.org/support/dist-docs/ovsdb-client.1.txt</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">smallwormer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">0001-01-01</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/ipv6_subpool/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/blog/post/lvs_ospf_keepalived/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '0001-01-01 00:00:00 \u002b0000 UTC',
+        title: '',
+        link: decodeURI(location.href),
+        desc: '网络vxlan ironic l2 gateway 接口说明 功能说明 接口说明 说明: 采用neutron endpoint : http:\/\/x.x.x.x:9696\/v2.0 认证方式使用标准openstack token, headers: X-Auth-Token: {token} 隧道接口 隧道接口主要的操',
+        owner: 'smalwormer',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://smallwormer.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">smallwormer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/blog/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

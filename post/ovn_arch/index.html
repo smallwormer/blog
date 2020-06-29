@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="smallwormer" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="smallwormer" /><meta name="description" content="OVN Arch OVN 架构说明 ovn 官方架构指引说明 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 CMS | | &#43;-----------|-----------&#43; | | | | OVN/CMS Plugin | | | | | | | | OVN Northbound DB |" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.73.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://smallwormer.github.io/blog/post/go-snip/" />
+<link rel="canonical" href="https://smallwormer.github.io/blog/post/ovn_arch/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
@@ -39,20 +39,20 @@
 
 
 <meta property="og:title" content="" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="OVN Arch OVN 架构说明 ovn 官方架构指引说明 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 CMS | | &#43;-----------|-----------&#43; | | | | OVN/CMS Plugin | | | | | | | | OVN Northbound DB |" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://smallwormer.github.io/blog/post/go-snip/" />
+<meta property="og:url" content="https://smallwormer.github.io/blog/post/ovn_arch/" />
 
 <meta itemprop="name" content="">
-<meta itemprop="description" content="">
+<meta itemprop="description" content="OVN Arch OVN 架构说明 ovn 官方架构指引说明 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 CMS | | &#43;-----------|-----------&#43; | | | | OVN/CMS Plugin | | | | | | | | OVN Northbound DB |">
 
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="193">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="OVN Arch OVN 架构说明 ovn 官方架构指引说明 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 CMS | | &#43;-----------|-----------&#43; | | | | OVN/CMS Plugin | | | | | | | | OVN Northbound DB |"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -127,11 +127,92 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ovn-架构说明">OVN 架构说明</a></li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
-      
+      <h1 id="ovn-arch">OVN Arch</h1>
+<h2 id="ovn-架构说明">OVN 架构说明</h2>
+<p><a href="http://www.openvswitch.org/support/dist-docs/ovn-architecture.7.html">ovn 官方架构指引说明</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">                                        CMS
+                                          |
+                                          |
+                              +-----------|-----------+
+                              |           |           |
+                              |     OVN/CMS Plugin    |
+                              |           |           |
+                              |           |           |
+                              |   OVN Northbound DB   |
+                              |           |           |
+                              |           |           |
+                              |       ovn-northd      |
+                              |           |           |
+                              +-----------|-----------+
+                                          |
+                                          |
+                                +-------------------+
+                                | OVN Southbound DB |
+                                +-------------------+
+                                          |
+                                          |
+                       +------------------+------------------+
+                       |                  |                  |
+         HV 1          |                  |    HV n          |
+       +---------------|---------------+  .  +---------------|---------------+
+       |               |               |  .  |               |               |
+       |        ovn-controller         |  .  |        ovn-controller         |
+       |         |          |          |  .  |         |          |          |
+       |         |          |          |     |         |          |          |
+       |  ovs-vswitchd   ovsdb-server  |     |  ovs-vswitchd   ovsdb-server  |
+       |                               |     |                               |
+       +-------------------------------+     +-------------------------------+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>ovn-northd:   主要是连接两个两个数据库,OVN Northbound DB 和OVN Southbound DB,主要作用是将OVN Northbound DB 中的</li>
+<li></li>
+</ul>
+
     </div>
 
     <div class="post-copyright">
@@ -148,12 +229,12 @@
 </div><footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/blog/post/eve-ng-network/">
+        <a class="prev" href="/blog/post/ovn-sourthdb/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default"></span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/blog/post/ipv6_subpool/">
+        <a class="next" href="/blog/post/quagga/">
             <span class="next-text nav-default"></span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
@@ -170,7 +251,7 @@
         id: '0001-01-01 00:00:00 \u002b0000 UTC',
         title: '',
         link: decodeURI(location.href),
-        desc: '',
+        desc: 'OVN Arch OVN 架构说明 ovn 官方架构指引说明 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 CMS | | \u002b-----------|-----------\u002b | | | | OVN\/CMS Plugin | | | | | | | | OVN Northbound DB |',
         owner: 'smalwormer',
         repo: '',
         oauth: {
