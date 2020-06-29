@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 17 Jun 2019 16:33:54 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 29 Jun 2019 11:29:01 +0800</lastBuildDate>
     
 	<atom:link href="https://smallwormer.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Neutron Port Sec</title>
+      <link>https://smallwormer.github.io/blog/post/neutron-port-sec/</link>
+      <pubDate>Sat, 29 Jun 2019 11:29:01 +0800</pubDate>
+      
+      <guid>https://smallwormer.github.io/blog/post/neutron-port-sec/</guid>
+      <description>Neutron Port Security 说明 neutron 安全组 主要是作用于 虚拟机的网卡port 上，用户在linuxbridge 中实现，主要目的是为了实现对于虚拟机的访问控制功能， 这是一</description>
+    </item>
     
     <item>
       <title>Centos7_install_k8s_binary</title>

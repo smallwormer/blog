@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Neutron Port Sec - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="smallwormer" /><meta name="description" content="Neutron Port Security 说明 neutron 安全组 主要是作用于 虚拟机的网卡port 上，用户在linuxbridge 中实现，主要目的是为了实现对于虚拟机的访问控制功能， 这是一" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://smallwormer.github.io/blog/post/neutron-port-sec/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/blog/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Neutron Port Sec" />
+<meta property="og:description" content="Neutron Port Security 说明 neutron 安全组 主要是作用于 虚拟机的网卡port 上，用户在linuxbridge 中实现，主要目的是为了实现对于虚拟机的访问控制功能， 这是一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smallwormer.github.io/blog/post/neutron-port-sec/" />
+<meta property="article:published_time" content="2019-06-29T11:29:01+08:00" />
+<meta property="article:modified_time" content="2019-06-29T11:29:01+08:00" />
+<meta itemprop="name" content="Neutron Port Sec">
+<meta itemprop="description" content="Neutron Port Security 说明 neutron 安全组 主要是作用于 虚拟机的网卡port 上，用户在linuxbridge 中实现，主要目的是为了实现对于虚拟机的访问控制功能， 这是一">
+<meta itemprop="datePublished" content="2019-06-29T11:29:01&#43;08:00" />
+<meta itemprop="dateModified" content="2019-06-29T11:29:01&#43;08:00" />
+<meta itemprop="wordCount" content="1308">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Neutron Port Sec"/>
+<meta name="twitter:description" content="Neutron Port Security 说明 neutron 安全组 主要是作用于 虚拟机的网卡port 上，用户在linuxbridge 中实现，主要目的是为了实现对于虚拟机的访问控制功能， 这是一"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Neutron Port Sec</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-06-29 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#说明">说明</a></li>
+    <li><a href="#安全组的禁用场景">安全组的禁用场景</a></li>
+    <li><a href="#安全组实现">安全组实现</a>
+      <ul>
+        <li><a href="#配置-etcneutronpluginsml2ml2_confini">配置 <code>/etc/neutron/plugins/ml2/ml2_conf.ini</code></a></li>
+        <li><a href="#实现方式">实现方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#neutron-port-security禁用操作">neutron port security禁用操作</a>
+      <ul>
+        <li><a href="#用例场景">用例场景</a></li>
+        <li><a href="#禁用安全组">禁用安全组</a></li>
+      </ul>
+    </li>
+    <li><a href="#对整个网络禁用安全组">对整个网络禁用安全组</a>
+      <ul>
+        <li><a href="#不禁用安全组-增加---allowed-address-pairs">不禁用安全组 增加 &ndash;allowed-address-pairs</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="neutron-port-security">Neutron Port Security</h1>
+<h2 id="说明">说明</h2>
+<p>neutron 安全组 主要是作用于 虚拟机的网卡port 上，用户在linuxbridge 中实现，主要目的是为了实现对于虚拟机的访问控制功能，</p>
+<p>这是一个白名单机制，默认放行所有的出去的报文，进来的报文一律进行drop, 默认是由 iptables实现。这里不详细说明。</p>
+<h2 id="安全组的禁用场景">安全组的禁用场景</h2>
+<p>目前在neutron 的使用中，经常会用到在OpenStack的虚拟机中部署集群的方式，但是在集群中又要使用到vip的形式，</p>
+<p>但是neutron 本身有方式 泛洪的机制 就需要将增加其他的地址在neutron port上才可以出网</p>
+<h2 id="安全组实现">安全组实现</h2>
+<h3 id="配置-etcneutronpluginsml2ml2_confini">配置 <code>/etc/neutron/plugins/ml2/ml2_conf.ini</code></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[ml2]
+extension_drivers = port_security
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="实现方式">实现方式</h3>
+<ol>
+<li>
+<p>网络</p>
+<p><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>Neutron port 安全组的计算节点iptable(192.168.52.35)</p>
+<p><code>id</code> a03d43cd-5e15-4ff5-9a0d-ec27e10e9d60</p>
+<p><code>mac</code>: fa:16:3e:93:ef:e3</p>
+<p><code>ip</code>192.168.52.35</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">neutron port-list |grep 192.168.52.35
+| a03d43cd-5e15-4ff5-9a0d-ec27e10e9d60 |                                                                  | 906aec391bd642449cebd8de2e6665ad | fa:16:3e:93:ef:e3 | {&#34;subnet_id&#34;: &#34;07057913-9e97-46e3-beb4-7f3a72e40745&#34;, &#34;ip_address&#34;: &#34;192.168.52.35&#34;}  |
+
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>port 查看所在节点</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">neutron port-show a03d43cd-5e15-4ff5-9a0d-ec27e10e9d60 |grep &#34;binding:host_id&#34;
+</code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>进入计算节点查看</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@openstack-com08 ~]# iptables-save |grep  a03d43cd-5
+-A neutron-openvswi-PREROUTING -m physdev --physdev-in qvba03d43cd-5e -m comment --comment &#34;Set zone for 43cd-5e15-4ff5-9a0d-ec27e10e9d60&#34; -j CT --zone 3
+-A neutron-openvswi-PREROUTING -i qvba03d43cd-5e -m comment --comment &#34;Set zone for 43cd-5e15-4ff5-9a0d-ec27e10e9d60&#34; -j CT --zone 3
+-A neutron-openvswi-PREROUTING -m physdev --physdev-in tapa03d43cd-5e -m comment --comment &#34;Set zone for 43cd-5e15-4ff5-9a0d-ec27e10e9d60&#34; -j CT --zone 3
+:neutron-openvswi-ia03d43cd-5 - [0:0]
+:neutron-openvswi-oa03d43cd-5 - [0:0]
+:neutron-openvswi-sa03d43cd-5 - [0:0]
+-A neutron-openvswi-FORWARD -m physdev --physdev-out tapa03d43cd-5e --physdev-is-bridged -m comment --comment &#34;Direct traffic from the VM interface to the security group chain.&#34; -j neutron-openvswi-sg-chain
+-A neutron-openvswi-FORWARD -m physdev --physdev-in tapa03d43cd-5e --physdev-is-bridged -m comment --comment &#34;Direct traffic from the VM interface to the security group chain.&#34; -j neutron-openvswi-sg-chain
+-A neutron-openvswi-INPUT -m physdev --physdev-in tapa03d43cd-5e --physdev-is-bridged -m comment --comment &#34;Direct incoming traffic from VM to the security group chain.&#34; -j neutron-openvswi-oa03d43cd-5
+-A neutron-openvswi-ia03d43cd-5 -m state --state RELATED,ESTABLISHED -m comment --comment &#34;Direct packets associated with a known session to the RETURN chain.&#34; -j RETURN
+-A neutron-openvswi-ia03d43cd-5 -d 192.168.52.35/32 -p udp -m udp --sport 67 --dport 68 -j RETURN
+-A neutron-openvswi-ia03d43cd-5 -d 255.255.255.255/32 -p udp -m udp --sport 67 --dport 68 -j RETURN
+-A neutron-openvswi-ia03d43cd-5 -m set --match-set NIPv44601f868-1bfa-4fc4-8154- src -j RETURN
+-A neutron-openvswi-ia03d43cd-5 -p tcp -m tcp --dport 80 -j RETURN
+-A neutron-openvswi-ia03d43cd-5 -p udp -m udp -m multiport --dports 1:65535 -j RETURN
+-A neutron-openvswi-ia03d43cd-5 -p tcp -m tcp -m multiport --dports 1:65535 -j RETURN
+-A neutron-openvswi-ia03d43cd-5 -p icmp -j RETURN
+-A neutron-openvswi-ia03d43cd-5 -p tcp -m tcp --dport 22 -j RETURN
+-A neutron-openvswi-ia03d43cd-5 -m state --state INVALID -m comment --comment &#34;Drop packets that appear related to an existing connection (e.g. TCP ACK/FIN) but do not have an entry in conntrack.&#34; -j DROP
+-A neutron-openvswi-ia03d43cd-5 -m comment --comment &#34;Send unmatched traffic to the fallback chain.&#34; -j neutron-openvswi-sg-fallback
+-A neutron-openvswi-oa03d43cd-5 -s 0.0.0.0/32 -d 255.255.255.255/32 -p udp -m udp --sport 68 --dport 67 -m comment --comment &#34;Allow DHCP client traffic.&#34; -j RETURN
+-A neutron-openvswi-oa03d43cd-5 -j neutron-openvswi-sa03d43cd-5
+-A neutron-openvswi-oa03d43cd-5 -p udp -m udp --sport 68 --dport 67 -m comment --comment &#34;Allow DHCP client traffic.&#34; -j RETURN
+-A neutron-openvswi-oa03d43cd-5 -p udp -m udp --sport 67 --dport 68 -m comment --comment &#34;Prevent DHCP Spoofing by VM.&#34; -j DROP
+-A neutron-openvswi-oa03d43cd-5 -m state --state RELATED,ESTABLISHED -m comment --comment &#34;Direct packets associated with a known session to the RETURN chain.&#34; -j RETURN
+-A neutron-openvswi-oa03d43cd-5 -j RETURN
+-A neutron-openvswi-oa03d43cd-5 -m state --state INVALID -m comment --comment &#34;Drop packets that appear related to an existing connection (e.g. TCP ACK/FIN) but do not have an entry in conntrack.&#34; -j DROP
+-A neutron-openvswi-oa03d43cd-5 -m comment --comment &#34;Send unmatched traffic to the fallback chain.&#34; -j neutron-openvswi-sg-fallback
+-A neutron-openvswi-sa03d43cd-5 -s 192.168.52.35/32 -m mac --mac-source FA:16:3E:93:EF:E3 -m comment --comment &#34;Allow traffic from defined IP/MAC pairs.&#34; -j RETURN
+-A neutron-openvswi-sa03d43cd-5 -m comment --comment &#34;Drop traffic without an IP/MAC allow rule.&#34; -j DROP
+-A neutron-openvswi-sg-chain -m physdev --physdev-out tapa03d43cd-5e --physdev-is-bridged -m comment --comment &#34;Jump to the VM specific chain.&#34; -j neutron-openvswi-ia03d43cd-5
+-A neutron-openvswi-sg-chain -m physdev --physdev-in tapa03d43cd-5e --physdev-is-bridged -m comment --comment &#34;Jump to the VM specific chain.&#34; -j neutron-openvswi-oa03d43cd-5
+</code></pre></td></tr></table>
+</div>
+</div><p><code>note</code> 这里 有条规则 是为了保护port的安全，禁止任何所有的dhcp 从该port出去，不允许虚拟机内部运行dhcp</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">-A neutron-openvswi-oa03d43cd-5 -p udp -m udp --sport 67 --dport 68 -m comment --comment &#34;Prevent DHCP Spoofing by VM.&#34; -j DROP
+</code></pre></td></tr></table>
+</div>
+</div><p>这里规则为，只允许在port上使用该IP 与mac绑定，其他的不允许出去(手工随便配置ip 不允许出去)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@openstack-com08 ~]# iptables-save |grep  a03d43cd-5|grep DROP
+-A neutron-openvswi-ia03d43cd-5 -m state --state INVALID -m comment --comment &#34;Drop packets that appear related to an existing connection (e.g. TCP ACK/FIN) but do not have an entry in conntrack.&#34; -j DROP
+-A neutron-openvswi-oa03d43cd-5 -p udp -m udp --sport 67 --dport 68 -m comment --comment &#34;Prevent DHCP Spoofing by VM.&#34; -j DROP
+-A neutron-openvswi-oa03d43cd-5 -m state --state INVALID -m comment --comment &#34;Drop packets that appear related to an existing connection (e.g. TCP ACK/FIN) but do not have an entry in conntrack.&#34; -j DROP
+-A neutron-openvswi-sa03d43cd-5 -m comment --comment &#34;Drop traffic without an IP/MAC allow rule.&#34; -j DROP
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="neutron-port-security禁用操作">neutron port security禁用操作</h2>
+<h3 id="用例场景">用例场景</h3>
+<p>con01: 192.168.52.19</p>
+<p>con02: 192.168.52.35</p>
+<p>con03:  192.168.52.41</p>
+<p>vip： 192.168.52.50</p>
+<h3 id="禁用安全组">禁用安全组</h3>
+<ul>
+<li>
+<p>neutron port-show <!-- raw HTML omitted --></p>
+<p><code>如何查询port-id</code> <code>neutron port-list</code></p>
+<p>这里用192.168.52.19  举例</p>
+<p><img src="../../imeges/image-20200629113858787.png" alt="image-20200629113858787"></p>
+</li>
+<li>
+<p>更新port</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">neutron port-update f057b601-6be3-43ca-926f-bd111b294b3b --no-security-groups --port_security_enabled=False
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>再次查看该port</p>
+<p><img src="../../imeges/image-20200629122130953.png" alt="image-20200629122130953"></p>
+</li>
+<li>
+<p>查看节点上该port的 iptables 规则</p>
+<p>这里只有允许 没有drop</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">-A neutron-openvswi-FORWARD -m physdev --physdev-out tapf057b601-6b --physdev-is-bridged -m comment --comment &#34;Accept all packets when port security is disabled.&#34; -j ACCEPT
+-A neutron-openvswi-FORWARD -m physdev --physdev-in tapf057b601-6b --physdev-is-bridged -m comment --comment &#34;Accept all packets when port security is disabled.&#34; -j ACCEPT
+-A neutron-openvswi-INPUT -m physdev --physdev-in tapf057b601-6b --physdev-is-bridged -m comment --comment &#34;Accept all packets when port security is disabled.&#34; -j ACCEPT
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="对整个网络禁用安全组">对整个网络禁用安全组</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">neutron net-create  --port_security_enabled=False test
+
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="../../imeges/image-20200629122519596.png" alt="image-20200629122519596"></p>
+<h3 id="不禁用安全组-增加---allowed-address-pairs">不禁用安全组 增加 &ndash;allowed-address-pairs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">neutron port-update &lt;port-uuid&gt; --allowed-address-pairs type=dict list=true ip_address=&lt;ip_cidr&gt;
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">smallwormer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-06-29</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/blog/post/centos7_install_k8s_binary/">
+            <span class="next-text nav-default">Centos7_install_k8s_binary</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2019-06-29 11:29:01 \u002b0800 CST',
+        title: 'Neutron Port Sec',
+        link: decodeURI(location.href),
+        desc: 'Neutron Port Security 说明 neutron 安全组 主要是作用于 虚拟机的网卡port 上，用户在linuxbridge 中实现，主要目的是为了实现对于虚拟机的访问控制功能， 这是一',
+        owner: 'smalwormer',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://smallwormer.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">smallwormer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/blog/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
